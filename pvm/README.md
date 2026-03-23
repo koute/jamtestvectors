@@ -4,7 +4,7 @@
 
 The [`programs`](./programs) directory contains `.json` files, each containing a single test.
 
-These are meant to test the PVM function Ψ from the Graypaper's Appendix A (equation 203 from v0.2.1 of the paper).
+These are meant to test the PVM function Ψ from the Graypaper's Appendix A.
 
 See [schema.asn](./schema.asn) for a human-readable schema of what each of the fields mean.
 
@@ -12,15 +12,12 @@ See [schema.json](./schema.json) for a JSON Schema.
 
 See [TESTCASES.md](./TESTCASES.md) for a human-readable index of all of the test cases.
 
-## TODO
-
-   * 100% instruction coverage
-   * Tests for abnormal skip values for each instruction type
-   * Tests involving host calls
-   * Tests for invalid/malformed program blobs
-   * More gas metering tests; proper gas cost model (current one is a placeholder)
-
 ## Changelog
+
+### v0.5
+
+   * Updated for GP 0.8.0, with a new schema and a new gas cost model.
+   * Added gas-only test vectors in the `gas-tests` directory.
 
 ### v0.4
 
