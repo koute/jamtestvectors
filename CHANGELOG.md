@@ -1,0 +1,84 @@
+## [0.7.1] - 08-10-2025
+
+### Changed
+
+* Remove `on_transfer` from service statistics
+  (GP [#457](https://github.com/gavofyork/graypaper/pull/457))
+* Serialization: Include version byte prefix for accounts
+  (GP [#472](https://github.com/gavofyork/graypaper/pull/472))
+* Registrar service privilege
+  (GP [#473](https://github.com/gavofyork/graypaper/pull/473))
+* Add preimage provision status to the `Account`s structure of
+  accumulate `StfState` (see ASN.1 syntax).
+
+### Deviations
+
+* Accumulation statistics for services accumulation are updated
+  according to version 0.7.2. In 0.7.2, service stats need to be
+  updated when any service accumulation logic has been executed.
+  (https://graypaper.fluffylabs.dev/#/ab2cdbd/18e60318e603?v=0.7.2)
+
+## [0.7.0] - 26-08-2025
+
+### Changed
+
+* Serialization: Move all variable-length items to end of encoding
+  (GP [#418](https://github.com/gavofyork/graypaper/pull/418))
+* Rearrange the items in `CoreActivityRecord` and `ServiceActivityRecord`,
+  refer to the ASN.1 schema and GP (no explicit GP PR).
+
+## [0.6.7] - 07-08-2025
+
+### Changed
+
+* Rearrange the inner PVM page admin
+  (GP [#402](https://github.com/gavofyork/graypaper/pull/402))
+* PVM pages can change access without clearing
+  (GP [#404](https://github.com/gavofyork/graypaper/pull/404))
+* Renumber host-calls [#715](https://github.com/paritytech/polkajam/pull/715)
+  (GP [#408](https://github.com/gavofyork/graypaper/pull/408))
+* `info` host call uses fixed length types
+  (GP [#410](https://github.com/gavofyork/graypaper/pull/410))
+* Accounts storage deposit offset and additional metadata
+  (GP [#397](https://github.com/gavofyork/graypaper/pull/397)
+   and [#400](https://github.com/gavofyork/graypaper/pull/400))
+* Core assignment privileges is a sequence, one item per core
+  (GP [#393](https://github.com/gavofyork/graypaper/pull/393))
+* Most recent accumulation outputs are stored in state; Recent blocks history now stores
+  the MMR roots only, the full MMR structure relative to the last accumulation is kept
+  separately (GP [#405](https://github.com/gavofyork/graypaper/pull/405))
+* New bundle size limit (GP [#407](https://github.com/gavofyork/graypaper/pull/407))
+
+## [0.6.6] - 25-06-2025
+
+### Changed
+
+- Codebase reorganization
+- Binary to JSON conversion scripts and utilities
+* Extended the `fetch` host call with new variants.
+* Updated numeric identifiers used in `fetch`.
+* Updated numeric identifiers for PVM errors.
+* PVM wrangled operands changed.
+* Removed the traces `000...000.bin/json` step, as it was not a valid trace step
+  and was intended to be handled specially for genesis. Since it shared the same
+  format as regular trace steps, it could be ambiguous or misleading.
+* Introduced an explicit `genesis.bin` file containing the genesis state and header.
+* The *authorizer trace* field has been moved to the end of the accumulation
+  operand encoding (C.29)
+
+### Deviations
+
+* `fetch` host call for protocol parameters ($\omega_{10}=0$) has been implemented
+  according to this (currently) unreleased change: https://github.com/gavofyork/graypaper/pull/414
+  For the `fetch` hostcall id we're still using 18 as per GP 0.6.6. The picked
+  change only concerns the value returned for w_10=0
+
+### Extra
+
+* Codebase reorganization
+* Binary to JSON conversion scripts and utilities
+* CI: ASN.1 verification
+
+## [0.6.5] - 02-06-2025
+
+- First Release
