@@ -29,14 +29,14 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
       :                          @0
-     0: 7f 79 06                 r9 = i16 [r7 + 0x6]
+     0: 7f 79 06                 r9 = i16 [r7 + 6]
      3: 84 88 07                 r8 = r8 & 0x7
      6: 33 0a 01                 r10 = 0x1
      9: 97 88 08                 r8 = r8 << 0x8
     12: 84 99 ff f8              r9 = r9 & 0xfffffffffffff8ff
     16: d4 98 08                 r8 = r8 | r9
     19: c8 a8 09                 r9 = r8 + r10
-    22: 78 7a 02                 u8 [r7 + 0x2] = a3
+    22: 78 7a 02                 u8 [r7 + 2] = a3
     25: 00                       trap
 ```
 
@@ -49,14 +49,14 @@ Gas consumed: 10000 -> 9972
 Gas simulation at offset 0 with total cost of 28:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER...  r9 = i16 [r7 + 0x6]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER...  r9 = i16 [r7 + 6]
     DeE------------------------R...  r8 = r8 & 0x7
     DeE------------------------R...  r10 = 0x1
     D=eE-----------------------R...  r8 = r8 << 0x8
     .D========================eER..  r9 = r9 & 0xfffffffffffff8ff
     .D=========================eER.  r8 = r8 | r9
     .D==========================eER  r9 = r8 + r10
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  u8 [r7 + 0x2] = a3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  u8 [r7 + 2] = a3
     ..DeeE------------------------R  trap
 ```
 
@@ -122,26 +122,26 @@ Gas simulation at offset 0 with total cost of 22:
       :                          @0
      0: 02                       unlikely
      1: 7c 53                    r3 = u8 [r5 + 0]
-     3: 7c 58 11                 r8 = u8 [r5 + 0x11]
+     3: 7c 58 11                 r8 = u8 [r5 + 17]
      6: 33 09 d0 72 01           r9 = 0x172d0
-    11: 7c 5a 16                 r10 = u8 [r5 + 0x16]
+    11: 7c 5a 16                 r10 = u8 [r5 + 22]
     14: 95 12 58                 r2 = r1 + 0x58
     17: 97 88 03                 r8 = r8 << 0x3
     20: c8 98 08                 r8 = r8 + r9
     23: 7c 89                    r9 = u8 [r8 + 0]
-    25: 7c 8c 01                 r12 = u8 [r8 + 0x1]
-    28: 7c 86 02                 r6 = u8 [r8 + 0x2]
-    31: 7c 8b 03                 r11 = u8 [r8 + 0x3]
+    25: 7c 8c 01                 r12 = u8 [r8 + 1]
+    28: 7c 86 02                 r6 = u8 [r8 + 2]
+    31: 7c 8b 03                 r11 = u8 [r8 + 3]
     34: c8 2a 0a                 r10 = r10 + r2
     37: 97 cc 08                 r12 = r12 << 0x8
     40: 97 66 10                 r6 = r6 << 0x10
     43: 97 bb 18                 r11 = r11 << 0x18
     46: d4 c9 09                 r9 = r9 | r12
-    49: 7c 8c 04                 r12 = u8 [r8 + 0x4]
-    52: 7c 87 05                 r7 = u8 [r8 + 0x5]
+    49: 7c 8c 04                 r12 = u8 [r8 + 4]
+    52: 7c 87 05                 r7 = u8 [r8 + 5]
     55: d4 6b 0b                 r11 = r11 | r6
-    58: 7c 86 06                 r6 = u8 [r8 + 0x6]
-    61: 7c 88 07                 r8 = u8 [r8 + 0x7]
+    58: 7c 86 06                 r6 = u8 [r8 + 6]
+    61: 7c 88 07                 r8 = u8 [r8 + 7]
     64: 97 77 08                 r7 = r7 << 0x8
     67: d4 c7 07                 r7 = r7 | r12
     70: 97 66 10                 r6 = r6 << 0x10
@@ -152,11 +152,11 @@ Gas simulation at offset 0 with total cost of 22:
     85: c9 35 08                 r8 = r5 - r3
     88: 97 77 20                 r7 = r7 << 0x20
     91: d4 97 07                 r7 = r7 | r9
-    94: 7b 17 58                 u64 [r1 + 0x58] = r7
+    94: 7b 17 58                 u64 [r1 + 88] = r7
     97: 7c a7                    r7 = u8 [r10 + 0]
-    99: 7c 88 04                 r8 = u8 [r8 + 0x4]
+    99: 7c 88 04                 r8 = u8 [r8 + 4]
    102: ca 78 07                 r7 = r8 * r7
-   105: 7c 58 23                 r8 = u8 [r5 + 0x23]
+   105: 7c 58 23                 r8 = u8 [r5 + 35]
    108: 52 08 94                 jump 0 if r8 != 0
       :                          @1
    111: 00                       trap
@@ -173,26 +173,26 @@ Gas simulation at offset 0 with total cost of 109:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER.....................................................................  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.....................................................................  r3 = u8 [r5 + 0]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.....................................................................  r8 = u8 [r5 + 0x11]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R.....................................................................  r8 = u8 [r5 + 17]
     DeE---------------------------------------R.....................................................................  r9 = 0x172d0
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.....................................................................  r10 = u8 [r5 + 0x16]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R.....................................................................  r10 = u8 [r5 + 22]
     .DeE--------------------------------------R.....................................................................  r2 = r1 + 0x58
     .D========================eE--------------R.....................................................................  r8 = r8 << 0x3
     ..D========================eE-------------R.....................................................................  r8 = r8 + r9
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r9 = u8 [r8 + 0]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r12 = u8 [r8 + 0x1]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r6 = u8 [r8 + 0x2]
-    ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r11 = u8 [r8 + 0x3]
+    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r12 = u8 [r8 + 1]
+    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r6 = u8 [r8 + 2]
+    ...D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.........................................................  r11 = u8 [r8 + 3]
     ...D=======================eE-------------------------R.........................................................  r10 = r10 + r2
     ...D=================================================eER........................................................  r12 = r12 << 0x8
     ...D=================================================eER........................................................  r6 = r6 << 0x10
     ....D================================================eER........................................................  r11 = r11 << 0x18
     ....D=================================================eER.......................................................  r9 = r9 | r12
-    ....D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER................................  r12 = u8 [r8 + 0x4]
-    ....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...............................  r7 = u8 [r8 + 0x5]
+    ....D================================================eeeeeeeeeeeeeeeeeeeeeeeeeER................................  r12 = u8 [r8 + 4]
+    ....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER...............................  r7 = u8 [r8 + 5]
     .....D================================================eE------------------------R...............................  r11 = r11 | r6
-    .....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r6 = u8 [r8 + 0x6]
-    .....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r8 = u8 [r8 + 0x7]
+    .....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r6 = u8 [r8 + 6]
+    .....D=================================================eeeeeeeeeeeeeeeeeeeeeeeeeER..............................  r8 = u8 [r8 + 7]
     .....D=========================================================================eER..............................  r7 = r7 << 0x8
     ......D=========================================================================eER.............................  r7 = r7 | r12
     ......D=========================================================================eER.............................  r6 = r6 << 0x10
@@ -203,11 +203,11 @@ Gas simulation at offset 0 with total cost of 109:
     .......D==================eE--------------------------------------------------------R...........................  r8 = r5 - r3
     ........D==========================================================================eER..........................  r7 = r7 << 0x20
     ........D===========================================================================eER.........................  r7 = r7 | r9
-    ...........................................D=========================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x58] = r7
+    ...........................................D=========================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 88] = r7
     ...........................................D===================================eeeeeeeeeeeeeeeeeeeeeeeeeE------R  r7 = u8 [r10 + 0]
-    ...........................................D=====================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r8 = u8 [r8 + 0x4]
+    ...........................................D=====================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r8 = u8 [r8 + 4]
     ...........................................D==============================================================eeeE-R  r7 = r8 * r7
-    ............................................D====================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r8 = u8 [r5 + 0x23]
+    ............................................D====================================eeeeeeeeeeeeeeeeeeeeeeeeeE----R  r8 = u8 [r5 + 35]
     ............................................D=============================================================eE---R  jump 0 if r8 != 0
 ```
 
@@ -432,7 +432,7 @@ Gas simulation at offset 7 with total cost of 40:
 
 ```
       :                          @0
-     0: 7c 79 0b                 r9 = u8 [r7 + 0xb]
+     0: 7c 79 0b                 r9 = u8 [r7 + 11]
      3: 51 09 fd                 jump 0 if r9 == 0
       :                          @1
      6: 00                       trap
@@ -447,7 +447,7 @@ Gas consumed: 10000 -> 9974
 Gas simulation at offset 0 with total cost of 26:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r9 = u8 [r7 + 0xb]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r9 = u8 [r7 + 11]
     D=========================eER  jump 0 if r9 == 0
 ```
 
@@ -462,9 +462,9 @@ Gas simulation at offset 6 with total cost of 2:
 ```
       :                          @0
      0: 64 67                    r7 = r6
-     2: 82 10 30                 r0 = u64 [r1 + 0x30]
-     5: 82 15 28                 r5 = u64 [r1 + 0x28]
-     8: 82 16 20                 r6 = u64 [r1 + 0x20]
+     2: 82 10 30                 r0 = u64 [r1 + 48]
+     5: 82 15 28                 r5 = u64 [r1 + 40]
+     8: 82 16 20                 r6 = u64 [r1 + 32]
     11: 95 11 38                 r1 = r1 + 0x38
     14: 00                       trap
 ```
@@ -479,9 +479,9 @@ Gas simulation at offset 0 with total cost of 25:
 
 ```
     D...........................  r7 = r6
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r0 = u64 [r1 + 0x30]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 0x28]
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r6 = u64 [r1 + 0x20]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r0 = u64 [r1 + 48]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r5 = u64 [r1 + 40]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r6 = u64 [r1 + 32]
     .DeE-----------------------R  r1 = r1 + 0x38
     .DeeE----------------------R  trap
 ```
@@ -1416,7 +1416,7 @@ Gas simulation at offset 8 with total cost of 2:
 ```
       :                          @0
      0: 33 07 0a                 r7 = 0xa
-     3: 59 17 f6 05              jump 8 if r7 >=s 4294967286
+     3: 59 17 f6 05              jump 8 if r7 >=s -10
       :                          @1
      7: 00                       trap
       :                          @2
@@ -1437,7 +1437,7 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
     DeER.  r7 = 0xa
-    D=eER  jump 8 if r7 >=s 4294967286
+    D=eER  jump 8 if r7 >=s -10
 ```
 
 Gas simulation at offset 7 with total cost of 2:
@@ -1548,7 +1548,7 @@ Gas simulation at offset 10 with total cost of 2:
 ```
       :                          @0
      0: 33 07 0a                 r7 = 0xa
-     3: 55 17 f6 05              jump 8 if r7 >=u 4294967286
+     3: 55 17 f6 05              jump 8 if r7 >=u -10
       :                          @1
      7: 00                       trap
       :                          @2
@@ -1569,7 +1569,7 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
     DeER.  r7 = 0xa
-    D=eER  jump 8 if r7 >=u 4294967286
+    D=eER  jump 8 if r7 >=u -10
 ```
 
 Gas simulation at offset 7 with total cost of 2:
@@ -1764,7 +1764,7 @@ Gas simulation at offset 8 with total cost of 2:
 ```
       :                          @0
      0: 33 07 0a                 r7 = 0xa
-     3: 5a 17 f6 05              jump 8 if r7 >s 4294967286
+     3: 5a 17 f6 05              jump 8 if r7 >s -10
       :                          @1
      7: 00                       trap
       :                          @2
@@ -1785,7 +1785,7 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
     DeER.  r7 = 0xa
-    D=eER  jump 8 if r7 >s 4294967286
+    D=eER  jump 8 if r7 >s -10
 ```
 
 Gas simulation at offset 7 with total cost of 2:
@@ -1806,7 +1806,7 @@ Gas simulation at offset 8 with total cost of 2:
 ```
       :                          @0
      0: 33 07 0a                 r7 = 0xa
-     3: 56 17 f6 05              jump 8 if r7 >u 4294967286
+     3: 56 17 f6 05              jump 8 if r7 >u -10
       :                          @1
      7: 00                       trap
       :                          @2
@@ -1827,7 +1827,7 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
     DeER.  r7 = 0xa
-    D=eER  jump 8 if r7 >u 4294967286
+    D=eER  jump 8 if r7 >u -10
 ```
 
 Gas simulation at offset 7 with total cost of 2:
@@ -1890,7 +1890,7 @@ Gas simulation at offset 8 with total cost of 2:
 ```
       :                          @0
      0: 33 07 0a                 r7 = 0xa
-     3: 58 17 f6 05              jump 8 if r7 <=s 4294967286
+     3: 58 17 f6 05              jump 8 if r7 <=s -10
       :                          @1
      7: 00                       trap
       :                          @2
@@ -1911,7 +1911,7 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
     DeER.  r7 = 0xa
-    D=eER  jump 8 if r7 <=s 4294967286
+    D=eER  jump 8 if r7 <=s -10
 ```
 
 Gas simulation at offset 7 with total cost of 2:
@@ -2016,7 +2016,7 @@ Gas simulation at offset 8 with total cost of 2:
 ```
       :                          @0
      0: 33 07 0a                 r7 = 0xa
-     3: 54 17 f6 05              jump 8 if r7 <=u 4294967286
+     3: 54 17 f6 05              jump 8 if r7 <=u -10
       :                          @1
      7: 00                       trap
       :                          @2
@@ -2037,7 +2037,7 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
     DeER.  r7 = 0xa
-    D=eER  jump 8 if r7 <=u 4294967286
+    D=eER  jump 8 if r7 <=u -10
 ```
 
 Gas simulation at offset 7 with total cost of 2:
@@ -2058,7 +2058,7 @@ Gas simulation at offset 8 with total cost of 2:
 ```
       :                          @0
      0: 33 07 0a                 r7 = 0xa
-     3: 57 17 f5 05              jump 8 if r7 <s 4294967285
+     3: 57 17 f5 05              jump 8 if r7 <s -11
       :                          @1
      7: 00                       trap
       :                          @2
@@ -2079,7 +2079,7 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
     DeER.  r7 = 0xa
-    D=eER  jump 8 if r7 <s 4294967285
+    D=eER  jump 8 if r7 <s -11
 ```
 
 Gas simulation at offset 7 with total cost of 2:
@@ -2274,7 +2274,7 @@ Gas simulation at offset 8 with total cost of 2:
 ```
       :                          @0
      0: 33 07 0a                 r7 = 0xa
-     3: 53 17 f6 05              jump 8 if r7 <u 4294967286
+     3: 53 17 f6 05              jump 8 if r7 <u -10
       :                          @1
      7: 00                       trap
       :                          @2
@@ -2295,7 +2295,7 @@ Gas simulation at offset 0 with total cost of 2:
 
 ```
     DeER.  r7 = 0xa
-    D=eER  jump 8 if r7 <u 4294967286
+    D=eER  jump 8 if r7 <u -10
 ```
 
 Gas simulation at offset 7 with total cost of 2:
@@ -2573,6 +2573,35 @@ Gas simulation at offset 12 with total cost of 2:
 ```
     DeER.  r7 = 0xdeadbeef
     DeeER  trap
+```
+
+## inst_cmov_destination_is_part_of_the_dependency_chain
+
+Initial non-zero registers:
+   * r8 = 0x64
+
+```
+      :                          @0
+     0: ca a7 07                 r7 = r7 * r10
+     3: da 98 07                 r7 = r8 if r9 == 0
+     6: 00                       trap
+```
+
+Registers after execution (only changed registers):
+   * r7 = 0x64 (initially was 0x0)
+
+Program should end with: panic
+
+Final value of the program counter: 6
+
+Gas consumed: 10000 -> 9995
+
+Gas simulation at offset 0 with total cost of 5:
+
+```
+    DeeeER..  r7 = r7 * r10
+    D===eeER  r7 = r8 if r9 == 0
+    DeeE---R  trap
 ```
 
 ## inst_cmov_if_zero_imm_nok
@@ -3264,7 +3293,7 @@ Gas simulation at offset 0 with total cost of 22:
 ```
       :                          @0
      0: 33 07 02                 r7 = 0x2
-     3: 32 07 01                 jump [r7 + 0x1]
+     3: 32 07 01                 jump [r7 + 1]
       :                          @1
      6: 00                       trap
       :                          @2 [@dyn 1]
@@ -3285,7 +3314,7 @@ Gas simulation at offset 0 with total cost of 23:
 
 ```
     DeER......................  r7 = 0x2
-    D=eeeeeeeeeeeeeeeeeeeeeeER  jump [r7 + 0x1]
+    D=eeeeeeeeeeeeeeeeeeeeeeER  jump [r7 + 1]
 ```
 
 Gas simulation at offset 6 with total cost of 2:
@@ -3351,7 +3380,7 @@ Gas simulation at offset 9 with total cost of 2:
       :                          @0
      0: 33 07 02                 r7 = 0x2
      3: 95 77 9c                 r7 = r7 + 0xffffffffffffff9c
-     6: 32 07 64                 jump [r7 + 0x64]
+     6: 32 07 64                 jump [r7 + 100]
       :                          @1
      9: 00                       trap
       :                          @2 [@dyn 1]
@@ -3374,7 +3403,7 @@ Gas simulation at offset 0 with total cost of 24:
 ```
     DeER.......................  r7 = 0x2
     D=eER......................  r7 = r7 + 0xffffffffffffff9c
-    D==eeeeeeeeeeeeeeeeeeeeeeER  jump [r7 + 0x64]
+    D==eeeeeeeeeeeeeeeeeeeeeeER  jump [r7 + 100]
 ```
 
 Gas simulation at offset 9 with total cost of 2:
@@ -3633,7 +3662,7 @@ Gas simulation at offset 6 with total cost of 2:
       :                          @0
      0: 33 07 02                 r7 = 0x2
      3: 95 77 9c                 r7 = r7 + 0xffffffffffffff9c
-     6: b4 78 02 d2 04 64        r8 = 1234, jump [r7 + 0x64]
+     6: b4 78 02 d2 04 64        r8 = 1234, jump [r7 + 100]
       :                          @1
     12: 00                       trap
       :                          @2 [@dyn 1]
@@ -3657,7 +3686,7 @@ Gas simulation at offset 0 with total cost of 24:
 ```
     DeER.......................  r7 = 0x2
     D=eER......................  r7 = r7 + 0xffffffffffffff9c
-    D==eeeeeeeeeeeeeeeeeeeeeeER  r8 = 1234, jump [r7 + 0x64]
+    D==eeeeeeeeeeeeeeeeeeeeeeER  r8 = 1234, jump [r7 + 100]
 ```
 
 Gas simulation at offset 12 with total cost of 2:
@@ -3802,7 +3831,7 @@ Gas simulation at offset 6 with total cost of 2:
 ```
       :                          @0
      0: 33 07 02                 r7 = 0x2
-     3: b4 78 02 d2 04 01        r8 = 1234, jump [r7 + 0x1]
+     3: b4 78 02 d2 04 01        r8 = 1234, jump [r7 + 1]
       :                          @1
      9: 00                       trap
       :                          @2 [@dyn 1]
@@ -3824,7 +3853,7 @@ Gas simulation at offset 0 with total cost of 23:
 
 ```
     DeER......................  r7 = 0x2
-    D=eeeeeeeeeeeeeeeeeeeeeeER  r8 = 1234, jump [r7 + 0x1]
+    D=eeeeeeeeeeeeeeeeeeeeeeER  r8 = 1234, jump [r7 + 1]
 ```
 
 Gas simulation at offset 9 with total cost of 2:
@@ -3890,7 +3919,7 @@ Gas simulation at offset 12 with total cost of 2:
 ```
       :                          @0
      0: 33 07 02                 r7 = 0x2
-     3: b4 77 02 d2 04 01        tmp = r7, r7 = 1234, jump [tmp + 0x1]
+     3: b4 77 02 d2 04 01        tmp = r7, r7 = 1234, jump [tmp + 1]
       :                          @1
      9: 00                       trap
       :                          @2 [@dyn 1]
@@ -3911,7 +3940,7 @@ Gas simulation at offset 0 with total cost of 23:
 
 ```
     DeER......................  r7 = 0x2
-    D=eeeeeeeeeeeeeeeeeeeeeeER  tmp = r7, r7 = 1234, jump [tmp + 0x1]
+    D=eeeeeeeeeeeeeeeeeeeeeeER  tmp = r7, r7 = 1234, jump [tmp + 1]
 ```
 
 Gas simulation at offset 9 with total cost of 2:
@@ -3977,7 +4006,7 @@ Gas simulation at offset 12 with total cost of 2:
       :                          @0
      0: 33 07 02                 r7 = 0x2
      3: 95 77 9c                 r7 = r7 + 0xffffffffffffff9c
-     6: b4 77 02 d2 04 64        tmp = r7, r7 = 1234, jump [tmp + 0x64]
+     6: b4 77 02 d2 04 64        tmp = r7, r7 = 1234, jump [tmp + 100]
       :                          @1
     12: 00                       trap
       :                          @2 [@dyn 1]
@@ -4000,7 +4029,7 @@ Gas simulation at offset 0 with total cost of 24:
 ```
     DeER.......................  r7 = 0x2
     D=eER......................  r7 = r7 + 0xffffffffffffff9c
-    D==eeeeeeeeeeeeeeeeeeeeeeER  tmp = r7, r7 = 1234, jump [tmp + 0x64]
+    D==eeeeeeeeeeeeeeeeeeeeeeER  tmp = r7, r7 = 1234, jump [tmp + 100]
 ```
 
 Gas simulation at offset 12 with total cost of 2:
@@ -4072,7 +4101,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 7f 78 01                 r8 = i16 [r7 + 0x1]
+     0: 7f 78 01                 r8 = i16 [r7 + 1]
      3: 00                       trap
 ```
 
@@ -4090,7 +4119,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i16 [r7 + 0x1]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i16 [r7 + 1]
     DeeE-----------------------R  trap
 ```
 
@@ -4142,7 +4171,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 81 78 01                 r8 = i32 [r7 + 0x1]
+     0: 81 78 01                 r8 = i32 [r7 + 1]
      3: 00                       trap
 ```
 
@@ -4160,7 +4189,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i32 [r7 + 0x1]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i32 [r7 + 1]
     DeeE-----------------------R  trap
 ```
 
@@ -4212,7 +4241,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 7d 78 01                 r8 = i8 [r7 + 0x1]
+     0: 7d 78 01                 r8 = i8 [r7 + 1]
      3: 00                       trap
 ```
 
@@ -4230,7 +4259,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i8 [r7 + 0x1]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = i8 [r7 + 1]
     DeeE-----------------------R  trap
 ```
 
@@ -4282,7 +4311,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 7e 78 01                 r8 = u16 [r7 + 0x1]
+     0: 7e 78 01                 r8 = u16 [r7 + 1]
      3: 00                       trap
 ```
 
@@ -4300,7 +4329,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r7 + 0x1]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u16 [r7 + 1]
     DeeE-----------------------R  trap
 ```
 
@@ -4352,7 +4381,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 80 78 01                 r8 = u32 [r7 + 0x1]
+     0: 80 78 01                 r8 = u32 [r7 + 1]
      3: 00                       trap
 ```
 
@@ -4370,7 +4399,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u32 [r7 + 0x1]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u32 [r7 + 1]
     DeeE-----------------------R  trap
 ```
 
@@ -4422,7 +4451,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 82 78 01                 r8 = u64 [r7 + 0x1]
+     0: 82 78 01                 r8 = u64 [r7 + 1]
      3: 00                       trap
 ```
 
@@ -4440,7 +4469,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r7 + 0x1]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u64 [r7 + 1]
     DeeE-----------------------R  trap
 ```
 
@@ -4492,7 +4521,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 7c 78 01                 r8 = u8 [r7 + 0x1]
+     0: 7c 78 01                 r8 = u8 [r7 + 1]
      3: 00                       trap
 ```
 
@@ -4510,7 +4539,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u8 [r7 + 0x1]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  r8 = u8 [r7 + 1]
     DeeE-----------------------R  trap
 ```
 
@@ -7246,7 +7275,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 79 78 01 10              u16 [r7 + 0x1001] = r8
+     0: 79 78 01 10              u16 [r7 + 4097] = r8
      4: 00                       trap
 ```
 
@@ -7259,7 +7288,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r7 + 0x1001] = r8
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r7 + 4097] = r8
     DeeE-----------------------R  trap
 ```
 
@@ -7274,7 +7303,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 79 78 0a                 u16 [r7 + 0xa] = r8
+     0: 79 78 0a                 u16 [r7 + 10] = r8
      3: 00                       trap
 ```
 
@@ -7290,7 +7319,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r7 + 0xa] = r8
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r7 + 10] = r8
     DeeE-----------------------R  trap
 ```
 
@@ -7336,7 +7365,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 7a 78 01 10              u32 [r7 + 0x1001] = r8
+     0: 7a 78 01 10              u32 [r7 + 4097] = r8
      4: 00                       trap
 ```
 
@@ -7349,7 +7378,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0x1001] = r8
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 4097] = r8
     DeeE-----------------------R  trap
 ```
 
@@ -7364,7 +7393,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 7a 78 0a                 u32 [r7 + 0xa] = r8
+     0: 7a 78 0a                 u32 [r7 + 10] = r8
      3: 00                       trap
 ```
 
@@ -7380,7 +7409,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0xa] = r8
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 10] = r8
     DeeE-----------------------R  trap
 ```
 
@@ -7426,7 +7455,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 7b 78 01 10              u64 [r7 + 0x1001] = r8
+     0: 7b 78 01 10              u64 [r7 + 4097] = r8
      4: 00                       trap
 ```
 
@@ -7439,7 +7468,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r7 + 0x1001] = r8
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r7 + 4097] = r8
     DeeE-----------------------R  trap
 ```
 
@@ -7454,7 +7483,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 7b 78 0a                 u64 [r7 + 0xa] = r8
+     0: 7b 78 0a                 u64 [r7 + 10] = r8
      3: 00                       trap
 ```
 
@@ -7470,7 +7499,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r7 + 0xa] = r8
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r7 + 10] = r8
     DeeE-----------------------R  trap
 ```
 
@@ -7516,7 +7545,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 78 78 01 10              u8 [r7 + 0x1001] = a1
+     0: 78 78 01 10              u8 [r7 + 4097] = a1
      4: 00                       trap
 ```
 
@@ -7529,7 +7558,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 0x1001] = a1
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 4097] = a1
     DeeE-----------------------R  trap
 ```
 
@@ -7544,7 +7573,7 @@ Initial non-zero registers:
 
 ```
       :                          @0
-     0: 78 78 0a                 u8 [r7 + 0xa] = a1
+     0: 78 78 0a                 u8 [r7 + 10] = a1
      3: 00                       trap
 ```
 
@@ -7560,7 +7589,7 @@ Gas consumed: 10000 -> 9975
 Gas simulation at offset 0 with total cost of 25:
 
 ```
-    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 0xa] = a1
+    DeeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r7 + 10] = a1
     DeeE-----------------------R  trap
 ```
 
@@ -8234,8 +8263,8 @@ Final page map:
       :                          @0
      0: 33 07 00 00 03           r7 = 0x30000
      5: 7c 78                    r8 = u8 [r7 + 0]
-     7: 7c 79 ff 0f              r9 = u8 [r7 + 0xfff]
-    11: 7c 7a ff 1f              r10 = u8 [r7 + 0x1fff]
+     7: 7c 79 ff 0f              r9 = u8 [r7 + 4095]
+    11: 7c 7a ff 1f              r10 = u8 [r7 + 8191]
     15: c8 98 0b                 r11 = r8 + r9
     18: c8 ab 0b                 r11 = r11 + r10
     21: 32 00                    jump [r0 + 0]
@@ -8265,8 +8294,8 @@ Gas simulation at offset 0 with total cost of 28:
 ```
     DeER...........................  r7 = 0x30000
     D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r8 = u8 [r7 + 0]
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r9 = u8 [r7 + 0xfff]
-    D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r10 = u8 [r7 + 0x1fff]
+    D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r9 = u8 [r7 + 4095]
+    D=eeeeeeeeeeeeeeeeeeeeeeeeeER..  r10 = u8 [r7 + 8191]
     .D=========================eER.  r11 = r8 + r9
     .D==========================eER  r11 = r11 + r10
     .DeeeeeeeeeeeeeeeeeeeeeeE-----R  jump [r0 + 0]
@@ -11774,10 +11803,10 @@ Initial program counter: 13
    100: 02                       unlikely
    101: 3a 08 00 00 01           r8 = u64 [0x10000]
    106: 33 0b 06                 r11 = 0x6
-   109: 81 87 04                 r7 = i32 [r8 + 0x4]
+   109: 81 87 04                 r7 = i32 [r8 + 4]
    112: 95 77 01                 r7 = r7 + 0x1
-   115: 7a 87 04                 u32 [r8 + 0x4] = r7
-   118: 81 89 04                 r9 = i32 [r8 + 0x4]
+   115: 7a 87 04                 u32 [r8 + 4] = r7
+   118: 81 89 04                 r9 = i32 [r8 + 4]
    121: 33 04 00 c0 dc fe        r4 = 0xfffffffffedcc000
    127: 83 44 99 fa              i32 r4 = r4 + 0xfffffffffffffa99
    131: ab 49 3b 02              jump 702 if r9 != r4
@@ -11973,20 +12002,20 @@ Initial program counter: 13
    597: 02                       unlikely
    598: 3a 01 00 00 01           r1 = u64 [0x10000]
    603: 33 0b 28                 r11 = 0x28
-   606: 81 17 0c                 r7 = i32 [r1 + 0xc]
+   606: 81 17 0c                 r7 = i32 [r1 + 12]
    609: 95 77 01                 r7 = r7 + 0x1
-   612: 7a 17 0c                 u32 [r1 + 0xc] = r7
-   615: 81 19 0c                 r9 = i32 [r1 + 0xc]
+   612: 7a 17 0c                 u32 [r1 + 12] = r7
+   615: 81 19 0c                 r9 = i32 [r1 + 12]
    618: 33 04 00 c0 dc fe        r4 = 0xfffffffffedcc000
    624: 83 44 99 fa              i32 r4 = r4 + 0xfffffffffffffa99
    628: ab 49 4a                 jump 702 if r9 != r4
       :                          @49
    631: 02                       unlikely
    632: 33 0b 29                 r11 = 0x29
-   635: 82 17 08                 r7 = u64 [r1 + 0x8]
+   635: 82 17 08                 r7 = u64 [r1 + 8]
    638: 95 77 01                 r7 = r7 + 0x1
-   641: 7b 17 08                 u64 [r1 + 0x8] = r7
-   644: 82 19 08                 r9 = u64 [r1 + 0x8]
+   641: 7b 17 08                 u64 [r1 + 8] = r7
+   644: 82 19 08                 r9 = u64 [r1 + 8]
    647: 33 04 00 e0 f6           r4 = 0xfffffffffff6e000
    652: 83 44 d5 05              i32 r4 = r4 + 0x5d5
    656: 97 44 0c                 r4 = r4 << 0xc
@@ -12100,10 +12129,10 @@ Gas simulation at offset 100 with total cost of 76:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER....................................  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R....................................  r8 = u64 [0x10000]
     DeE---------------------------------------R....................................  r11 = 0x6
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = i32 [r8 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = i32 [r8 + 4]
     .D=================================================eER.........................  r7 = r7 + 0x1
-    .D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 0x4] = r7
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeE--------------------------R  r9 = i32 [r8 + 0x4]
+    .D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r8 + 4] = r7
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeE--------------------------R  r9 = i32 [r8 + 4]
     .DeE--------------------------------------------------------------------------R  r4 = 0xfffffffffedcc000
     ..DeeE------------------------------------------------------------------------R  i32 r4 = r4 + 0xfffffffffffffa99
     ..D================================================eE-------------------------R  jump 702 if r9 != r4
@@ -12467,10 +12496,10 @@ Gas simulation at offset 597 with total cost of 76:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER....................................  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R....................................  r1 = u64 [0x10000]
     DeE---------------------------------------R....................................  r11 = 0x28
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = i32 [r1 + 0xc]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r7 = i32 [r1 + 12]
     .D=================================================eER.........................  r7 = r7 + 0x1
-    .D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 0xc] = r7
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeE--------------------------R  r9 = i32 [r1 + 0xc]
+    .D==================================================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 12] = r7
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeE--------------------------R  r9 = i32 [r1 + 12]
     .DeE--------------------------------------------------------------------------R  r4 = 0xfffffffffedcc000
     ..DeeE------------------------------------------------------------------------R  i32 r4 = r4 + 0xfffffffffffffa99
     ..D================================================eE-------------------------R  jump 702 if r9 != r4
@@ -12481,10 +12510,10 @@ Gas simulation at offset 631 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeE---------------------------------------R...........  r11 = 0x29
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r7 = u64 [r1 + 0x8]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r7 = u64 [r1 + 8]
     D=========================eE--------------R...........  r7 = r7 + 0x1
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r7
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r9 = u64 [r1 + 0x8]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 8] = r7
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------------------R  r9 = u64 [r1 + 8]
     .DeE-------------------------------------------------R  r4 = 0xfffffffffff6e000
     ..DeeE-----------------------------------------------R  i32 r4 = r4 + 0x5d5
     ..D==eE----------------------------------------------R  r4 = r4 << 0xc
@@ -23286,7 +23315,7 @@ Initial program counter: 13
     34: 33 05 03                 r5 = 0x3
     37: 33 0c                    r12 = 0
     39: 3a 01 00 00 01           r1 = u64 [0x10000]
-    44: 7d 1b 01                 r11 = i8 [r1 + 0x1]
+    44: 7d 1b 01                 r11 = i8 [r1 + 1]
     47: 33 04                    r4 = 0
     49: ab 4b 96 01              jump 455 if r11 != r4
       :                          @3
@@ -23294,7 +23323,7 @@ Initial program counter: 13
     54: 33 05 04                 r5 = 0x4
     57: 33 0c f0                 r12 = 0xfffffffffffffff0
     60: 3a 01 00 00 01           r1 = u64 [0x10000]
-    65: 7d 1b 02                 r11 = i8 [r1 + 0x2]
+    65: 7d 1b 02                 r11 = i8 [r1 + 2]
     68: 33 04 f0                 r4 = 0xfffffffffffffff0
     71: ab 4b 80 01              jump 455 if r11 != r4
       :                          @4
@@ -23302,7 +23331,7 @@ Initial program counter: 13
     76: 33 05 05                 r5 = 0x5
     79: 33 0c 0f                 r12 = 0xf
     82: 3a 01 00 00 01           r1 = u64 [0x10000]
-    87: 7d 1b 03                 r11 = i8 [r1 + 0x3]
+    87: 7d 1b 03                 r11 = i8 [r1 + 3]
     90: 33 04 0f                 r4 = 0xf
     93: ab 4b 6a 01              jump 455 if r11 != r4
       :                          @5
@@ -23310,7 +23339,7 @@ Initial program counter: 13
     98: 33 05 06                 r5 = 0x6
    101: 33 0c ff                 r12 = 0xffffffffffffffff
    104: 3a 01 08 00 01           r1 = u64 [0x10008]
-   109: 7d 1b fd                 r11 = i8 [r1 + 0xfffffffffffffffd]
+   109: 7d 1b fd                 r11 = i8 [r1 - 3]
    112: 33 04 ff                 r4 = 0xffffffffffffffff
    115: ab 4b 54 01              jump 455 if r11 != r4
       :                          @6
@@ -23318,7 +23347,7 @@ Initial program counter: 13
    120: 33 05 07                 r5 = 0x7
    123: 33 0c                    r12 = 0
    125: 3a 01 08 00 01           r1 = u64 [0x10008]
-   130: 7d 1b fe                 r11 = i8 [r1 + 0xfffffffffffffffe]
+   130: 7d 1b fe                 r11 = i8 [r1 - 2]
    133: 33 04                    r4 = 0
    135: ab 4b 40 01              jump 455 if r11 != r4
       :                          @7
@@ -23326,7 +23355,7 @@ Initial program counter: 13
    140: 33 05 08                 r5 = 0x8
    143: 33 0c f0                 r12 = 0xfffffffffffffff0
    146: 3a 01 08 00 01           r1 = u64 [0x10008]
-   151: 7d 1b ff                 r11 = i8 [r1 + 0xffffffffffffffff]
+   151: 7d 1b ff                 r11 = i8 [r1 - 1]
    154: 33 04 f0                 r4 = 0xfffffffffffffff0
    157: ab 4b 2a 01              jump 455 if r11 != r4
       :                          @8
@@ -23342,7 +23371,7 @@ Initial program counter: 13
    183: 33 05 0a                 r5 = 0xa
    186: 3a 00 00 00 01           r0 = u64 [0x10000]
    191: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
-   194: 7d 02 20                 r2 = i8 [r0 + 0x20]
+   194: 7d 02 20                 r2 = i8 [r0 + 32]
    197: 33 04 ff                 r4 = 0xffffffffffffffff
    200: ab 42 ff 00              jump 455 if r2 != r4
       :                          @10
@@ -23350,7 +23379,7 @@ Initial program counter: 13
    205: 33 05 0b                 r5 = 0xb
    208: 3a 00 00 00 01           r0 = u64 [0x10000]
    213: 95 00 fa                 r0 = r0 + 0xfffffffffffffffa
-   216: 7d 02 07                 r2 = i8 [r0 + 0x7]
+   216: 7d 02 07                 r2 = i8 [r0 + 7]
    219: 33 04                    r4 = 0
    221: ab 42 ea 00              jump 455 if r2 != r4
       :                          @11
@@ -23360,7 +23389,7 @@ Initial program counter: 13
       :                          @12
    231: 02                       unlikely
    232: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   237: 7d ab 01                 r11 = i8 [r10 + 0x1]
+   237: 7d ab 01                 r11 = i8 [r10 + 1]
    240: 64 b3                    r3 = r11
    242: 33 04 f0                 r4 = 0xfffffffffffffff0
    245: ab 43 d2 00              jump 455 if r3 != r4
@@ -23375,7 +23404,7 @@ Initial program counter: 13
       :                          @15
    264: 02                       unlikely
    265: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   270: 7d ab 01                 r11 = i8 [r10 + 0x1]
+   270: 7d ab 01                 r11 = i8 [r10 + 1]
    273: 64 b3                    r3 = r11
    275: 33 04 0f                 r4 = 0xf
    278: ab 43 b1 00              jump 455 if r3 != r4
@@ -23390,7 +23419,7 @@ Initial program counter: 13
       :                          @18
    297: 02                       unlikely
    298: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   303: 7d ab 01                 r11 = i8 [r10 + 0x1]
+   303: 7d ab 01                 r11 = i8 [r10 + 1]
    306: 64 b3                    r3 = r11
    308: 33 04                    r4 = 0
    310: ab 43 91 00              jump 455 if r3 != r4
@@ -23405,7 +23434,7 @@ Initial program counter: 13
       :                          @21
    329: 02                       unlikely
    330: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   335: 7d ab 01                 r11 = i8 [r10 + 0x1]
+   335: 7d ab 01                 r11 = i8 [r10 + 1]
    338: 33 04 f0                 r4 = 0xfffffffffffffff0
    341: ab 4b 72                 jump 455 if r11 != r4
       :                          @22
@@ -23419,7 +23448,7 @@ Initial program counter: 13
       :                          @24
    359: 02                       unlikely
    360: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   365: 7d ab 01                 r11 = i8 [r10 + 0x1]
+   365: 7d ab 01                 r11 = i8 [r10 + 1]
    368: 33 04 0f                 r4 = 0xf
    371: ab 4b 54                 jump 455 if r11 != r4
       :                          @25
@@ -23433,7 +23462,7 @@ Initial program counter: 13
       :                          @27
    389: 02                       unlikely
    390: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   395: 7d ab 01                 r11 = i8 [r10 + 0x1]
+   395: 7d ab 01                 r11 = i8 [r10 + 1]
    398: 33 04                    r4 = 0
    400: ab 4b 37                 jump 455 if r11 != r4
       :                          @28
@@ -23509,7 +23538,7 @@ Gas simulation at offset 33 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x3
     DeE---------------------------------------R...........  r12 = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0x1]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 1]
     .DeE------------------------------------------------R.  r4 = 0
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23521,7 +23550,7 @@ Gas simulation at offset 53 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x4
     DeE---------------------------------------R...........  r12 = 0xfffffffffffffff0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0x2]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 2]
     .DeE------------------------------------------------R.  r4 = 0xfffffffffffffff0
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23533,7 +23562,7 @@ Gas simulation at offset 75 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x5
     DeE---------------------------------------R...........  r12 = 0xf
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0x3]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 3]
     .DeE------------------------------------------------R.  r4 = 0xf
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23545,7 +23574,7 @@ Gas simulation at offset 97 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x6
     DeE---------------------------------------R...........  r12 = 0xffffffffffffffff
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0xfffffffffffffffd]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 - 3]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffffff
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23557,7 +23586,7 @@ Gas simulation at offset 119 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x7
     DeE---------------------------------------R...........  r12 = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0xfffffffffffffffe]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 - 2]
     .DeE------------------------------------------------R.  r4 = 0
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23569,7 +23598,7 @@ Gas simulation at offset 139 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x8
     DeE---------------------------------------R...........  r12 = 0xfffffffffffffff0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0xffffffffffffffff]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 - 1]
     .DeE------------------------------------------------R.  r4 = 0xfffffffffffffff0
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23593,7 +23622,7 @@ Gas simulation at offset 182 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xa
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i8 [r0 + 0x20]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i8 [r0 + 32]
     .DeE-------------------------------------------------R.  r4 = 0xffffffffffffffff
     .D==================================================eER  jump 455 if r2 != r4
 ```
@@ -23605,7 +23634,7 @@ Gas simulation at offset 204 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xb
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xfffffffffffffffa
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i8 [r0 + 0x7]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i8 [r0 + 7]
     .DeE-------------------------------------------------R.  r4 = 0
     .D==================================================eER  jump 455 if r2 != r4
 ```
@@ -23623,7 +23652,7 @@ Gas simulation at offset 231 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 1]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xfffffffffffffff0
     .D=================================================eER  jump 455 if r3 != r4
@@ -23650,7 +23679,7 @@ Gas simulation at offset 264 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 1]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xf
     .D=================================================eER  jump 455 if r3 != r4
@@ -23677,7 +23706,7 @@ Gas simulation at offset 297 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 1]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0
     .D=================================================eER  jump 455 if r3 != r4
@@ -23704,7 +23733,7 @@ Gas simulation at offset 329 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 1]
     DeE-------------------------------------------------R.  r4 = 0xfffffffffffffff0
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23730,7 +23759,7 @@ Gas simulation at offset 359 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 1]
     DeE-------------------------------------------------R.  r4 = 0xf
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23756,7 +23785,7 @@ Gas simulation at offset 389 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r10 + 1]
     DeE-------------------------------------------------R.  r4 = 0
     .D=================================================eER  jump 455 if r11 != r4
 ```
@@ -23849,7 +23878,7 @@ Initial program counter: 13
     36: 33 05 03                 r5 = 0x3
     39: 33 0c                    r12 = 0
     41: 3a 01 00 00 01           r1 = u64 [0x10000]
-    46: 7c 1b 01                 r11 = u8 [r1 + 0x1]
+    46: 7c 1b 01                 r11 = u8 [r1 + 1]
     49: 33 04                    r4 = 0
     51: ab 4b 9f 01              jump 466 if r11 != r4
       :                          @3
@@ -23857,7 +23886,7 @@ Initial program counter: 13
     56: 33 05 04                 r5 = 0x4
     59: 33 0c f0 00              r12 = 0xf0
     63: 3a 01 00 00 01           r1 = u64 [0x10000]
-    68: 7c 1b 02                 r11 = u8 [r1 + 0x2]
+    68: 7c 1b 02                 r11 = u8 [r1 + 2]
     71: 33 04 f0 00              r4 = 0xf0
     75: ab 4b 87 01              jump 466 if r11 != r4
       :                          @4
@@ -23865,7 +23894,7 @@ Initial program counter: 13
     80: 33 05 05                 r5 = 0x5
     83: 33 0c 0f                 r12 = 0xf
     86: 3a 01 00 00 01           r1 = u64 [0x10000]
-    91: 7c 1b 03                 r11 = u8 [r1 + 0x3]
+    91: 7c 1b 03                 r11 = u8 [r1 + 3]
     94: 33 04 0f                 r4 = 0xf
     97: ab 4b 71 01              jump 466 if r11 != r4
       :                          @5
@@ -23873,7 +23902,7 @@ Initial program counter: 13
    102: 33 05 06                 r5 = 0x6
    105: 33 0c ff 00              r12 = 0xff
    109: 3a 01 08 00 01           r1 = u64 [0x10008]
-   114: 7c 1b fd                 r11 = u8 [r1 + 0xfffffffffffffffd]
+   114: 7c 1b fd                 r11 = u8 [r1 - 3]
    117: 33 04 ff 00              r4 = 0xff
    121: ab 4b 59 01              jump 466 if r11 != r4
       :                          @6
@@ -23881,7 +23910,7 @@ Initial program counter: 13
    126: 33 05 07                 r5 = 0x7
    129: 33 0c                    r12 = 0
    131: 3a 01 08 00 01           r1 = u64 [0x10008]
-   136: 7c 1b fe                 r11 = u8 [r1 + 0xfffffffffffffffe]
+   136: 7c 1b fe                 r11 = u8 [r1 - 2]
    139: 33 04                    r4 = 0
    141: ab 4b 45 01              jump 466 if r11 != r4
       :                          @7
@@ -23889,7 +23918,7 @@ Initial program counter: 13
    146: 33 05 08                 r5 = 0x8
    149: 33 0c f0 00              r12 = 0xf0
    153: 3a 01 08 00 01           r1 = u64 [0x10008]
-   158: 7c 1b ff                 r11 = u8 [r1 + 0xffffffffffffffff]
+   158: 7c 1b ff                 r11 = u8 [r1 - 1]
    161: 33 04 f0 00              r4 = 0xf0
    165: ab 4b 2d 01              jump 466 if r11 != r4
       :                          @8
@@ -23905,7 +23934,7 @@ Initial program counter: 13
    191: 33 05 0a                 r5 = 0xa
    194: 3a 00 00 00 01           r0 = u64 [0x10000]
    199: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
-   202: 7c 02 20                 r2 = u8 [r0 + 0x20]
+   202: 7c 02 20                 r2 = u8 [r0 + 32]
    205: 33 04 ff 00              r4 = 0xff
    209: ab 42 01 01              jump 466 if r2 != r4
       :                          @10
@@ -23913,7 +23942,7 @@ Initial program counter: 13
    214: 33 05 0b                 r5 = 0xb
    217: 3a 00 00 00 01           r0 = u64 [0x10000]
    222: 95 00 fa                 r0 = r0 + 0xfffffffffffffffa
-   225: 7c 02 07                 r2 = u8 [r0 + 0x7]
+   225: 7c 02 07                 r2 = u8 [r0 + 7]
    228: 33 04                    r4 = 0
    230: ab 42 ec 00              jump 466 if r2 != r4
       :                          @11
@@ -23923,7 +23952,7 @@ Initial program counter: 13
       :                          @12
    240: 02                       unlikely
    241: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   246: 7c ab 01                 r11 = u8 [r10 + 0x1]
+   246: 7c ab 01                 r11 = u8 [r10 + 1]
    249: 64 b3                    r3 = r11
    251: 33 04 f0 00              r4 = 0xf0
    255: ab 43 d3 00              jump 466 if r3 != r4
@@ -23938,7 +23967,7 @@ Initial program counter: 13
       :                          @15
    274: 02                       unlikely
    275: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   280: 7c ab 01                 r11 = u8 [r10 + 0x1]
+   280: 7c ab 01                 r11 = u8 [r10 + 1]
    283: 64 b3                    r3 = r11
    285: 33 04 0f                 r4 = 0xf
    288: ab 43 b2 00              jump 466 if r3 != r4
@@ -23953,7 +23982,7 @@ Initial program counter: 13
       :                          @18
    307: 02                       unlikely
    308: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   313: 7c ab 01                 r11 = u8 [r10 + 0x1]
+   313: 7c ab 01                 r11 = u8 [r10 + 1]
    316: 64 b3                    r3 = r11
    318: 33 04                    r4 = 0
    320: ab 43 92 00              jump 466 if r3 != r4
@@ -23968,7 +23997,7 @@ Initial program counter: 13
       :                          @21
    339: 02                       unlikely
    340: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   345: 7c ab 01                 r11 = u8 [r10 + 0x1]
+   345: 7c ab 01                 r11 = u8 [r10 + 1]
    348: 33 04 f0 00              r4 = 0xf0
    352: ab 4b 72                 jump 466 if r11 != r4
       :                          @22
@@ -23982,7 +24011,7 @@ Initial program counter: 13
       :                          @24
    370: 02                       unlikely
    371: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   376: 7c ab 01                 r11 = u8 [r10 + 0x1]
+   376: 7c ab 01                 r11 = u8 [r10 + 1]
    379: 33 04 0f                 r4 = 0xf
    382: ab 4b 54                 jump 466 if r11 != r4
       :                          @25
@@ -23996,7 +24025,7 @@ Initial program counter: 13
       :                          @27
    400: 02                       unlikely
    401: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   406: 7c ab 01                 r11 = u8 [r10 + 0x1]
+   406: 7c ab 01                 r11 = u8 [r10 + 1]
    409: 33 04                    r4 = 0
    411: ab 4b 37                 jump 466 if r11 != r4
       :                          @28
@@ -24072,7 +24101,7 @@ Gas simulation at offset 35 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x3
     DeE---------------------------------------R...........  r12 = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 0x1]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 1]
     .DeE------------------------------------------------R.  r4 = 0
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24084,7 +24113,7 @@ Gas simulation at offset 55 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x4
     DeE---------------------------------------R...........  r12 = 0xf0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 0x2]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 2]
     .DeE------------------------------------------------R.  r4 = 0xf0
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24096,7 +24125,7 @@ Gas simulation at offset 79 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x5
     DeE---------------------------------------R...........  r12 = 0xf
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 0x3]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 3]
     .DeE------------------------------------------------R.  r4 = 0xf
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24108,7 +24137,7 @@ Gas simulation at offset 101 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x6
     DeE---------------------------------------R...........  r12 = 0xff
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 0xfffffffffffffffd]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 - 3]
     .DeE------------------------------------------------R.  r4 = 0xff
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24120,7 +24149,7 @@ Gas simulation at offset 125 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x7
     DeE---------------------------------------R...........  r12 = 0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 0xfffffffffffffffe]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 - 2]
     .DeE------------------------------------------------R.  r4 = 0
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24132,7 +24161,7 @@ Gas simulation at offset 145 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x8
     DeE---------------------------------------R...........  r12 = 0xf0
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 + 0xffffffffffffffff]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r1 - 1]
     .DeE------------------------------------------------R.  r4 = 0xf0
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24156,7 +24185,7 @@ Gas simulation at offset 190 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xa
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u8 [r0 + 0x20]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u8 [r0 + 32]
     .DeE-------------------------------------------------R.  r4 = 0xff
     .D==================================================eER  jump 466 if r2 != r4
 ```
@@ -24168,7 +24197,7 @@ Gas simulation at offset 213 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xb
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xfffffffffffffffa
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u8 [r0 + 0x7]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u8 [r0 + 7]
     .DeE-------------------------------------------------R.  r4 = 0
     .D==================================================eER  jump 466 if r2 != r4
 ```
@@ -24186,7 +24215,7 @@ Gas simulation at offset 240 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 1]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xf0
     .D=================================================eER  jump 466 if r3 != r4
@@ -24213,7 +24242,7 @@ Gas simulation at offset 274 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 1]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xf
     .D=================================================eER  jump 466 if r3 != r4
@@ -24240,7 +24269,7 @@ Gas simulation at offset 307 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 1]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0
     .D=================================================eER  jump 466 if r3 != r4
@@ -24267,7 +24296,7 @@ Gas simulation at offset 339 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 1]
     DeE-------------------------------------------------R.  r4 = 0xf0
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24293,7 +24322,7 @@ Gas simulation at offset 370 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 1]
     DeE-------------------------------------------------R.  r4 = 0xf
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24319,7 +24348,7 @@ Gas simulation at offset 400 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u8 [r10 + 1]
     DeE-------------------------------------------------R.  r4 = 0
     .D=================================================eER  jump 466 if r11 != r4
 ```
@@ -24433,7 +24462,7 @@ Initial program counter: 13
     96: 97 cc 10                 r12 = r12 << 0x10
     99: 95 cc 00 ff              r12 = r12 + 0xffffffffffffff00
    103: 3a 01 00 00 01           r1 = u64 [0x10000]
-   108: 82 1b 08                 r11 = u64 [r1 + 0x8]
+   108: 82 1b 08                 r11 = u64 [r1 + 8]
    111: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    117: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    121: 97 44 10                 r4 = r4 << 0x10
@@ -24452,7 +24481,7 @@ Initial program counter: 13
    165: 97 cc 0c                 r12 = r12 << 0xc
    168: 95 cc f0                 r12 = r12 + 0xfffffffffffffff0
    171: 3a 01 00 00 01           r1 = u64 [0x10000]
-   176: 82 1b 10                 r11 = u64 [r1 + 0x10]
+   176: 82 1b 10                 r11 = u64 [r1 + 16]
    179: 33 04 00 00 01           r4 = 0x10000
    184: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    188: 97 44 10                 r4 = r4 << 0x10
@@ -24473,7 +24502,7 @@ Initial program counter: 13
    238: 97 cc 0c                 r12 = r12 << 0xc
    241: 95 cc 0f                 r12 = r12 + 0xf
    244: 3a 01 00 00 01           r1 = u64 [0x10000]
-   249: 82 1b 18                 r11 = u64 [r1 + 0x18]
+   249: 82 1b 18                 r11 = u64 [r1 + 24]
    252: 33 04 00 00 ff           r4 = 0xffffffffffff0000
    257: 83 44 ff 00              i32 r4 = r4 + 0xff
    261: 97 44 10                 r4 = r4 << 0x10
@@ -24493,7 +24522,7 @@ Initial program counter: 13
    306: 97 cc 10                 r12 = r12 << 0x10
    309: 95 cc ff 00              r12 = r12 + 0xff
    313: 3a 01 08 00 01           r1 = u64 [0x10008]
-   318: 82 1b e8                 r11 = u64 [r1 + 0xffffffffffffffe8]
+   318: 82 1b e8                 r11 = u64 [r1 - 24]
    321: 33 04 00 00 ff 00        r4 = 0xff0000
    327: 83 44 ff 00              i32 r4 = r4 + 0xff
    331: 97 44 10                 r4 = r4 << 0x10
@@ -24511,7 +24540,7 @@ Initial program counter: 13
    370: 97 cc 10                 r12 = r12 << 0x10
    373: 95 cc 00 ff              r12 = r12 + 0xffffffffffffff00
    377: 3a 01 08 00 01           r1 = u64 [0x10008]
-   382: 82 1b f0                 r11 = u64 [r1 + 0xfffffffffffffff0]
+   382: 82 1b f0                 r11 = u64 [r1 - 16]
    385: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    391: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    395: 97 44 10                 r4 = r4 << 0x10
@@ -24530,7 +24559,7 @@ Initial program counter: 13
    439: 97 cc 0c                 r12 = r12 << 0xc
    442: 95 cc f0                 r12 = r12 + 0xfffffffffffffff0
    445: 3a 01 08 00 01           r1 = u64 [0x10008]
-   450: 82 1b f8                 r11 = u64 [r1 + 0xfffffffffffffff8]
+   450: 82 1b f8                 r11 = u64 [r1 - 8]
    453: 33 04 00 00 01           r4 = 0x10000
    458: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    462: 97 44 10                 r4 = r4 << 0x10
@@ -24566,7 +24595,7 @@ Initial program counter: 13
    559: 33 05 0a                 r5 = 0xa
    562: 3a 00 00 00 01           r0 = u64 [0x10000]
    567: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
-   570: 82 02 20                 r2 = u64 [r0 + 0x20]
+   570: 82 02 20                 r2 = u64 [r0 + 32]
    573: 33 04 00 00 ff 00        r4 = 0xff0000
    579: 83 44 ff 00              i32 r4 = r4 + 0xff
    583: 97 44 10                 r4 = r4 << 0x10
@@ -24579,7 +24608,7 @@ Initial program counter: 13
    602: 33 05 0b                 r5 = 0xb
    605: 3a 00 00 00 01           r0 = u64 [0x10000]
    610: 95 00 fd                 r0 = r0 + 0xfffffffffffffffd
-   613: 82 02 0b                 r2 = u64 [r0 + 0xb]
+   613: 82 02 0b                 r2 = u64 [r0 + 11]
    616: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    622: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    626: 97 44 10                 r4 = r4 << 0x10
@@ -24594,7 +24623,7 @@ Initial program counter: 13
       :                          @12
    650: 02                       unlikely
    651: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   656: 82 ab 08                 r11 = u64 [r10 + 0x8]
+   656: 82 ab 08                 r11 = u64 [r10 + 8]
    659: 64 b3                    r3 = r11
    661: 33 04 00 00 01           r4 = 0x10000
    666: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
@@ -24616,7 +24645,7 @@ Initial program counter: 13
       :                          @15
    709: 02                       unlikely
    710: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   715: 82 ab 08                 r11 = u64 [r10 + 0x8]
+   715: 82 ab 08                 r11 = u64 [r10 + 8]
    718: 64 b3                    r3 = r11
    720: 33 04 00 00 ff           r4 = 0xffffffffffff0000
    725: 83 44 ff 00              i32 r4 = r4 + 0xff
@@ -24638,7 +24667,7 @@ Initial program counter: 13
       :                          @18
    768: 02                       unlikely
    769: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   774: 82 ab 08                 r11 = u64 [r10 + 0x8]
+   774: 82 ab 08                 r11 = u64 [r10 + 8]
    777: 64 b3                    r3 = r11
    779: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    785: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
@@ -24658,7 +24687,7 @@ Initial program counter: 13
       :                          @21
    822: 02                       unlikely
    823: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   828: 82 ab 08                 r11 = u64 [r10 + 0x8]
+   828: 82 ab 08                 r11 = u64 [r10 + 8]
    831: 33 04 00 00 01           r4 = 0x10000
    836: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    840: 97 44 10                 r4 = r4 << 0x10
@@ -24679,7 +24708,7 @@ Initial program counter: 13
       :                          @24
    879: 02                       unlikely
    880: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   885: 82 ab 08                 r11 = u64 [r10 + 0x8]
+   885: 82 ab 08                 r11 = u64 [r10 + 8]
    888: 33 04 00 00 ff           r4 = 0xffffffffffff0000
    893: 83 44 ff 00              i32 r4 = r4 + 0xff
    897: 97 44 10                 r4 = r4 << 0x10
@@ -24700,7 +24729,7 @@ Initial program counter: 13
       :                          @27
    935: 02                       unlikely
    936: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   941: 82 ab 08                 r11 = u64 [r10 + 0x8]
+   941: 82 ab 08                 r11 = u64 [r10 + 8]
    944: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    950: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    954: 97 44 10                 r4 = r4 << 0x10
@@ -24798,7 +24827,7 @@ Gas simulation at offset 75 with total cost of 53:
     ..D===eE----------------------------------R.............  r12 = r12 << 0x10
     ..D====eE---------------------------------R.............  r12 = r12 + 0xffffffffffffff00
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.............  r1 = u64 [0x10000]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0x8]
+    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 8]
     ...DeE------------------------------------------------R.  r4 = 0xffffffffff010000
     ...D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     ...D===eE---------------------------------------------R.  r4 = r4 << 0x10
@@ -24821,7 +24850,7 @@ Gas simulation at offset 139 with total cost of 53:
     ..D=====eER.............................................  r12 = r12 << 0xc
     ..D======eER............................................  r12 = r12 + 0xfffffffffffffff0
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r1 = u64 [0x10000]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0x10]
+    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 16]
     ...DeE------------------------------------------------R.  r4 = 0x10000
     ...D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     ...D===eE---------------------------------------------R.  r4 = r4 << 0x10
@@ -24846,7 +24875,7 @@ Gas simulation at offset 212 with total cost of 53:
     ..D=====eER.............................................  r12 = r12 << 0xc
     ..D======eER............................................  r12 = r12 + 0xf
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r1 = u64 [0x10000]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0x18]
+    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 24]
     ...DeE------------------------------------------------R.  r4 = 0xffffffffffff0000
     ...D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xff
     ...D===eE---------------------------------------------R.  r4 = r4 << 0x10
@@ -24870,7 +24899,7 @@ Gas simulation at offset 285 with total cost of 53:
     ..D===eE----------------------------------R.............  r12 = r12 << 0x10
     ..D====eE---------------------------------R.............  r12 = r12 + 0xff
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.............  r1 = u64 [0x10008]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0xffffffffffffffe8]
+    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 - 24]
     ...DeE------------------------------------------------R.  r4 = 0xff0000
     ...D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xff
     ...D===eE---------------------------------------------R.  r4 = r4 << 0x10
@@ -24892,7 +24921,7 @@ Gas simulation at offset 349 with total cost of 53:
     ..D===eE----------------------------------R.............  r12 = r12 << 0x10
     ..D====eE---------------------------------R.............  r12 = r12 + 0xffffffffffffff00
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.............  r1 = u64 [0x10008]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0xfffffffffffffff0]
+    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 - 16]
     ...DeE------------------------------------------------R.  r4 = 0xffffffffff010000
     ...D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     ...D===eE---------------------------------------------R.  r4 = r4 << 0x10
@@ -24915,7 +24944,7 @@ Gas simulation at offset 413 with total cost of 53:
     ..D=====eER.............................................  r12 = r12 << 0xc
     ..D======eER............................................  r12 = r12 + 0xfffffffffffffff0
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r1 = u64 [0x10008]
-    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0xfffffffffffffff8]
+    ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 - 8]
     ...DeE------------------------------------------------R.  r4 = 0x10000
     ...D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     ...D===eE---------------------------------------------R.  r4 = r4 << 0x10
@@ -24959,7 +24988,7 @@ Gas simulation at offset 558 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xa
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u64 [r0 + 0x20]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u64 [r0 + 32]
     .DeE-------------------------------------------------R.  r4 = 0xff0000
     .D=eeE-----------------------------------------------R.  i32 r4 = r4 + 0xff
     ..D==eE----------------------------------------------R.  r4 = r4 << 0x10
@@ -24976,7 +25005,7 @@ Gas simulation at offset 601 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xb
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xfffffffffffffffd
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u64 [r0 + 0xb]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u64 [r0 + 11]
     .DeE-------------------------------------------------R.  r4 = 0xffffffffff010000
     .D=eeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     ..D==eE----------------------------------------------R.  r4 = r4 << 0x10
@@ -24999,7 +25028,7 @@ Gas simulation at offset 650 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 0x8]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 8]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0x10000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
@@ -25033,7 +25062,7 @@ Gas simulation at offset 709 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 0x8]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 8]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xffffffffffff0000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xff
@@ -25067,7 +25096,7 @@ Gas simulation at offset 768 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 0x8]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 8]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xffffffffff010000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
@@ -25099,7 +25128,7 @@ Gas simulation at offset 822 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 0x8]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 8]
     DeE-------------------------------------------------R.  r4 = 0x10000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     .D==eE----------------------------------------------R.  r4 = r4 << 0x10
@@ -25132,7 +25161,7 @@ Gas simulation at offset 879 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 0x8]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 8]
     DeE-------------------------------------------------R.  r4 = 0xffffffffffff0000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xff
     .D==eE----------------------------------------------R.  r4 = r4 << 0x10
@@ -25165,7 +25194,7 @@ Gas simulation at offset 935 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 0x8]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r10 + 8]
     DeE-------------------------------------------------R.  r4 = 0xffffffffff010000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     .D==eE----------------------------------------------R.  r4 = r4 << 0x10
@@ -25263,7 +25292,7 @@ Initial program counter: 13
     36: 33 05 03                 r5 = 0x3
     39: 33 0c 00 ff              r12 = 0xffffffffffffff00
     43: 3a 01 00 00 01           r1 = u64 [0x10000]
-    48: 7f 1b 02                 r11 = i16 [r1 + 0x2]
+    48: 7f 1b 02                 r11 = i16 [r1 + 2]
     51: 33 04 00 ff              r4 = 0xffffffffffffff00
     55: ab 4b d3 01              jump 522 if r11 != r4
       :                          @3
@@ -25272,7 +25301,7 @@ Initial program counter: 13
     63: 33 0c 00 10              r12 = 0x1000
     67: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
     70: 3a 01 00 00 01           r1 = u64 [0x10000]
-    75: 7f 1b 04                 r11 = i16 [r1 + 0x4]
+    75: 7f 1b 04                 r11 = i16 [r1 + 4]
     78: 33 04 00 10              r4 = 0x1000
     82: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
     85: ab 4b b5 01              jump 522 if r11 != r4
@@ -25282,7 +25311,7 @@ Initial program counter: 13
     93: 33 0c 00 f0              r12 = 0xfffffffffffff000
     97: 83 cc 0f                 i32 r12 = r12 + 0xf
    100: 3a 01 00 00 01           r1 = u64 [0x10000]
-   105: 7f 1b 06                 r11 = i16 [r1 + 0x6]
+   105: 7f 1b 06                 r11 = i16 [r1 + 6]
    108: 33 04 00 f0              r4 = 0xfffffffffffff000
    112: 83 44 0f                 i32 r4 = r4 + 0xf
    115: ab 4b 97 01              jump 522 if r11 != r4
@@ -25291,7 +25320,7 @@ Initial program counter: 13
    120: 33 05 06                 r5 = 0x6
    123: 33 0c ff 00              r12 = 0xff
    127: 3a 01 08 00 01           r1 = u64 [0x10008]
-   132: 7f 1b fa                 r11 = i16 [r1 + 0xfffffffffffffffa]
+   132: 7f 1b fa                 r11 = i16 [r1 - 6]
    135: 33 04 ff 00              r4 = 0xff
    139: ab 4b 7f 01              jump 522 if r11 != r4
       :                          @6
@@ -25299,7 +25328,7 @@ Initial program counter: 13
    144: 33 05 07                 r5 = 0x7
    147: 33 0c 00 ff              r12 = 0xffffffffffffff00
    151: 3a 01 08 00 01           r1 = u64 [0x10008]
-   156: 7f 1b fc                 r11 = i16 [r1 + 0xfffffffffffffffc]
+   156: 7f 1b fc                 r11 = i16 [r1 - 4]
    159: 33 04 00 ff              r4 = 0xffffffffffffff00
    163: ab 4b 67 01              jump 522 if r11 != r4
       :                          @7
@@ -25308,7 +25337,7 @@ Initial program counter: 13
    171: 33 0c 00 10              r12 = 0x1000
    175: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
    178: 3a 01 08 00 01           r1 = u64 [0x10008]
-   183: 7f 1b fe                 r11 = i16 [r1 + 0xfffffffffffffffe]
+   183: 7f 1b fe                 r11 = i16 [r1 - 2]
    186: 33 04 00 10              r4 = 0x1000
    190: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    193: ab 4b 49 01              jump 522 if r11 != r4
@@ -25327,7 +25356,7 @@ Initial program counter: 13
    227: 33 05 0a                 r5 = 0xa
    230: 3a 00 00 00 01           r0 = u64 [0x10000]
    235: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
-   238: 7f 02 20                 r2 = i16 [r0 + 0x20]
+   238: 7f 02 20                 r2 = i16 [r0 + 32]
    241: 33 04 ff 00              r4 = 0xff
    245: ab 42 15 01              jump 522 if r2 != r4
       :                          @10
@@ -25335,7 +25364,7 @@ Initial program counter: 13
    250: 33 05 0b                 r5 = 0xb
    253: 3a 00 00 00 01           r0 = u64 [0x10000]
    258: 95 00 fb                 r0 = r0 + 0xfffffffffffffffb
-   261: 7f 02 07                 r2 = i16 [r0 + 0x7]
+   261: 7f 02 07                 r2 = i16 [r0 + 7]
    264: 33 04 00 ff              r4 = 0xffffffffffffff00
    268: ab 42 fe 00              jump 522 if r2 != r4
       :                          @11
@@ -25345,7 +25374,7 @@ Initial program counter: 13
       :                          @12
    278: 02                       unlikely
    279: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   284: 7f ab 02                 r11 = i16 [r10 + 0x2]
+   284: 7f ab 02                 r11 = i16 [r10 + 2]
    287: 64 b3                    r3 = r11
    289: 33 04 00 10              r4 = 0x1000
    293: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
@@ -25361,7 +25390,7 @@ Initial program counter: 13
       :                          @15
    315: 02                       unlikely
    316: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   321: 7f ab 02                 r11 = i16 [r10 + 0x2]
+   321: 7f ab 02                 r11 = i16 [r10 + 2]
    324: 64 b3                    r3 = r11
    326: 33 04 00 f0              r4 = 0xfffffffffffff000
    330: 83 44 0f                 i32 r4 = r4 + 0xf
@@ -25377,7 +25406,7 @@ Initial program counter: 13
       :                          @18
    352: 02                       unlikely
    353: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   358: 7f ab 02                 r11 = i16 [r10 + 0x2]
+   358: 7f ab 02                 r11 = i16 [r10 + 2]
    361: 64 b3                    r3 = r11
    363: 33 04 00 ff              r4 = 0xffffffffffffff00
    367: ab 43 9b 00              jump 522 if r3 != r4
@@ -25392,7 +25421,7 @@ Initial program counter: 13
       :                          @21
    386: 02                       unlikely
    387: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   392: 7f ab 02                 r11 = i16 [r10 + 0x2]
+   392: 7f ab 02                 r11 = i16 [r10 + 2]
    395: 33 04 00 10              r4 = 0x1000
    399: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    402: ab 4b 78                 jump 522 if r11 != r4
@@ -25407,7 +25436,7 @@ Initial program counter: 13
       :                          @24
    420: 02                       unlikely
    421: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   426: 7f ab 02                 r11 = i16 [r10 + 0x2]
+   426: 7f ab 02                 r11 = i16 [r10 + 2]
    429: 33 04 00 f0              r4 = 0xfffffffffffff000
    433: 83 44 0f                 i32 r4 = r4 + 0xf
    436: ab 4b 56                 jump 522 if r11 != r4
@@ -25422,7 +25451,7 @@ Initial program counter: 13
       :                          @27
    454: 02                       unlikely
    455: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   460: 7f ab 02                 r11 = i16 [r10 + 0x2]
+   460: 7f ab 02                 r11 = i16 [r10 + 2]
    463: 33 04 00 ff              r4 = 0xffffffffffffff00
    467: ab 4b 37                 jump 522 if r11 != r4
       :                          @28
@@ -25500,7 +25529,7 @@ Gas simulation at offset 35 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x3
     DeE---------------------------------------R...........  r12 = 0xffffffffffffff00
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0x2]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 2]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffff00
     .D=================================================eER  jump 522 if r11 != r4
 ```
@@ -25513,7 +25542,7 @@ Gas simulation at offset 59 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0x1000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xfffffffffffffff0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0x4]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 4]
     ..DeE------------------------------------------------R.  r4 = 0x1000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     ..D=================================================eER  jump 522 if r11 != r4
@@ -25527,7 +25556,7 @@ Gas simulation at offset 89 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xfffffffffffff000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xf
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0x6]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 6]
     ..DeE------------------------------------------------R.  r4 = 0xfffffffffffff000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xf
     ..D=================================================eER  jump 522 if r11 != r4
@@ -25540,7 +25569,7 @@ Gas simulation at offset 119 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x6
     DeE---------------------------------------R...........  r12 = 0xff
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0xfffffffffffffffa]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 - 6]
     .DeE------------------------------------------------R.  r4 = 0xff
     .D=================================================eER  jump 522 if r11 != r4
 ```
@@ -25552,7 +25581,7 @@ Gas simulation at offset 143 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x7
     DeE---------------------------------------R...........  r12 = 0xffffffffffffff00
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0xfffffffffffffffc]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 - 4]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffff00
     .D=================================================eER  jump 522 if r11 != r4
 ```
@@ -25565,7 +25594,7 @@ Gas simulation at offset 167 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0x1000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xfffffffffffffff0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0xfffffffffffffffe]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 - 2]
     ..DeE------------------------------------------------R.  r4 = 0x1000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     ..D=================================================eER  jump 522 if r11 != r4
@@ -25592,7 +25621,7 @@ Gas simulation at offset 226 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xa
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i16 [r0 + 0x20]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i16 [r0 + 32]
     .DeE-------------------------------------------------R.  r4 = 0xff
     .D==================================================eER  jump 522 if r2 != r4
 ```
@@ -25604,7 +25633,7 @@ Gas simulation at offset 249 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xb
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xfffffffffffffffb
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i16 [r0 + 0x7]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i16 [r0 + 7]
     .DeE-------------------------------------------------R.  r4 = 0xffffffffffffff00
     .D==================================================eER  jump 522 if r2 != r4
 ```
@@ -25622,7 +25651,7 @@ Gas simulation at offset 278 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 2]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0x1000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
@@ -25650,7 +25679,7 @@ Gas simulation at offset 315 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 2]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xfffffffffffff000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xf
@@ -25678,7 +25707,7 @@ Gas simulation at offset 352 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 2]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffff00
     .D=================================================eER  jump 522 if r3 != r4
@@ -25705,7 +25734,7 @@ Gas simulation at offset 386 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 2]
     DeE-------------------------------------------------R.  r4 = 0x1000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     .D=================================================eER  jump 522 if r11 != r4
@@ -25732,7 +25761,7 @@ Gas simulation at offset 420 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 2]
     DeE-------------------------------------------------R.  r4 = 0xfffffffffffff000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xf
     .D=================================================eER  jump 522 if r11 != r4
@@ -25759,7 +25788,7 @@ Gas simulation at offset 454 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r10 + 2]
     DeE-------------------------------------------------R.  r4 = 0xffffffffffffff00
     .D=================================================eER  jump 522 if r11 != r4
 ```
@@ -25853,7 +25882,7 @@ Initial program counter: 13
     39: 33 0c 00 00 01           r12 = 0x10000
     44: 83 cc 00 ff              i32 r12 = r12 + 0xffffffffffffff00
     48: 3a 01 00 00 01           r1 = u64 [0x10000]
-    53: 7e 1b 02                 r11 = u16 [r1 + 0x2]
+    53: 7e 1b 02                 r11 = u16 [r1 + 2]
     56: 33 04 00 00 01           r4 = 0x10000
     61: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
     65: ab 4b f2 01              jump 563 if r11 != r4
@@ -25863,7 +25892,7 @@ Initial program counter: 13
     73: 33 0c 00 10              r12 = 0x1000
     77: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
     80: 3a 01 00 00 01           r1 = u64 [0x10000]
-    85: 7e 1b 04                 r11 = u16 [r1 + 0x4]
+    85: 7e 1b 04                 r11 = u16 [r1 + 4]
     88: 33 04 00 10              r4 = 0x1000
     92: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
     95: ab 4b d4 01              jump 563 if r11 != r4
@@ -25873,7 +25902,7 @@ Initial program counter: 13
    103: 33 0c 00 f0 00           r12 = 0xf000
    108: 83 cc 0f                 i32 r12 = r12 + 0xf
    111: 3a 01 00 00 01           r1 = u64 [0x10000]
-   116: 7e 1b 06                 r11 = u16 [r1 + 0x6]
+   116: 7e 1b 06                 r11 = u16 [r1 + 6]
    119: 33 04 00 f0 00           r4 = 0xf000
    124: 83 44 0f                 i32 r4 = r4 + 0xf
    127: ab 4b b4 01              jump 563 if r11 != r4
@@ -25882,7 +25911,7 @@ Initial program counter: 13
    132: 33 05 06                 r5 = 0x6
    135: 33 0c ff 00              r12 = 0xff
    139: 3a 01 08 00 01           r1 = u64 [0x10008]
-   144: 7e 1b fa                 r11 = u16 [r1 + 0xfffffffffffffffa]
+   144: 7e 1b fa                 r11 = u16 [r1 - 6]
    147: 33 04 ff 00              r4 = 0xff
    151: ab 4b 9c 01              jump 563 if r11 != r4
       :                          @6
@@ -25891,7 +25920,7 @@ Initial program counter: 13
    159: 33 0c 00 00 01           r12 = 0x10000
    164: 83 cc 00 ff              i32 r12 = r12 + 0xffffffffffffff00
    168: 3a 01 08 00 01           r1 = u64 [0x10008]
-   173: 7e 1b fc                 r11 = u16 [r1 + 0xfffffffffffffffc]
+   173: 7e 1b fc                 r11 = u16 [r1 - 4]
    176: 33 04 00 00 01           r4 = 0x10000
    181: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
    185: ab 4b 7a 01              jump 563 if r11 != r4
@@ -25901,7 +25930,7 @@ Initial program counter: 13
    193: 33 0c 00 10              r12 = 0x1000
    197: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
    200: 3a 01 08 00 01           r1 = u64 [0x10008]
-   205: 7e 1b fe                 r11 = u16 [r1 + 0xfffffffffffffffe]
+   205: 7e 1b fe                 r11 = u16 [r1 - 2]
    208: 33 04 00 10              r4 = 0x1000
    212: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    215: ab 4b 5c 01              jump 563 if r11 != r4
@@ -25920,7 +25949,7 @@ Initial program counter: 13
    251: 33 05 0a                 r5 = 0xa
    254: 3a 00 00 00 01           r0 = u64 [0x10000]
    259: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
-   262: 7e 02 20                 r2 = u16 [r0 + 0x20]
+   262: 7e 02 20                 r2 = u16 [r0 + 32]
    265: 33 04 ff 00              r4 = 0xff
    269: ab 42 26 01              jump 563 if r2 != r4
       :                          @10
@@ -25928,7 +25957,7 @@ Initial program counter: 13
    274: 33 05 0b                 r5 = 0xb
    277: 3a 00 00 00 01           r0 = u64 [0x10000]
    282: 95 00 fb                 r0 = r0 + 0xfffffffffffffffb
-   285: 7e 02 07                 r2 = u16 [r0 + 0x7]
+   285: 7e 02 07                 r2 = u16 [r0 + 7]
    288: 33 04 00 00 01           r4 = 0x10000
    293: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
    297: ab 42 0a 01              jump 563 if r2 != r4
@@ -25939,7 +25968,7 @@ Initial program counter: 13
       :                          @12
    307: 02                       unlikely
    308: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   313: 7e ab 02                 r11 = u16 [r10 + 0x2]
+   313: 7e ab 02                 r11 = u16 [r10 + 2]
    316: 64 b3                    r3 = r11
    318: 33 04 00 10              r4 = 0x1000
    322: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
@@ -25955,7 +25984,7 @@ Initial program counter: 13
       :                          @15
    344: 02                       unlikely
    345: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   350: 7e ab 02                 r11 = u16 [r10 + 0x2]
+   350: 7e ab 02                 r11 = u16 [r10 + 2]
    353: 64 b3                    r3 = r11
    355: 33 04 00 f0 00           r4 = 0xf000
    360: 83 44 0f                 i32 r4 = r4 + 0xf
@@ -25971,7 +26000,7 @@ Initial program counter: 13
       :                          @18
    382: 02                       unlikely
    383: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   388: 7e ab 02                 r11 = u16 [r10 + 0x2]
+   388: 7e ab 02                 r11 = u16 [r10 + 2]
    391: 64 b3                    r3 = r11
    393: 33 04 00 00 01           r4 = 0x10000
    398: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
@@ -25987,7 +26016,7 @@ Initial program counter: 13
       :                          @21
    421: 02                       unlikely
    422: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   427: 7e ab 02                 r11 = u16 [r10 + 0x2]
+   427: 7e ab 02                 r11 = u16 [r10 + 2]
    430: 33 04 00 10              r4 = 0x1000
    434: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    437: ab 4b 7e                 jump 563 if r11 != r4
@@ -26002,7 +26031,7 @@ Initial program counter: 13
       :                          @24
    455: 02                       unlikely
    456: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   461: 7e ab 02                 r11 = u16 [r10 + 0x2]
+   461: 7e ab 02                 r11 = u16 [r10 + 2]
    464: 33 04 00 f0 00           r4 = 0xf000
    469: 83 44 0f                 i32 r4 = r4 + 0xf
    472: ab 4b 5b                 jump 563 if r11 != r4
@@ -26017,7 +26046,7 @@ Initial program counter: 13
       :                          @27
    490: 02                       unlikely
    491: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   496: 7e ab 02                 r11 = u16 [r10 + 0x2]
+   496: 7e ab 02                 r11 = u16 [r10 + 2]
    499: 33 04 00 00 01           r4 = 0x10000
    504: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
    508: ab 4b 37                 jump 563 if r11 != r4
@@ -26097,7 +26126,7 @@ Gas simulation at offset 35 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0x10000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xffffffffffffff00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 0x2]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 2]
     ..DeE------------------------------------------------R.  r4 = 0x10000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
     ..D=================================================eER  jump 563 if r11 != r4
@@ -26111,7 +26140,7 @@ Gas simulation at offset 69 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0x1000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xfffffffffffffff0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 0x4]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 4]
     ..DeE------------------------------------------------R.  r4 = 0x1000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     ..D=================================================eER  jump 563 if r11 != r4
@@ -26125,7 +26154,7 @@ Gas simulation at offset 99 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xf000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xf
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 0x6]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 6]
     ..DeE------------------------------------------------R.  r4 = 0xf000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xf
     ..D=================================================eER  jump 563 if r11 != r4
@@ -26138,7 +26167,7 @@ Gas simulation at offset 131 with total cost of 51:
     DeE---------------------------------------R...........  r5 = 0x6
     DeE---------------------------------------R...........  r12 = 0xff
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10008]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 0xfffffffffffffffa]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 - 6]
     .DeE------------------------------------------------R.  r4 = 0xff
     .D=================================================eER  jump 563 if r11 != r4
 ```
@@ -26151,7 +26180,7 @@ Gas simulation at offset 155 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0x10000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xffffffffffffff00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 0xfffffffffffffffc]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 - 4]
     ..DeE------------------------------------------------R.  r4 = 0x10000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
     ..D=================================================eER  jump 563 if r11 != r4
@@ -26165,7 +26194,7 @@ Gas simulation at offset 189 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0x1000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xfffffffffffffff0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 + 0xfffffffffffffffe]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r1 - 2]
     ..DeE------------------------------------------------R.  r4 = 0x1000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     ..D=================================================eER  jump 563 if r11 != r4
@@ -26192,7 +26221,7 @@ Gas simulation at offset 250 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xa
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u16 [r0 + 0x20]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u16 [r0 + 32]
     .DeE-------------------------------------------------R.  r4 = 0xff
     .D==================================================eER  jump 563 if r2 != r4
 ```
@@ -26204,7 +26233,7 @@ Gas simulation at offset 273 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xb
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xfffffffffffffffb
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u16 [r0 + 0x7]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u16 [r0 + 7]
     .DeE-------------------------------------------------R.  r4 = 0x10000
     .D=eeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
     ..D=================================================eER  jump 563 if r2 != r4
@@ -26223,7 +26252,7 @@ Gas simulation at offset 307 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 2]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0x1000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
@@ -26251,7 +26280,7 @@ Gas simulation at offset 344 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 2]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xf000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xf
@@ -26279,7 +26308,7 @@ Gas simulation at offset 382 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 2]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0x10000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
@@ -26307,7 +26336,7 @@ Gas simulation at offset 421 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 2]
     DeE-------------------------------------------------R.  r4 = 0x1000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     .D=================================================eER  jump 563 if r11 != r4
@@ -26334,7 +26363,7 @@ Gas simulation at offset 455 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 2]
     DeE-------------------------------------------------R.  r4 = 0xf000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xf
     .D=================================================eER  jump 563 if r11 != r4
@@ -26361,7 +26390,7 @@ Gas simulation at offset 490 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u16 [r10 + 2]
     DeE-------------------------------------------------R.  r4 = 0x10000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
     .D=================================================eER  jump 563 if r11 != r4
@@ -26590,7 +26619,7 @@ Initial program counter: 13
     51: 33 0c 00 00 01 ff        r12 = 0xffffffffff010000
     57: 83 cc 00 ff              i32 r12 = r12 + 0xffffffffffffff00
     61: 3a 01 00 00 01           r1 = u64 [0x10000]
-    66: 81 1b 04                 r11 = i32 [r1 + 0x4]
+    66: 81 1b 04                 r11 = i32 [r1 + 4]
     69: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
     75: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
     79: ab 4b 1c 02              jump 619 if r11 != r4
@@ -26600,7 +26629,7 @@ Initial program counter: 13
     87: 33 0c 00 10 f0 0f        r12 = 0xff01000
     93: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
     96: 3a 01 00 00 01           r1 = u64 [0x10000]
-   101: 81 1b 08                 r11 = i32 [r1 + 0x8]
+   101: 81 1b 08                 r11 = i32 [r1 + 8]
    104: 33 04 00 10 f0 0f        r4 = 0xff01000
    110: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    113: ab 4b fa 01              jump 619 if r11 != r4
@@ -26610,7 +26639,7 @@ Initial program counter: 13
    121: 33 0c 00 f0 0f f0        r12 = 0xfffffffff00ff000
    127: 83 cc 0f                 i32 r12 = r12 + 0xf
    130: 3a 01 00 00 01           r1 = u64 [0x10000]
-   135: 81 1b 0c                 r11 = i32 [r1 + 0xc]
+   135: 81 1b 0c                 r11 = i32 [r1 + 12]
    138: 33 04 00 f0 0f f0        r4 = 0xfffffffff00ff000
    144: 83 44 0f                 i32 r4 = r4 + 0xf
    147: ab 4b d8 01              jump 619 if r11 != r4
@@ -26620,7 +26649,7 @@ Initial program counter: 13
    155: 33 0c 00 00 ff 00        r12 = 0xff0000
    161: 83 cc ff 00              i32 r12 = r12 + 0xff
    165: 3a 01 08 00 01           r1 = u64 [0x10008]
-   170: 81 1b f4                 r11 = i32 [r1 + 0xfffffffffffffff4]
+   170: 81 1b f4                 r11 = i32 [r1 - 12]
    173: 33 04 00 00 ff 00        r4 = 0xff0000
    179: 83 44 ff 00              i32 r4 = r4 + 0xff
    183: ab 4b b4 01              jump 619 if r11 != r4
@@ -26630,7 +26659,7 @@ Initial program counter: 13
    191: 33 0c 00 00 01 ff        r12 = 0xffffffffff010000
    197: 83 cc 00 ff              i32 r12 = r12 + 0xffffffffffffff00
    201: 3a 01 08 00 01           r1 = u64 [0x10008]
-   206: 81 1b f8                 r11 = i32 [r1 + 0xfffffffffffffff8]
+   206: 81 1b f8                 r11 = i32 [r1 - 8]
    209: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    215: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
    219: ab 4b 90 01              jump 619 if r11 != r4
@@ -26640,7 +26669,7 @@ Initial program counter: 13
    227: 33 0c 00 10 f0 0f        r12 = 0xff01000
    233: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
    236: 3a 01 08 00 01           r1 = u64 [0x10008]
-   241: 81 1b fc                 r11 = i32 [r1 + 0xfffffffffffffffc]
+   241: 81 1b fc                 r11 = i32 [r1 - 4]
    244: 33 04 00 10 f0 0f        r4 = 0xff01000
    250: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    253: ab 4b 6e 01              jump 619 if r11 != r4
@@ -26659,7 +26688,7 @@ Initial program counter: 13
    291: 33 05 0a                 r5 = 0xa
    294: 3a 00 00 00 01           r0 = u64 [0x10000]
    299: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
-   302: 81 02 20                 r2 = i32 [r0 + 0x20]
+   302: 81 02 20                 r2 = i32 [r0 + 32]
    305: 33 04 00 00 ff 00        r4 = 0xff0000
    311: 83 44 ff 00              i32 r4 = r4 + 0xff
    315: ab 42 30 01              jump 619 if r2 != r4
@@ -26668,7 +26697,7 @@ Initial program counter: 13
    320: 33 05 0b                 r5 = 0xb
    323: 3a 00 00 00 01           r0 = u64 [0x10000]
    328: 95 00 fd                 r0 = r0 + 0xfffffffffffffffd
-   331: 81 02 07                 r2 = i32 [r0 + 0x7]
+   331: 81 02 07                 r2 = i32 [r0 + 7]
    334: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    340: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
    344: ab 42 13 01              jump 619 if r2 != r4
@@ -26679,7 +26708,7 @@ Initial program counter: 13
       :                          @12
    354: 02                       unlikely
    355: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   360: 81 ab 04                 r11 = i32 [r10 + 0x4]
+   360: 81 ab 04                 r11 = i32 [r10 + 4]
    363: 64 b3                    r3 = r11
    365: 33 04 00 10 f0 0f        r4 = 0xff01000
    371: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
@@ -26695,7 +26724,7 @@ Initial program counter: 13
       :                          @15
    393: 02                       unlikely
    394: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   399: 81 ab 04                 r11 = i32 [r10 + 0x4]
+   399: 81 ab 04                 r11 = i32 [r10 + 4]
    402: 64 b3                    r3 = r11
    404: 33 04 00 f0 0f f0        r4 = 0xfffffffff00ff000
    410: 83 44 0f                 i32 r4 = r4 + 0xf
@@ -26711,7 +26740,7 @@ Initial program counter: 13
       :                          @18
    432: 02                       unlikely
    433: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   438: 81 ab 04                 r11 = i32 [r10 + 0x4]
+   438: 81 ab 04                 r11 = i32 [r10 + 4]
    441: 64 b3                    r3 = r11
    443: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    449: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
@@ -26727,7 +26756,7 @@ Initial program counter: 13
       :                          @21
    472: 02                       unlikely
    473: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   478: 81 ab 04                 r11 = i32 [r10 + 0x4]
+   478: 81 ab 04                 r11 = i32 [r10 + 4]
    481: 33 04 00 10 f0 0f        r4 = 0xff01000
    487: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    490: ab 4b 81 00              jump 619 if r11 != r4
@@ -26742,7 +26771,7 @@ Initial program counter: 13
       :                          @24
    509: 02                       unlikely
    510: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   515: 81 ab 04                 r11 = i32 [r10 + 0x4]
+   515: 81 ab 04                 r11 = i32 [r10 + 4]
    518: 33 04 00 f0 0f f0        r4 = 0xfffffffff00ff000
    524: 83 44 0f                 i32 r4 = r4 + 0xf
    527: ab 4b 5c                 jump 619 if r11 != r4
@@ -26757,7 +26786,7 @@ Initial program counter: 13
       :                          @27
    545: 02                       unlikely
    546: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   551: 81 ab 04                 r11 = i32 [r10 + 0x4]
+   551: 81 ab 04                 r11 = i32 [r10 + 4]
    554: 33 04 00 00 01 ff        r4 = 0xffffffffff010000
    560: 83 44 00 ff              i32 r4 = r4 + 0xffffffffffffff00
    564: ab 4b 37                 jump 619 if r11 != r4
@@ -26839,7 +26868,7 @@ Gas simulation at offset 47 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xffffffffff010000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xffffffffffffff00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0x4]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 4]
     ..DeE------------------------------------------------R.  r4 = 0xffffffffff010000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
     ..D=================================================eER  jump 619 if r11 != r4
@@ -26853,7 +26882,7 @@ Gas simulation at offset 83 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xff01000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xfffffffffffffff0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0x8]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 8]
     ..DeE------------------------------------------------R.  r4 = 0xff01000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     ..D=================================================eER  jump 619 if r11 != r4
@@ -26867,7 +26896,7 @@ Gas simulation at offset 117 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xfffffffff00ff000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xf
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0xc]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 12]
     ..DeE------------------------------------------------R.  r4 = 0xfffffffff00ff000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xf
     ..D=================================================eER  jump 619 if r11 != r4
@@ -26881,7 +26910,7 @@ Gas simulation at offset 151 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xff0000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xff
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0xfffffffffffffff4]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 - 12]
     ..DeE------------------------------------------------R.  r4 = 0xff0000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xff
     ..D=================================================eER  jump 619 if r11 != r4
@@ -26895,7 +26924,7 @@ Gas simulation at offset 187 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xffffffffff010000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xffffffffffffff00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0xfffffffffffffff8]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 - 8]
     ..DeE------------------------------------------------R.  r4 = 0xffffffffff010000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
     ..D=================================================eER  jump 619 if r11 != r4
@@ -26909,7 +26938,7 @@ Gas simulation at offset 223 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xff01000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xfffffffffffffff0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0xfffffffffffffffc]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 - 4]
     ..DeE------------------------------------------------R.  r4 = 0xff01000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     ..D=================================================eER  jump 619 if r11 != r4
@@ -26936,7 +26965,7 @@ Gas simulation at offset 290 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xa
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i32 [r0 + 0x20]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i32 [r0 + 32]
     .DeE-------------------------------------------------R.  r4 = 0xff0000
     .D=eeE-----------------------------------------------R.  i32 r4 = r4 + 0xff
     ..D=================================================eER  jump 619 if r2 != r4
@@ -26949,7 +26978,7 @@ Gas simulation at offset 319 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xb
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xfffffffffffffffd
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i32 [r0 + 0x7]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i32 [r0 + 7]
     .DeE-------------------------------------------------R.  r4 = 0xffffffffff010000
     .D=eeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
     ..D=================================================eER  jump 619 if r2 != r4
@@ -26968,7 +26997,7 @@ Gas simulation at offset 354 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 4]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xff01000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
@@ -26996,7 +27025,7 @@ Gas simulation at offset 393 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 4]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xfffffffff00ff000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xf
@@ -27024,7 +27053,7 @@ Gas simulation at offset 432 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 4]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xffffffffff010000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
@@ -27052,7 +27081,7 @@ Gas simulation at offset 472 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 4]
     DeE-------------------------------------------------R.  r4 = 0xff01000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     .D=================================================eER  jump 619 if r11 != r4
@@ -27079,7 +27108,7 @@ Gas simulation at offset 509 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 4]
     DeE-------------------------------------------------R.  r4 = 0xfffffffff00ff000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xf
     .D=================================================eER  jump 619 if r11 != r4
@@ -27106,7 +27135,7 @@ Gas simulation at offset 545 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r10 + 4]
     DeE-------------------------------------------------R.  r4 = 0xffffffffff010000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff00
     .D=================================================eER  jump 619 if r11 != r4
@@ -27206,7 +27235,7 @@ Initial program counter: 13
     59: 97 cc 10                 r12 = r12 << 0x10
     62: 95 cc 00 ff              r12 = r12 + 0xffffffffffffff00
     66: 3a 01 00 00 01           r1 = u64 [0x10000]
-    71: 80 1b 04                 r11 = u32 [r1 + 0x4]
+    71: 80 1b 04                 r11 = u32 [r1 + 4]
     74: 33 04 00 00 01           r4 = 0x10000
     79: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
     83: 97 44 10                 r4 = r4 << 0x10
@@ -27218,7 +27247,7 @@ Initial program counter: 13
     98: 33 0c 00 10 f0 0f        r12 = 0xff01000
    104: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
    107: 3a 01 00 00 01           r1 = u64 [0x10000]
-   112: 80 1b 08                 r11 = u32 [r1 + 0x8]
+   112: 80 1b 08                 r11 = u32 [r1 + 8]
    115: 33 04 00 10 f0 0f        r4 = 0xff01000
    121: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    124: ab 4b 39 02              jump 693 if r11 != r4
@@ -27229,7 +27258,7 @@ Initial program counter: 13
    140: 97 cc 0c                 r12 = r12 << 0xc
    143: 95 cc 0f                 r12 = r12 + 0xf
    146: 3a 01 00 00 01           r1 = u64 [0x10000]
-   151: 80 1b 0c                 r11 = u32 [r1 + 0xc]
+   151: 80 1b 0c                 r11 = u32 [r1 + 12]
    154: 33 04 00 00 0f           r4 = 0xf0000
    159: 83 44 ff 00              i32 r4 = r4 + 0xff
    163: 97 44 0c                 r4 = r4 << 0xc
@@ -27241,7 +27270,7 @@ Initial program counter: 13
    177: 33 0c 00 00 ff 00        r12 = 0xff0000
    183: 83 cc ff 00              i32 r12 = r12 + 0xff
    187: 3a 01 08 00 01           r1 = u64 [0x10008]
-   192: 80 1b f4                 r11 = u32 [r1 + 0xfffffffffffffff4]
+   192: 80 1b f4                 r11 = u32 [r1 - 12]
    195: 33 04 00 00 ff 00        r4 = 0xff0000
    201: 83 44 ff 00              i32 r4 = r4 + 0xff
    205: ab 4b e8 01              jump 693 if r11 != r4
@@ -27252,7 +27281,7 @@ Initial program counter: 13
    221: 97 cc 10                 r12 = r12 << 0x10
    224: 95 cc 00 ff              r12 = r12 + 0xffffffffffffff00
    228: 3a 01 08 00 01           r1 = u64 [0x10008]
-   233: 80 1b f8                 r11 = u32 [r1 + 0xfffffffffffffff8]
+   233: 80 1b f8                 r11 = u32 [r1 - 8]
    236: 33 04 00 00 01           r4 = 0x10000
    241: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    245: 97 44 10                 r4 = r4 << 0x10
@@ -27264,7 +27293,7 @@ Initial program counter: 13
    260: 33 0c 00 10 f0 0f        r12 = 0xff01000
    266: 83 cc f0                 i32 r12 = r12 + 0xfffffffffffffff0
    269: 3a 01 08 00 01           r1 = u64 [0x10008]
-   274: 80 1b fc                 r11 = u32 [r1 + 0xfffffffffffffffc]
+   274: 80 1b fc                 r11 = u32 [r1 - 4]
    277: 33 04 00 10 f0 0f        r4 = 0xff01000
    283: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    286: ab 4b 97 01              jump 693 if r11 != r4
@@ -27286,7 +27315,7 @@ Initial program counter: 13
    335: 33 05 0a                 r5 = 0xa
    338: 3a 00 00 00 01           r0 = u64 [0x10000]
    343: 95 00 e0                 r0 = r0 + 0xffffffffffffffe0
-   346: 80 02 20                 r2 = u32 [r0 + 0x20]
+   346: 80 02 20                 r2 = u32 [r0 + 32]
    349: 33 04 00 00 ff 00        r4 = 0xff0000
    355: 83 44 ff 00              i32 r4 = r4 + 0xff
    359: ab 42 4e 01              jump 693 if r2 != r4
@@ -27295,7 +27324,7 @@ Initial program counter: 13
    364: 33 05 0b                 r5 = 0xb
    367: 3a 00 00 00 01           r0 = u64 [0x10000]
    372: 95 00 fd                 r0 = r0 + 0xfffffffffffffffd
-   375: 80 02 07                 r2 = u32 [r0 + 0x7]
+   375: 80 02 07                 r2 = u32 [r0 + 7]
    378: 33 04 00 00 01           r4 = 0x10000
    383: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    387: 97 44 10                 r4 = r4 << 0x10
@@ -27308,7 +27337,7 @@ Initial program counter: 13
       :                          @12
    404: 02                       unlikely
    405: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   410: 80 ab 04                 r11 = u32 [r10 + 0x4]
+   410: 80 ab 04                 r11 = u32 [r10 + 4]
    413: 64 b3                    r3 = r11
    415: 33 04 00 10 f0 0f        r4 = 0xff01000
    421: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
@@ -27324,7 +27353,7 @@ Initial program counter: 13
       :                          @15
    443: 02                       unlikely
    444: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   449: 80 ab 04                 r11 = u32 [r10 + 0x4]
+   449: 80 ab 04                 r11 = u32 [r10 + 4]
    452: 64 b3                    r3 = r11
    454: 33 04 00 00 0f           r4 = 0xf0000
    459: 83 44 ff 00              i32 r4 = r4 + 0xff
@@ -27342,7 +27371,7 @@ Initial program counter: 13
       :                          @18
    488: 02                       unlikely
    489: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   494: 80 ab 04                 r11 = u32 [r10 + 0x4]
+   494: 80 ab 04                 r11 = u32 [r10 + 4]
    497: 64 b3                    r3 = r11
    499: 33 04 00 00 01           r4 = 0x10000
    504: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
@@ -27360,7 +27389,7 @@ Initial program counter: 13
       :                          @21
    534: 02                       unlikely
    535: 3a 0a 10 00 01           r10 = u64 [0x10010]
-   540: 80 ab 04                 r11 = u32 [r10 + 0x4]
+   540: 80 ab 04                 r11 = u32 [r10 + 4]
    543: 33 04 00 10 f0 0f        r4 = 0xff01000
    549: 83 44 f0                 i32 r4 = r4 + 0xfffffffffffffff0
    552: ab 4b 8d 00              jump 693 if r11 != r4
@@ -27375,7 +27404,7 @@ Initial program counter: 13
       :                          @24
    571: 02                       unlikely
    572: 3a 0a 18 00 01           r10 = u64 [0x10018]
-   577: 80 ab 04                 r11 = u32 [r10 + 0x4]
+   577: 80 ab 04                 r11 = u32 [r10 + 4]
    580: 33 04 00 00 0f           r4 = 0xf0000
    585: 83 44 ff 00              i32 r4 = r4 + 0xff
    589: 97 44 0c                 r4 = r4 << 0xc
@@ -27392,7 +27421,7 @@ Initial program counter: 13
       :                          @27
    613: 02                       unlikely
    614: 3a 0a 00 00 01           r10 = u64 [0x10000]
-   619: 80 ab 04                 r11 = u32 [r10 + 0x4]
+   619: 80 ab 04                 r11 = u32 [r10 + 4]
    622: 33 04 00 00 01           r4 = 0x10000
    627: 83 44 01 ff              i32 r4 = r4 + 0xffffffffffffff01
    631: 97 44 10                 r4 = r4 << 0x10
@@ -27477,7 +27506,7 @@ Gas simulation at offset 47 with total cost of 52:
     .D==eER................................................  r12 = r12 << 0x10
     .D===eER...............................................  r12 = r12 + 0xffffffffffffff00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 0x4]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 4]
     ..DeE------------------------------------------------R.  r4 = 0x10000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     ..D===eE---------------------------------------------R.  r4 = r4 << 0x10
@@ -27493,7 +27522,7 @@ Gas simulation at offset 94 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xff01000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xfffffffffffffff0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 0x8]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 8]
     ..DeE------------------------------------------------R.  r4 = 0xff01000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     ..D=================================================eER  jump 693 if r11 != r4
@@ -27508,7 +27537,7 @@ Gas simulation at offset 128 with total cost of 52:
     .D==eER................................................  r12 = r12 << 0xc
     .D===eER...............................................  r12 = r12 + 0xf
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r1 = u64 [0x10000]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 0xc]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 12]
     ..DeE------------------------------------------------R.  r4 = 0xf0000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xff
     ..D===eE---------------------------------------------R.  r4 = r4 << 0xc
@@ -27524,7 +27553,7 @@ Gas simulation at offset 173 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xff0000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xff
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 0xfffffffffffffff4]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 - 12]
     ..DeE------------------------------------------------R.  r4 = 0xff0000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xff
     ..D=================================================eER  jump 693 if r11 != r4
@@ -27539,7 +27568,7 @@ Gas simulation at offset 209 with total cost of 52:
     .D==eER................................................  r12 = r12 << 0x10
     .D===eER...............................................  r12 = r12 + 0xffffffffffffff00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 0xfffffffffffffff8]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 - 8]
     ..DeE------------------------------------------------R.  r4 = 0x10000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     ..D===eE---------------------------------------------R.  r4 = r4 << 0x10
@@ -27555,7 +27584,7 @@ Gas simulation at offset 256 with total cost of 52:
     DeE---------------------------------------R............  r12 = 0xff01000
     .DeeE-------------------------------------R............  i32 r12 = r12 + 0xfffffffffffffff0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R............  r1 = u64 [0x10008]
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 + 0xfffffffffffffffc]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r1 - 4]
     ..DeE------------------------------------------------R.  r4 = 0xff01000
     ..D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     ..D=================================================eER  jump 693 if r11 != r4
@@ -27585,7 +27614,7 @@ Gas simulation at offset 334 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xa
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xffffffffffffffe0
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u32 [r0 + 0x20]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u32 [r0 + 32]
     .DeE-------------------------------------------------R.  r4 = 0xff0000
     .D=eeE-----------------------------------------------R.  i32 r4 = r4 + 0xff
     ..D=================================================eER  jump 693 if r2 != r4
@@ -27598,7 +27627,7 @@ Gas simulation at offset 363 with total cost of 52:
     DeE---------------------------------------R............  r5 = 0xb
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R............  r0 = u64 [0x10000]
     D=========================eE--------------R............  r0 = r0 + 0xfffffffffffffffd
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u32 [r0 + 0x7]
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u32 [r0 + 7]
     .DeE-------------------------------------------------R.  r4 = 0x10000
     .D=eeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     ..D==eE----------------------------------------------R.  r4 = r4 << 0x10
@@ -27619,7 +27648,7 @@ Gas simulation at offset 404 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 4]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xff01000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
@@ -27647,7 +27676,7 @@ Gas simulation at offset 443 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 4]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0xf0000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xff
@@ -27677,7 +27706,7 @@ Gas simulation at offset 488 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 4]
     D.....................................................  r3 = r11
     .DeE------------------------------------------------R.  r4 = 0x10000
     .D=eeE----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
@@ -27707,7 +27736,7 @@ Gas simulation at offset 534 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10010]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 4]
     DeE-------------------------------------------------R.  r4 = 0xff01000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffff0
     .D=================================================eER  jump 693 if r11 != r4
@@ -27734,7 +27763,7 @@ Gas simulation at offset 571 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10018]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 4]
     DeE-------------------------------------------------R.  r4 = 0xf0000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xff
     .D==eE----------------------------------------------R.  r4 = r4 << 0xc
@@ -27763,7 +27792,7 @@ Gas simulation at offset 613 with total cost of 51:
 ```
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r10 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u32 [r10 + 4]
     DeE-------------------------------------------------R.  r4 = 0x10000
     .DeeE-----------------------------------------------R.  i32 r4 = r4 + 0xffffffffffffff01
     .D==eE----------------------------------------------R.  r4 = r4 << 0x10
@@ -27844,7 +27873,7 @@ Initial program counter: 13
     13: 3a 05 00 00 01           r5 = u64 [0x10000]
     18: 33 0c 01                 r12 = 0x1
     21: 33 03 01 02              r3 = 0x201
-    25: 7f 54 01                 r4 = i16 [r5 + 0x1]
+    25: 7f 54 01                 r4 = i16 [r5 + 1]
     28: aa 43 06                 jump 34 if r3 == r4
       :                          @2
     31: 28 45 1a                 jump 6756
@@ -27852,7 +27881,7 @@ Initial program counter: 13
     34: 02                       unlikely
     35: 33 0c 02                 r12 = 0x2
     38: 33 03 01 02              r3 = 0x201
-    42: 7e 54 01                 r4 = u16 [r5 + 0x1]
+    42: 7e 54 01                 r4 = u16 [r5 + 1]
     45: aa 43 06                 jump 51 if r3 == r4
       :                          @4
     48: 28 34 1a                 jump 6756
@@ -27861,7 +27890,7 @@ Initial program counter: 13
     52: 33 0c 03                 r12 = 0x3
     55: 33 03 00 00 03 04        r3 = 0x4030000
     61: 83 33 01 02              i32 r3 = r3 + 0x201
-    65: 81 54 01                 r4 = i32 [r5 + 0x1]
+    65: 81 54 01                 r4 = i32 [r5 + 1]
     68: aa 43 06                 jump 74 if r3 == r4
       :                          @6
     71: 28 1d 1a                 jump 6756
@@ -27870,7 +27899,7 @@ Initial program counter: 13
     75: 33 0c 04                 r12 = 0x4
     78: 33 03 00 00 04 05        r3 = 0x5040000
     84: 83 33 02 03              i32 r3 = r3 + 0x302
-    88: 81 54 02                 r4 = i32 [r5 + 0x2]
+    88: 81 54 02                 r4 = i32 [r5 + 2]
     91: aa 43 06                 jump 97 if r3 == r4
       :                          @8
     94: 28 06 1a                 jump 6756
@@ -27879,7 +27908,7 @@ Initial program counter: 13
     98: 33 0c 05                 r12 = 0x5
    101: 33 03 00 00 05 06        r3 = 0x6050000
    107: 83 33 03 04              i32 r3 = r3 + 0x403
-   111: 81 54 03                 r4 = i32 [r5 + 0x3]
+   111: 81 54 03                 r4 = i32 [r5 + 3]
    114: aa 43 06                 jump 120 if r3 == r4
       :                          @10
    117: 28 ef 19                 jump 6756
@@ -27888,7 +27917,7 @@ Initial program counter: 13
    121: 33 0c 06                 r12 = 0x6
    124: 33 03 00 00 03 04        r3 = 0x4030000
    130: 83 33 01 02              i32 r3 = r3 + 0x201
-   134: 80 54 01                 r4 = u32 [r5 + 0x1]
+   134: 80 54 01                 r4 = u32 [r5 + 1]
    137: aa 43 06                 jump 143 if r3 == r4
       :                          @12
    140: 28 d8 19                 jump 6756
@@ -27897,7 +27926,7 @@ Initial program counter: 13
    144: 33 0c 07                 r12 = 0x7
    147: 33 03 00 00 04 05        r3 = 0x5040000
    153: 83 33 02 03              i32 r3 = r3 + 0x302
-   157: 80 54 02                 r4 = u32 [r5 + 0x2]
+   157: 80 54 02                 r4 = u32 [r5 + 2]
    160: aa 43 06                 jump 166 if r3 == r4
       :                          @14
    163: 28 c1 19                 jump 6756
@@ -27906,7 +27935,7 @@ Initial program counter: 13
    167: 33 0c 08                 r12 = 0x8
    170: 33 03 00 00 05 06        r3 = 0x6050000
    176: 83 33 03 04              i32 r3 = r3 + 0x403
-   180: 80 54 03                 r4 = u32 [r5 + 0x3]
+   180: 80 54 03                 r4 = u32 [r5 + 3]
    183: aa 43 06                 jump 189 if r3 == r4
       :                          @16
    186: 28 aa 19                 jump 6756
@@ -27919,7 +27948,7 @@ Initial program counter: 13
    206: 95 33 03 04              r3 = r3 + 0x403
    210: 97 33 10                 r3 = r3 << 0x10
    213: 95 33 01 02              r3 = r3 + 0x201
-   217: 82 54 01                 r4 = u64 [r5 + 0x1]
+   217: 82 54 01                 r4 = u64 [r5 + 1]
    220: aa 43 06                 jump 226 if r3 == r4
       :                          @18
    223: 28 85 19                 jump 6756
@@ -27932,7 +27961,7 @@ Initial program counter: 13
    243: 95 33 41 01              r3 = r3 + 0x141
    247: 97 33 12                 r3 = r3 << 0x12
    250: 95 33 02 03              r3 = r3 + 0x302
-   254: 82 54 02                 r4 = u64 [r5 + 0x2]
+   254: 82 54 02                 r4 = u64 [r5 + 2]
    257: aa 43 06                 jump 263 if r3 == r4
       :                          @20
    260: 28 60 19                 jump 6756
@@ -27945,7 +27974,7 @@ Initial program counter: 13
    280: 95 33 05 06              r3 = r3 + 0x605
    284: 97 33 10                 r3 = r3 << 0x10
    287: 95 33 03 04              r3 = r3 + 0x403
-   291: 82 54 03                 r4 = u64 [r5 + 0x3]
+   291: 82 54 03                 r4 = u64 [r5 + 3]
    294: aa 43 06                 jump 300 if r3 == r4
       :                          @22
    297: 28 3b 19                 jump 6756
@@ -27958,7 +27987,7 @@ Initial program counter: 13
    317: 95 33 83 03              r3 = r3 + 0x383
    321: 97 33 11                 r3 = r3 << 0x11
    324: 95 33 04 05              r3 = r3 + 0x504
-   328: 82 54 04                 r4 = u64 [r5 + 0x4]
+   328: 82 54 04                 r4 = u64 [r5 + 4]
    331: aa 43 06                 jump 337 if r3 == r4
       :                          @24
    334: 28 16 19                 jump 6756
@@ -27972,7 +28001,7 @@ Initial program counter: 13
    359: 95 33 07 f8              r3 = r3 + 0xfffffffffffff807
    363: 97 33 10                 r3 = r3 << 0x10
    366: 95 33 05 06              r3 = r3 + 0x605
-   370: 82 54 05                 r4 = u64 [r5 + 0x5]
+   370: 82 54 05                 r4 = u64 [r5 + 5]
    373: aa 43 06                 jump 379 if r3 == r4
       :                          @26
    376: 28 ec 18                 jump 6756
@@ -27985,7 +28014,7 @@ Initial program counter: 13
    396: 95 33 21 01              r3 = r3 + 0x121
    400: 97 33 13                 r3 = r3 << 0x13
    403: 95 33 06 07              r3 = r3 + 0x706
-   407: 82 54 06                 r4 = u64 [r5 + 0x6]
+   407: 82 54 06                 r4 = u64 [r5 + 6]
    410: aa 43 06                 jump 416 if r3 == r4
       :                          @28
    413: 28 c7 18                 jump 6756
@@ -27999,7 +28028,7 @@ Initial program counter: 13
    438: 95 33 91 00              r3 = r3 + 0x91
    442: 97 33 0c                 r3 = r3 << 0xc
    445: 95 33 07 f8              r3 = r3 + 0xfffffffffffff807
-   449: 82 54 07                 r4 = u64 [r5 + 0x7]
+   449: 82 54 07                 r4 = u64 [r5 + 7]
    452: aa 43 06                 jump 458 if r3 == r4
       :                          @30
    455: 28 9d 18                 jump 6756
@@ -28008,7 +28037,7 @@ Initial program counter: 13
    459: 33 0c 10                 r12 = 0x10
    462: 33 03 00 20              r3 = 0x2000
    466: 83 33 1f                 i32 r3 = r3 + 0x1f
-   469: 7f 54 1f                 r4 = i16 [r5 + 0x1f]
+   469: 7f 54 1f                 r4 = i16 [r5 + 31]
    472: aa 43 06                 jump 478 if r3 == r4
       :                          @32
    475: 28 89 18                 jump 6756
@@ -28017,7 +28046,7 @@ Initial program counter: 13
    479: 33 0c 11                 r12 = 0x11
    482: 33 03 00 20              r3 = 0x2000
    486: 83 33 1f                 i32 r3 = r3 + 0x1f
-   489: 7e 54 1f                 r4 = u16 [r5 + 0x1f]
+   489: 7e 54 1f                 r4 = u16 [r5 + 31]
    492: aa 43 06                 jump 498 if r3 == r4
       :                          @34
    495: 28 75 18                 jump 6756
@@ -28026,7 +28055,7 @@ Initial program counter: 13
    499: 33 0c 12                 r12 = 0x12
    502: 33 03 00 20 1f 20        r3 = 0x201f2000
    508: 83 33 1d fe              i32 r3 = r3 + 0xfffffffffffffe1d
-   512: 81 54 1d                 r4 = i32 [r5 + 0x1d]
+   512: 81 54 1d                 r4 = i32 [r5 + 29]
    515: aa 43 06                 jump 521 if r3 == r4
       :                          @36
    518: 28 5e 18                 jump 6756
@@ -28035,7 +28064,7 @@ Initial program counter: 13
    522: 33 0c 13                 r12 = 0x13
    525: 33 03 00 20 20 21        r3 = 0x21202000
    531: 83 33 1e ff              i32 r3 = r3 + 0xffffffffffffff1e
-   535: 81 54 1e                 r4 = i32 [r5 + 0x1e]
+   535: 81 54 1e                 r4 = i32 [r5 + 30]
    538: aa 43 06                 jump 544 if r3 == r4
       :                          @38
    541: 28 47 18                 jump 6756
@@ -28044,7 +28073,7 @@ Initial program counter: 13
    545: 33 0c 14                 r12 = 0x14
    548: 33 03 00 20 21 22        r3 = 0x22212000
    554: 83 33 1f                 i32 r3 = r3 + 0x1f
-   557: 81 54 1f                 r4 = i32 [r5 + 0x1f]
+   557: 81 54 1f                 r4 = i32 [r5 + 31]
    560: aa 43 06                 jump 566 if r3 == r4
       :                          @40
    563: 28 31 18                 jump 6756
@@ -28053,7 +28082,7 @@ Initial program counter: 13
    567: 33 0c 15                 r12 = 0x15
    570: 33 03 00 20 1f 20        r3 = 0x201f2000
    576: 83 33 1d fe              i32 r3 = r3 + 0xfffffffffffffe1d
-   580: 80 54 1d                 r4 = u32 [r5 + 0x1d]
+   580: 80 54 1d                 r4 = u32 [r5 + 29]
    583: aa 43 06                 jump 589 if r3 == r4
       :                          @42
    586: 28 1a 18                 jump 6756
@@ -28062,7 +28091,7 @@ Initial program counter: 13
    590: 33 0c 16                 r12 = 0x16
    593: 33 03 00 20 20 21        r3 = 0x21202000
    599: 83 33 1e ff              i32 r3 = r3 + 0xffffffffffffff1e
-   603: 80 54 1e                 r4 = u32 [r5 + 0x1e]
+   603: 80 54 1e                 r4 = u32 [r5 + 30]
    606: aa 43 06                 jump 612 if r3 == r4
       :                          @44
    609: 28 03 18                 jump 6756
@@ -28071,7 +28100,7 @@ Initial program counter: 13
    613: 33 0c 17                 r12 = 0x17
    616: 33 03 00 20 21 22        r3 = 0x22212000
    622: 83 33 1f                 i32 r3 = r3 + 0x1f
-   625: 80 54 1f                 r4 = u32 [r5 + 0x1f]
+   625: 80 54 1f                 r4 = u32 [r5 + 31]
    628: aa 43 06                 jump 634 if r3 == r4
       :                          @46
    631: 28 ed 17                 jump 6756
@@ -28085,7 +28114,7 @@ Initial program counter: 13
    655: 95 33 d9 00              r3 = r3 + 0xd9
    659: 97 33 0d                 r3 = r3 << 0xd
    662: 95 33 19 fa              r3 = r3 + 0xfffffffffffffa19
-   666: 82 54 19                 r4 = u64 [r5 + 0x19]
+   666: 82 54 19                 r4 = u64 [r5 + 25]
    669: aa 43 06                 jump 675 if r3 == r4
       :                          @48
    672: 28 c4 17                 jump 6756
@@ -28099,7 +28128,7 @@ Initial program counter: 13
    698: 95 33 e1 f8              r3 = r3 + 0xfffffffffffff8e1
    702: 97 33 0d                 r3 = r3 << 0xd
    705: 95 33 1a fb              r3 = r3 + 0xfffffffffffffb1a
-   709: 82 54 1a                 r4 = u64 [r5 + 0x1a]
+   709: 82 54 1a                 r4 = u64 [r5 + 26]
    712: aa 43 06                 jump 718 if r3 == r4
       :                          @50
    715: 28 99 17                 jump 6756
@@ -28113,7 +28142,7 @@ Initial program counter: 13
    740: 95 33 e9 00              r3 = r3 + 0xe9
    744: 97 33 0d                 r3 = r3 << 0xd
    747: 95 33 1b fc              r3 = r3 + 0xfffffffffffffc1b
-   751: 82 54 1b                 r4 = u64 [r5 + 0x1b]
+   751: 82 54 1b                 r4 = u64 [r5 + 27]
    754: aa 43 06                 jump 760 if r3 == r4
       :                          @52
    757: 28 6f 17                 jump 6756
@@ -28127,7 +28156,7 @@ Initial program counter: 13
    782: 95 33 f1 f8              r3 = r3 + 0xfffffffffffff8f1
    786: 97 33 0d                 r3 = r3 << 0xd
    789: 95 33 1c fd              r3 = r3 + 0xfffffffffffffd1c
-   793: 82 54 1c                 r4 = u64 [r5 + 0x1c]
+   793: 82 54 1c                 r4 = u64 [r5 + 28]
    796: aa 43 06                 jump 802 if r3 == r4
       :                          @54
    799: 28 45 17                 jump 6756
@@ -28141,7 +28170,7 @@ Initial program counter: 13
    824: 95 33 f9 00              r3 = r3 + 0xf9
    828: 97 33 0d                 r3 = r3 << 0xd
    831: 95 33 1d fe              r3 = r3 + 0xfffffffffffffe1d
-   835: 82 54 1d                 r4 = u64 [r5 + 0x1d]
+   835: 82 54 1d                 r4 = u64 [r5 + 29]
    838: aa 43 06                 jump 844 if r3 == r4
       :                          @56
    841: 28 1b 17                 jump 6756
@@ -28155,7 +28184,7 @@ Initial program counter: 13
    867: 95 33 01 f9              r3 = r3 + 0xfffffffffffff901
    871: 97 33 0d                 r3 = r3 << 0xd
    874: 95 33 1e ff              r3 = r3 + 0xffffffffffffff1e
-   878: 82 54 1e                 r4 = u64 [r5 + 0x1e]
+   878: 82 54 1e                 r4 = u64 [r5 + 30]
    881: aa 43 06                 jump 887 if r3 == r4
       :                          @58
    884: 28 f0 16                 jump 6756
@@ -28169,7 +28198,7 @@ Initial program counter: 13
    910: 95 33 09 01              r3 = r3 + 0x109
    914: 97 33 0d                 r3 = r3 << 0xd
    917: 95 33 1f                 r3 = r3 + 0x1f
-   920: 82 54 1f                 r4 = u64 [r5 + 0x1f]
+   920: 82 54 1f                 r4 = u64 [r5 + 31]
    923: aa 43 06                 jump 929 if r3 == r4
       :                          @60
    926: 28 c6 16                 jump 6756
@@ -28178,7 +28207,7 @@ Initial program counter: 13
    930: 33 0c 1f                 r12 = 0x1f
    933: 33 03 00 40              r3 = 0x4000
    937: 83 33 3f                 i32 r3 = r3 + 0x3f
-   940: 7f 54 3f                 r4 = i16 [r5 + 0x3f]
+   940: 7f 54 3f                 r4 = i16 [r5 + 63]
    943: aa 43 06                 jump 949 if r3 == r4
       :                          @62
    946: 28 b2 16                 jump 6756
@@ -28187,7 +28216,7 @@ Initial program counter: 13
    950: 33 0c 20                 r12 = 0x20
    953: 33 03 00 40              r3 = 0x4000
    957: 83 33 3f                 i32 r3 = r3 + 0x3f
-   960: 7e 54 3f                 r4 = u16 [r5 + 0x3f]
+   960: 7e 54 3f                 r4 = u16 [r5 + 63]
    963: aa 43 06                 jump 969 if r3 == r4
       :                          @64
    966: 28 9e 16                 jump 6756
@@ -28196,7 +28225,7 @@ Initial program counter: 13
    970: 33 0c 21                 r12 = 0x21
    973: 33 03 00 40 3f 40        r3 = 0x403f4000
    979: 83 33 3d fe              i32 r3 = r3 + 0xfffffffffffffe3d
-   983: 81 54 3d                 r4 = i32 [r5 + 0x3d]
+   983: 81 54 3d                 r4 = i32 [r5 + 61]
    986: aa 43 06                 jump 992 if r3 == r4
       :                          @66
    989: 28 87 16                 jump 6756
@@ -28205,7 +28234,7 @@ Initial program counter: 13
    993: 33 0c 22                 r12 = 0x22
    996: 33 03 00 40 40 41        r3 = 0x41404000
   1002: 83 33 3e ff              i32 r3 = r3 + 0xffffffffffffff3e
-  1006: 81 54 3e                 r4 = i32 [r5 + 0x3e]
+  1006: 81 54 3e                 r4 = i32 [r5 + 62]
   1009: aa 43 06                 jump 1015 if r3 == r4
       :                          @68
   1012: 28 70 16                 jump 6756
@@ -28214,7 +28243,7 @@ Initial program counter: 13
   1016: 33 0c 23                 r12 = 0x23
   1019: 33 03 00 40 41 42        r3 = 0x42414000
   1025: 83 33 3f                 i32 r3 = r3 + 0x3f
-  1028: 81 54 3f                 r4 = i32 [r5 + 0x3f]
+  1028: 81 54 3f                 r4 = i32 [r5 + 63]
   1031: aa 43 06                 jump 1037 if r3 == r4
       :                          @70
   1034: 28 5a 16                 jump 6756
@@ -28223,7 +28252,7 @@ Initial program counter: 13
   1038: 33 0c 24                 r12 = 0x24
   1041: 33 03 00 40 3f 40        r3 = 0x403f4000
   1047: 83 33 3d fe              i32 r3 = r3 + 0xfffffffffffffe3d
-  1051: 80 54 3d                 r4 = u32 [r5 + 0x3d]
+  1051: 80 54 3d                 r4 = u32 [r5 + 61]
   1054: aa 43 06                 jump 1060 if r3 == r4
       :                          @72
   1057: 28 43 16                 jump 6756
@@ -28232,7 +28261,7 @@ Initial program counter: 13
   1061: 33 0c 25                 r12 = 0x25
   1064: 33 03 00 40 40 41        r3 = 0x41404000
   1070: 83 33 3e ff              i32 r3 = r3 + 0xffffffffffffff3e
-  1074: 80 54 3e                 r4 = u32 [r5 + 0x3e]
+  1074: 80 54 3e                 r4 = u32 [r5 + 62]
   1077: aa 43 06                 jump 1083 if r3 == r4
       :                          @74
   1080: 28 2c 16                 jump 6756
@@ -28241,7 +28270,7 @@ Initial program counter: 13
   1084: 33 0c 26                 r12 = 0x26
   1087: 33 03 00 40 41 42        r3 = 0x42414000
   1093: 83 33 3f                 i32 r3 = r3 + 0x3f
-  1096: 80 54 3f                 r4 = u32 [r5 + 0x3f]
+  1096: 80 54 3f                 r4 = u32 [r5 + 63]
   1099: aa 43 06                 jump 1105 if r3 == r4
       :                          @76
   1102: 28 16 16                 jump 6756
@@ -28255,7 +28284,7 @@ Initial program counter: 13
   1128: 95 33 ed 00              r3 = r3 + 0xed
   1132: 97 33 0e                 r3 = r3 << 0xe
   1135: 95 33 39 fa              r3 = r3 + 0xfffffffffffffa39
-  1139: 82 54 39                 r4 = u64 [r5 + 0x39]
+  1139: 82 54 39                 r4 = u64 [r5 + 57]
   1142: aa 43 06                 jump 1148 if r3 == r4
       :                          @78
   1145: 28 eb 15                 jump 6756
@@ -28269,7 +28298,7 @@ Initial program counter: 13
   1170: 95 33 f1 04              r3 = r3 + 0x4f1
   1174: 97 33 0e                 r3 = r3 << 0xe
   1177: 95 33 3a fb              r3 = r3 + 0xfffffffffffffb3a
-  1181: 82 54 3a                 r4 = u64 [r5 + 0x3a]
+  1181: 82 54 3a                 r4 = u64 [r5 + 58]
   1184: aa 43 06                 jump 1190 if r3 == r4
       :                          @80
   1187: 28 c1 15                 jump 6756
@@ -28283,7 +28312,7 @@ Initial program counter: 13
   1212: 95 33 f5 f8              r3 = r3 + 0xfffffffffffff8f5
   1216: 97 33 0e                 r3 = r3 << 0xe
   1219: 95 33 3b fc              r3 = r3 + 0xfffffffffffffc3b
-  1223: 82 54 3b                 r4 = u64 [r5 + 0x3b]
+  1223: 82 54 3b                 r4 = u64 [r5 + 59]
   1226: aa 43 06                 jump 1232 if r3 == r4
       :                          @82
   1229: 28 97 15                 jump 6756
@@ -28297,7 +28326,7 @@ Initial program counter: 13
   1254: 95 33 f9 fc              r3 = r3 + 0xfffffffffffffcf9
   1258: 97 33 0e                 r3 = r3 << 0xe
   1261: 95 33 3c fd              r3 = r3 + 0xfffffffffffffd3c
-  1265: 82 54 3c                 r4 = u64 [r5 + 0x3c]
+  1265: 82 54 3c                 r4 = u64 [r5 + 60]
   1268: aa 43 06                 jump 1274 if r3 == r4
       :                          @84
   1271: 28 6d 15                 jump 6756
@@ -28311,7 +28340,7 @@ Initial program counter: 13
   1296: 95 33 fd 00              r3 = r3 + 0xfd
   1300: 97 33 0e                 r3 = r3 << 0xe
   1303: 95 33 3d fe              r3 = r3 + 0xfffffffffffffe3d
-  1307: 82 54 3d                 r4 = u64 [r5 + 0x3d]
+  1307: 82 54 3d                 r4 = u64 [r5 + 61]
   1310: aa 43 06                 jump 1316 if r3 == r4
       :                          @86
   1313: 28 43 15                 jump 6756
@@ -28325,7 +28354,7 @@ Initial program counter: 13
   1338: 95 33 01 05              r3 = r3 + 0x501
   1342: 97 33 0e                 r3 = r3 << 0xe
   1345: 95 33 3e ff              r3 = r3 + 0xffffffffffffff3e
-  1349: 82 54 3e                 r4 = u64 [r5 + 0x3e]
+  1349: 82 54 3e                 r4 = u64 [r5 + 62]
   1352: aa 43 06                 jump 1358 if r3 == r4
       :                          @88
   1355: 28 19 15                 jump 6756
@@ -28339,7 +28368,7 @@ Initial program counter: 13
   1381: 95 33 05 f9              r3 = r3 + 0xfffffffffffff905
   1385: 97 33 0e                 r3 = r3 << 0xe
   1388: 95 33 3f                 r3 = r3 + 0x3f
-  1391: 82 54 3f                 r4 = u64 [r5 + 0x3f]
+  1391: 82 54 3f                 r4 = u64 [r5 + 63]
   1394: aa 43 06                 jump 1400 if r3 == r4
       :                          @90
   1397: 28 ef 14                 jump 6756
@@ -28348,8 +28377,8 @@ Initial program counter: 13
   1401: 33 0c 2e                 r12 = 0x2e
   1404: 33 03 00 80              r3 = 0xffffffffffff8000
   1408: 83 33 80 01              i32 r3 = r3 + 0x180
-  1412: 79 53 01                 u16 [r5 + 0x1] = r3
-  1415: 7f 54 01                 r4 = i16 [r5 + 0x1]
+  1412: 79 53 01                 u16 [r5 + 1] = r3
+  1415: 7f 54 01                 r4 = i16 [r5 + 1]
   1418: aa 43 06                 jump 1424 if r3 == r4
       :                          @92
   1421: 28 d7 14                 jump 6756
@@ -28358,8 +28387,8 @@ Initial program counter: 13
   1425: 33 0c 2f                 r12 = 0x2f
   1428: 33 03 00 80 00           r3 = 0x8000
   1433: 83 33 82 03              i32 r3 = r3 + 0x382
-  1437: 79 53 01                 u16 [r5 + 0x1] = r3
-  1440: 7e 54 01                 r4 = u16 [r5 + 0x1]
+  1437: 79 53 01                 u16 [r5 + 1] = r3
+  1440: 7e 54 01                 r4 = u16 [r5 + 1]
   1443: aa 43 06                 jump 1449 if r3 == r4
       :                          @94
   1446: 28 be 14                 jump 6756
@@ -28368,8 +28397,8 @@ Initial program counter: 13
   1450: 33 0c 30                 r12 = 0x30
   1453: 33 03 00 80 86 87        r3 = 0xffffffff87868000
   1459: 83 33 84 05              i32 r3 = r3 + 0x584
-  1463: 7a 53 01                 u32 [r5 + 0x1] = r3
-  1466: 81 54 01                 r4 = i32 [r5 + 0x1]
+  1463: 7a 53 01                 u32 [r5 + 1] = r3
+  1466: 81 54 01                 r4 = i32 [r5 + 1]
   1469: aa 43 06                 jump 1475 if r3 == r4
       :                          @96
   1472: 28 a4 14                 jump 6756
@@ -28378,8 +28407,8 @@ Initial program counter: 13
   1476: 33 0c 31                 r12 = 0x31
   1479: 33 03 00 90 8a 8b        r3 = 0xffffffff8b8a9000
   1485: 83 33 88 f9              i32 r3 = r3 + 0xfffffffffffff988
-  1489: 7a 53 02                 u32 [r5 + 0x2] = r3
-  1492: 81 54 02                 r4 = i32 [r5 + 0x2]
+  1489: 7a 53 02                 u32 [r5 + 2] = r3
+  1492: 81 54 02                 r4 = i32 [r5 + 2]
   1495: aa 43 06                 jump 1501 if r3 == r4
       :                          @98
   1498: 28 8a 14                 jump 6756
@@ -28388,8 +28417,8 @@ Initial program counter: 13
   1502: 33 0c 32                 r12 = 0x32
   1505: 33 03 00 90 8e 8f        r3 = 0xffffffff8f8e9000
   1511: 83 33 8c fd              i32 r3 = r3 + 0xfffffffffffffd8c
-  1515: 7a 53 03                 u32 [r5 + 0x3] = r3
-  1518: 81 54 03                 r4 = i32 [r5 + 0x3]
+  1515: 7a 53 03                 u32 [r5 + 3] = r3
+  1518: 81 54 03                 r4 = i32 [r5 + 3]
   1521: aa 43 06                 jump 1527 if r3 == r4
       :                          @100
   1524: 28 70 14                 jump 6756
@@ -28399,8 +28428,8 @@ Initial program counter: 13
   1535: 83 33 29 f9              i32 r3 = r3 + 0xfffffffffffff929
   1539: 97 33 0c                 r3 = r3 << 0xc
   1542: 95 33 90 01              r3 = r3 + 0x190
-  1546: 7a 53 01                 u32 [r5 + 0x1] = r3
-  1549: 80 54 01                 r4 = u32 [r5 + 0x1]
+  1546: 7a 53 01                 u32 [r5 + 1] = r3
+  1549: 80 54 01                 r4 = u32 [r5 + 1]
   1552: aa 43 06                 jump 1558 if r3 == r4
       :                          @102
   1555: 28 51 14                 jump 6756
@@ -28410,8 +28439,8 @@ Initial program counter: 13
   1566: 83 33 69 f9              i32 r3 = r3 + 0xfffffffffffff969
   1570: 97 33 0c                 r3 = r3 << 0xc
   1573: 95 33 94 05              r3 = r3 + 0x594
-  1577: 7a 53 02                 u32 [r5 + 0x2] = r3
-  1580: 80 54 02                 r4 = u32 [r5 + 0x2]
+  1577: 7a 53 02                 u32 [r5 + 2] = r3
+  1580: 80 54 02                 r4 = u32 [r5 + 2]
   1583: aa 43 06                 jump 1589 if r3 == r4
       :                          @104
   1586: 28 32 14                 jump 6756
@@ -28421,8 +28450,8 @@ Initial program counter: 13
   1597: 83 33 d5 fc              i32 r3 = r3 + 0xfffffffffffffcd5
   1601: 97 33 0d                 r3 = r3 << 0xd
   1604: 95 33 98 f9              r3 = r3 + 0xfffffffffffff998
-  1608: 7a 53 03                 u32 [r5 + 0x3] = r3
-  1611: 80 54 03                 r4 = u32 [r5 + 0x3]
+  1608: 7a 53 03                 u32 [r5 + 3] = r3
+  1611: 80 54 03                 r4 = u32 [r5 + 3]
   1614: aa 43 06                 jump 1620 if r3 == r4
       :                          @106
   1617: 28 13 14                 jump 6756
@@ -28436,8 +28465,8 @@ Initial program counter: 13
   1642: 95 33 f5 fc              r3 = r3 + 0xfffffffffffffcf5
   1646: 97 33 0d                 r3 = r3 << 0xd
   1649: 95 33 9c fd              r3 = r3 + 0xfffffffffffffd9c
-  1653: 7b 53 01                 u64 [r5 + 0x1] = r3
-  1656: 82 54 01                 r4 = u64 [r5 + 0x1]
+  1653: 7b 53 01                 u64 [r5 + 1] = r3
+  1656: 82 54 01                 r4 = u64 [r5 + 1]
   1659: aa 43 06                 jump 1665 if r3 == r4
       :                          @108
   1662: 28 e6 13                 jump 6756
@@ -28451,8 +28480,8 @@ Initial program counter: 13
   1688: 95 33 35 fd              r3 = r3 + 0xfffffffffffffd35
   1692: 97 33 0d                 r3 = r3 << 0xd
   1695: 95 33 a4 05              r3 = r3 + 0x5a4
-  1699: 7b 53 02                 u64 [r5 + 0x2] = r3
-  1702: 82 54 02                 r4 = u64 [r5 + 0x2]
+  1699: 7b 53 02                 u64 [r5 + 2] = r3
+  1702: 82 54 02                 r4 = u64 [r5 + 2]
   1705: aa 43 06                 jump 1711 if r3 == r4
       :                          @110
   1708: 28 b8 13                 jump 6756
@@ -28466,8 +28495,8 @@ Initial program counter: 13
   1733: 95 33 eb fa              r3 = r3 + 0xfffffffffffffaeb
   1737: 97 33 0c                 r3 = r3 << 0xc
   1740: 95 33 ac fd              r3 = r3 + 0xfffffffffffffdac
-  1744: 7b 53 03                 u64 [r5 + 0x3] = r3
-  1747: 82 54 03                 r4 = u64 [r5 + 0x3]
+  1744: 7b 53 03                 u64 [r5 + 3] = r3
+  1747: 82 54 03                 r4 = u64 [r5 + 3]
   1750: aa 43 06                 jump 1756 if r3 == r4
       :                          @112
   1753: 28 8b 13                 jump 6756
@@ -28481,8 +28510,8 @@ Initial program counter: 13
   1779: 95 33 6b fb              r3 = r3 + 0xfffffffffffffb6b
   1783: 97 33 0c                 r3 = r3 << 0xc
   1786: 95 33 b4 05              r3 = r3 + 0x5b4
-  1790: 7b 53 04                 u64 [r5 + 0x4] = r3
-  1793: 82 54 04                 r4 = u64 [r5 + 0x4]
+  1790: 7b 53 04                 u64 [r5 + 4] = r3
+  1793: 82 54 04                 r4 = u64 [r5 + 4]
   1796: aa 43 06                 jump 1802 if r3 == r4
       :                          @114
   1799: 28 5d 13                 jump 6756
@@ -28496,8 +28525,8 @@ Initial program counter: 13
   1824: 95 33 fb fe              r3 = r3 + 0xfffffffffffffefb
   1828: 97 33 0e                 r3 = r3 << 0xe
   1831: 95 33 bc fd              r3 = r3 + 0xfffffffffffffdbc
-  1835: 7b 53 05                 u64 [r5 + 0x5] = r3
-  1838: 82 54 05                 r4 = u64 [r5 + 0x5]
+  1835: 7b 53 05                 u64 [r5 + 5] = r3
+  1838: 82 54 05                 r4 = u64 [r5 + 5]
   1841: aa 43 06                 jump 1847 if r3 == r4
       :                          @116
   1844: 28 30 13                 jump 6756
@@ -28511,8 +28540,8 @@ Initial program counter: 13
   1869: 95 33 1b ff              r3 = r3 + 0xffffffffffffff1b
   1873: 97 33 0e                 r3 = r3 << 0xe
   1876: 95 33 c4 05              r3 = r3 + 0x5c4
-  1880: 7b 53 06                 u64 [r5 + 0x6] = r3
-  1883: 82 54 06                 r4 = u64 [r5 + 0x6]
+  1880: 7b 53 06                 u64 [r5 + 6] = r3
+  1883: 82 54 06                 r4 = u64 [r5 + 6]
   1886: aa 43 06                 jump 1892 if r3 == r4
       :                          @118
   1889: 28 03 13                 jump 6756
@@ -28526,8 +28555,8 @@ Initial program counter: 13
   1914: 95 33 ed fc              r3 = r3 + 0xfffffffffffffced
   1918: 97 33 0c                 r3 = r3 << 0xc
   1921: 95 33 cc fd              r3 = r3 + 0xfffffffffffffdcc
-  1925: 7b 53 07                 u64 [r5 + 0x7] = r3
-  1928: 82 54 07                 r4 = u64 [r5 + 0x7]
+  1925: 7b 53 07                 u64 [r5 + 7] = r3
+  1928: 82 54 07                 r4 = u64 [r5 + 7]
   1931: aa 43 06                 jump 1937 if r3 == r4
       :                          @120
   1934: 28 d6 12                 jump 6756
@@ -28536,8 +28565,8 @@ Initial program counter: 13
   1938: 33 0c 3d                 r12 = 0x3d
   1941: 33 03 00 d0              r3 = 0xffffffffffffd000
   1945: 83 33 d4 05              i32 r3 = r3 + 0x5d4
-  1949: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  1952: 7f 54 1f                 r4 = i16 [r5 + 0x1f]
+  1949: 79 53 1f                 u16 [r5 + 31] = r3
+  1952: 7f 54 1f                 r4 = i16 [r5 + 31]
   1955: aa 43 06                 jump 1961 if r3 == r4
       :                          @122
   1958: 28 be 12                 jump 6756
@@ -28546,8 +28575,8 @@ Initial program counter: 13
   1962: 33 0c 3e                 r12 = 0x3e
   1965: 33 03 00 d0 00           r3 = 0xd000
   1970: 83 33 d6 07              i32 r3 = r3 + 0x7d6
-  1974: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  1977: 7e 54 1f                 r4 = u16 [r5 + 0x1f]
+  1974: 79 53 1f                 u16 [r5 + 31] = r3
+  1977: 7e 54 1f                 r4 = u16 [r5 + 31]
   1980: aa 43 06                 jump 1986 if r3 == r4
       :                          @124
   1983: 28 a5 12                 jump 6756
@@ -28556,8 +28585,8 @@ Initial program counter: 13
   1987: 33 0c 3f                 r12 = 0x3f
   1990: 33 03 00 e0 da db        r3 = 0xffffffffdbdae000
   1996: 83 33 d8 f9              i32 r3 = r3 + 0xfffffffffffff9d8
-  2000: 7a 53 1d                 u32 [r5 + 0x1d] = r3
-  2003: 81 54 1d                 r4 = i32 [r5 + 0x1d]
+  2000: 7a 53 1d                 u32 [r5 + 29] = r3
+  2003: 81 54 1d                 r4 = i32 [r5 + 29]
   2006: aa 43 06                 jump 2012 if r3 == r4
       :                          @126
   2009: 28 8b 12                 jump 6756
@@ -28566,8 +28595,8 @@ Initial program counter: 13
   2013: 33 0c 40                 r12 = 0x40
   2016: 33 03 00 e0 de df        r3 = 0xffffffffdfdee000
   2022: 83 33 dc fd              i32 r3 = r3 + 0xfffffffffffffddc
-  2026: 7a 53 1e                 u32 [r5 + 0x1e] = r3
-  2029: 81 54 1e                 r4 = i32 [r5 + 0x1e]
+  2026: 7a 53 1e                 u32 [r5 + 30] = r3
+  2029: 81 54 1e                 r4 = i32 [r5 + 30]
   2032: aa 43 06                 jump 2038 if r3 == r4
       :                          @128
   2035: 28 71 12                 jump 6756
@@ -28576,8 +28605,8 @@ Initial program counter: 13
   2039: 33 0c 41                 r12 = 0x41
   2042: 33 03 00 e0 e2 e3        r3 = 0xffffffffe3e2e000
   2048: 83 33 e0 01              i32 r3 = r3 + 0x1e0
-  2052: 7a 53 1f                 u32 [r5 + 0x1f] = r3
-  2055: 81 54 1f                 r4 = i32 [r5 + 0x1f]
+  2052: 7a 53 1f                 u32 [r5 + 31] = r3
+  2055: 81 54 1f                 r4 = i32 [r5 + 31]
   2058: aa 43 06                 jump 2064 if r3 == r4
       :                          @130
   2061: 28 57 12                 jump 6756
@@ -28587,8 +28616,8 @@ Initial program counter: 13
   2072: 83 33 37 ff              i32 r3 = r3 + 0xffffffffffffff37
   2076: 97 33 0d                 r3 = r3 << 0xd
   2079: 95 33 e4 05              r3 = r3 + 0x5e4
-  2083: 7a 53 1d                 u32 [r5 + 0x1d] = r3
-  2086: 80 54 1d                 r4 = u32 [r5 + 0x1d]
+  2083: 7a 53 1d                 u32 [r5 + 29] = r3
+  2086: 80 54 1d                 r4 = u32 [r5 + 29]
   2089: aa 43 06                 jump 2095 if r3 == r4
       :                          @132
   2092: 28 38 12                 jump 6756
@@ -28598,8 +28627,8 @@ Initial program counter: 13
   2103: 83 33 af fe              i32 r3 = r3 + 0xfffffffffffffeaf
   2107: 97 33 0c                 r3 = r3 << 0xc
   2110: 95 33 e8 f9              r3 = r3 + 0xfffffffffffff9e8
-  2114: 7a 53 1e                 u32 [r5 + 0x1e] = r3
-  2117: 80 54 1e                 r4 = u32 [r5 + 0x1e]
+  2114: 7a 53 1e                 u32 [r5 + 30] = r3
+  2117: 80 54 1e                 r4 = u32 [r5 + 30]
   2120: aa 43 06                 jump 2126 if r3 == r4
       :                          @134
   2123: 28 19 12                 jump 6756
@@ -28609,8 +28638,8 @@ Initial program counter: 13
   2134: 83 33 ef fe              i32 r3 = r3 + 0xfffffffffffffeef
   2138: 97 33 0c                 r3 = r3 << 0xc
   2141: 95 33 ec fd              r3 = r3 + 0xfffffffffffffdec
-  2145: 7a 53 1f                 u32 [r5 + 0x1f] = r3
-  2148: 80 54 1f                 r4 = u32 [r5 + 0x1f]
+  2145: 7a 53 1f                 u32 [r5 + 31] = r3
+  2148: 80 54 1f                 r4 = u32 [r5 + 31]
   2151: aa 43 06                 jump 2157 if r3 == r4
       :                          @136
   2154: 28 fa 11                 jump 6756
@@ -28624,8 +28653,8 @@ Initial program counter: 13
   2179: 95 33 2f ff              r3 = r3 + 0xffffffffffffff2f
   2183: 97 33 0c                 r3 = r3 << 0xc
   2186: 95 33 f0 01              r3 = r3 + 0x1f0
-  2190: 7b 53 19                 u64 [r5 + 0x19] = r3
-  2193: 82 54 19                 r4 = u64 [r5 + 0x19]
+  2190: 7b 53 19                 u64 [r5 + 25] = r3
+  2193: 82 54 19                 r4 = u64 [r5 + 25]
   2196: aa 43 06                 jump 2202 if r3 == r4
       :                          @138
   2199: 28 cd 11                 jump 6756
@@ -28638,8 +28667,8 @@ Initial program counter: 13
   2218: 95 33 fb fb              r3 = r3 + 0xfffffffffffffbfb
   2222: 97 33 10                 r3 = r3 << 0x10
   2225: 95 33 f8 f9              r3 = r3 + 0xfffffffffffff9f8
-  2229: 7b 53 1a                 u64 [r5 + 0x1a] = r3
-  2232: 82 54 1a                 r4 = u64 [r5 + 0x1a]
+  2229: 7b 53 1a                 u64 [r5 + 26] = r3
+  2232: 82 54 1a                 r4 = u64 [r5 + 26]
   2235: aa 43 06                 jump 2241 if r3 == r4
       :                          @140
   2238: 28 a6 11                 jump 6756
@@ -28652,8 +28681,8 @@ Initial program counter: 13
   2258: 95 33 81 01              r3 = r3 + 0x181
   2262: 97 33 11                 r3 = r3 << 0x11
   2265: 95 33 00 01              r3 = r3 + 0x100
-  2269: 7b 53 1b                 u64 [r5 + 0x1b] = r3
-  2272: 82 54 1b                 r4 = u64 [r5 + 0x1b]
+  2269: 7b 53 1b                 u64 [r5 + 27] = r3
+  2272: 82 54 1b                 r4 = u64 [r5 + 27]
   2275: aa 43 06                 jump 2281 if r3 == r4
       :                          @142
   2278: 28 7e 11                 jump 6756
@@ -28667,8 +28696,8 @@ Initial program counter: 13
   2304: 95 33 a1 00              r3 = r3 + 0xa1
   2308: 97 33 0c                 r3 = r3 << 0xc
   2311: 95 33 08 f9              r3 = r3 + 0xfffffffffffff908
-  2315: 7b 53 1c                 u64 [r5 + 0x1c] = r3
-  2318: 82 54 1c                 r4 = u64 [r5 + 0x1c]
+  2315: 7b 53 1c                 u64 [r5 + 28] = r3
+  2318: 82 54 1c                 r4 = u64 [r5 + 28]
   2321: aa 43 06                 jump 2327 if r3 == r4
       :                          @144
   2324: 28 50 11                 jump 6756
@@ -28682,8 +28711,8 @@ Initial program counter: 13
   2350: 95 33 21 01              r3 = r3 + 0x121
   2354: 97 33 0c                 r3 = r3 << 0xc
   2357: 95 33 10 01              r3 = r3 + 0x110
-  2361: 7b 53 1d                 u64 [r5 + 0x1d] = r3
-  2364: 82 54 1d                 r4 = u64 [r5 + 0x1d]
+  2361: 7b 53 1d                 u64 [r5 + 29] = r3
+  2364: 82 54 1d                 r4 = u64 [r5 + 29]
   2367: aa 43 06                 jump 2373 if r3 == r4
       :                          @146
   2370: 28 22 11                 jump 6756
@@ -28697,8 +28726,8 @@ Initial program counter: 13
   2395: 95 33 d1 f8              r3 = r3 + 0xfffffffffffff8d1
   2399: 97 33 0d                 r3 = r3 << 0xd
   2402: 95 33 18 f9              r3 = r3 + 0xfffffffffffff918
-  2406: 7b 53 1e                 u64 [r5 + 0x1e] = r3
-  2409: 82 54 1e                 r4 = u64 [r5 + 0x1e]
+  2406: 7b 53 1e                 u64 [r5 + 30] = r3
+  2409: 82 54 1e                 r4 = u64 [r5 + 30]
   2412: aa 43 06                 jump 2418 if r3 == r4
       :                          @148
   2415: 28 f5 10                 jump 6756
@@ -28712,8 +28741,8 @@ Initial program counter: 13
   2441: 95 33 11 f9              r3 = r3 + 0xfffffffffffff911
   2445: 97 33 0d                 r3 = r3 << 0xd
   2448: 95 33 20 01              r3 = r3 + 0x120
-  2452: 7b 53 1f                 u64 [r5 + 0x1f] = r3
-  2455: 82 54 1f                 r4 = u64 [r5 + 0x1f]
+  2452: 7b 53 1f                 u64 [r5 + 31] = r3
+  2455: 82 54 1f                 r4 = u64 [r5 + 31]
   2458: aa 43 06                 jump 2464 if r3 == r4
       :                          @150
   2461: 28 c7 10                 jump 6756
@@ -28722,8 +28751,8 @@ Initial program counter: 13
   2465: 33 0c 4c                 r12 = 0x4c
   2468: 33 03 00 30              r3 = 0x3000
   2472: 83 33 34 05              i32 r3 = r3 + 0x534
-  2476: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  2479: 7f 54 3f                 r4 = i16 [r5 + 0x3f]
+  2476: 79 53 3f                 u16 [r5 + 63] = r3
+  2479: 7f 54 3f                 r4 = i16 [r5 + 63]
   2482: aa 43 06                 jump 2488 if r3 == r4
       :                          @152
   2485: 28 af 10                 jump 6756
@@ -28732,8 +28761,8 @@ Initial program counter: 13
   2489: 33 0c 4d                 r12 = 0x4d
   2492: 33 03 00 30              r3 = 0x3000
   2496: 83 33 36 07              i32 r3 = r3 + 0x736
-  2500: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  2503: 7e 54 3f                 r4 = u16 [r5 + 0x3f]
+  2500: 79 53 3f                 u16 [r5 + 63] = r3
+  2503: 7e 54 3f                 r4 = u16 [r5 + 63]
   2506: aa 43 06                 jump 2512 if r3 == r4
       :                          @154
   2509: 28 97 10                 jump 6756
@@ -28742,8 +28771,8 @@ Initial program counter: 13
   2513: 33 0c 4e                 r12 = 0x4e
   2516: 33 03 00 40 3a 3b        r3 = 0x3b3a4000
   2522: 83 33 38 f9              i32 r3 = r3 + 0xfffffffffffff938
-  2526: 7a 53 3d                 u32 [r5 + 0x3d] = r3
-  2529: 81 54 3d                 r4 = i32 [r5 + 0x3d]
+  2526: 7a 53 3d                 u32 [r5 + 61] = r3
+  2529: 81 54 3d                 r4 = i32 [r5 + 61]
   2532: aa 43 06                 jump 2538 if r3 == r4
       :                          @156
   2535: 28 7d 10                 jump 6756
@@ -28752,8 +28781,8 @@ Initial program counter: 13
   2539: 33 0c 4f                 r12 = 0x4f
   2542: 33 03 00 40 3e 3f        r3 = 0x3f3e4000
   2548: 83 33 3c fd              i32 r3 = r3 + 0xfffffffffffffd3c
-  2552: 7a 53 3e                 u32 [r5 + 0x3e] = r3
-  2555: 81 54 3e                 r4 = i32 [r5 + 0x3e]
+  2552: 7a 53 3e                 u32 [r5 + 62] = r3
+  2555: 81 54 3e                 r4 = i32 [r5 + 62]
   2558: aa 43 06                 jump 2564 if r3 == r4
       :                          @158
   2561: 28 63 10                 jump 6756
@@ -28762,8 +28791,8 @@ Initial program counter: 13
   2565: 33 0c 50                 r12 = 0x50
   2568: 33 03 00 40 42 43        r3 = 0x43424000
   2574: 83 33 40 01              i32 r3 = r3 + 0x140
-  2578: 7a 53 3f                 u32 [r5 + 0x3f] = r3
-  2581: 81 54 3f                 r4 = i32 [r5 + 0x3f]
+  2578: 7a 53 3f                 u32 [r5 + 63] = r3
+  2581: 81 54 3f                 r4 = i32 [r5 + 63]
   2584: aa 43 06                 jump 2590 if r3 == r4
       :                          @160
   2587: 28 49 10                 jump 6756
@@ -28772,8 +28801,8 @@ Initial program counter: 13
   2591: 33 0c 51                 r12 = 0x51
   2594: 33 03 00 40 46 47        r3 = 0x47464000
   2600: 83 33 44 05              i32 r3 = r3 + 0x544
-  2604: 7a 53 3d                 u32 [r5 + 0x3d] = r3
-  2607: 80 54 3d                 r4 = u32 [r5 + 0x3d]
+  2604: 7a 53 3d                 u32 [r5 + 61] = r3
+  2607: 80 54 3d                 r4 = u32 [r5 + 61]
   2610: aa 43 06                 jump 2616 if r3 == r4
       :                          @162
   2613: 28 2f 10                 jump 6756
@@ -28782,8 +28811,8 @@ Initial program counter: 13
   2617: 33 0c 52                 r12 = 0x52
   2620: 33 03 00 50 4a 4b        r3 = 0x4b4a5000
   2626: 83 33 48 f9              i32 r3 = r3 + 0xfffffffffffff948
-  2630: 7a 53 3e                 u32 [r5 + 0x3e] = r3
-  2633: 80 54 3e                 r4 = u32 [r5 + 0x3e]
+  2630: 7a 53 3e                 u32 [r5 + 62] = r3
+  2633: 80 54 3e                 r4 = u32 [r5 + 62]
   2636: aa 43 06                 jump 2642 if r3 == r4
       :                          @164
   2639: 28 15 10                 jump 6756
@@ -28792,8 +28821,8 @@ Initial program counter: 13
   2643: 33 0c 53                 r12 = 0x53
   2646: 33 03 00 50 4e 4f        r3 = 0x4f4e5000
   2652: 83 33 4c fd              i32 r3 = r3 + 0xfffffffffffffd4c
-  2656: 7a 53 3f                 u32 [r5 + 0x3f] = r3
-  2659: 80 54 3f                 r4 = u32 [r5 + 0x3f]
+  2656: 7a 53 3f                 u32 [r5 + 63] = r3
+  2659: 80 54 3f                 r4 = u32 [r5 + 63]
   2662: aa 43 06                 jump 2668 if r3 == r4
       :                          @166
   2665: 28 fb 0f                 jump 6756
@@ -28807,8 +28836,8 @@ Initial program counter: 13
   2691: 95 33 25 05              r3 = r3 + 0x525
   2695: 97 33 0c                 r3 = r3 << 0xc
   2698: 95 33 50 01              r3 = r3 + 0x150
-  2702: 7b 53 39                 u64 [r5 + 0x39] = r3
-  2705: 82 54 39                 r4 = u64 [r5 + 0x39]
+  2702: 7b 53 39                 u64 [r5 + 57] = r3
+  2705: 82 54 39                 r4 = u64 [r5 + 57]
   2708: aa 43 06                 jump 2714 if r3 == r4
       :                          @168
   2711: 28 cd 0f                 jump 6756
@@ -28822,8 +28851,8 @@ Initial program counter: 13
   2737: 95 33 d3 fa              r3 = r3 + 0xfffffffffffffad3
   2741: 97 33 0d                 r3 = r3 << 0xd
   2744: 95 33 58 f9              r3 = r3 + 0xfffffffffffff958
-  2748: 7b 53 3a                 u64 [r5 + 0x3a] = r3
-  2751: 82 54 3a                 r4 = u64 [r5 + 0x3a]
+  2748: 7b 53 3a                 u64 [r5 + 58] = r3
+  2751: 82 54 3a                 r4 = u64 [r5 + 58]
   2754: aa 43 06                 jump 2760 if r3 == r4
       :                          @170
   2757: 28 9f 0f                 jump 6756
@@ -28837,8 +28866,8 @@ Initial program counter: 13
   2783: 95 33 13 fb              r3 = r3 + 0xfffffffffffffb13
   2787: 97 33 0d                 r3 = r3 << 0xd
   2790: 95 33 60 01              r3 = r3 + 0x160
-  2794: 7b 53 3b                 u64 [r5 + 0x3b] = r3
-  2797: 82 54 3b                 r4 = u64 [r5 + 0x3b]
+  2794: 7b 53 3b                 u64 [r5 + 59] = r3
+  2797: 82 54 3b                 r4 = u64 [r5 + 59]
   2800: aa 43 06                 jump 2806 if r3 == r4
       :                          @172
   2803: 28 71 0f                 jump 6756
@@ -28852,8 +28881,8 @@ Initial program counter: 13
   2829: 95 33 a7 06              r3 = r3 + 0x6a7
   2833: 97 33 0c                 r3 = r3 << 0xc
   2836: 95 33 68 f9              r3 = r3 + 0xfffffffffffff968
-  2840: 7b 53 3c                 u64 [r5 + 0x3c] = r3
-  2843: 82 54 3c                 r4 = u64 [r5 + 0x3c]
+  2840: 7b 53 3c                 u64 [r5 + 60] = r3
+  2843: 82 54 3c                 r4 = u64 [r5 + 60]
   2846: aa 43 06                 jump 2852 if r3 == r4
       :                          @174
   2849: 28 43 0f                 jump 6756
@@ -28867,8 +28896,8 @@ Initial program counter: 13
   2875: 95 33 27 07              r3 = r3 + 0x727
   2879: 97 33 0c                 r3 = r3 << 0xc
   2882: 95 33 70 01              r3 = r3 + 0x170
-  2886: 7b 53 3d                 u64 [r5 + 0x3d] = r3
-  2889: 82 54 3d                 r4 = u64 [r5 + 0x3d]
+  2886: 7b 53 3d                 u64 [r5 + 61] = r3
+  2889: 82 54 3d                 r4 = u64 [r5 + 61]
   2892: ab 43 18 0f              jump 6756 if r3 != r4
       :                          @176
   2896: 33 0c 59                 r12 = 0x59
@@ -28880,8 +28909,8 @@ Initial program counter: 13
   2918: 95 33 f5 06              r3 = r3 + 0x6f5
   2922: 97 33 0f                 r3 = r3 << 0xf
   2925: 95 33 78 f9              r3 = r3 + 0xfffffffffffff978
-  2929: 7b 53 3e                 u64 [r5 + 0x3e] = r3
-  2932: 82 54 3e                 r4 = u64 [r5 + 0x3e]
+  2929: 7b 53 3e                 u64 [r5 + 62] = r3
+  2932: 82 54 3e                 r4 = u64 [r5 + 62]
   2935: ab 43 ed 0e              jump 6756 if r3 != r4
       :                          @177
   2939: 33 0c 5a                 r12 = 0x5a
@@ -28893,40 +28922,40 @@ Initial program counter: 13
   2961: 95 33 05 07              r3 = r3 + 0x705
   2965: 97 33 0f                 r3 = r3 << 0xf
   2968: 95 33 80 01              r3 = r3 + 0x180
-  2972: 7b 53 3f                 u64 [r5 + 0x3f] = r3
-  2975: 82 54 3f                 r4 = u64 [r5 + 0x3f]
+  2972: 7b 53 3f                 u64 [r5 + 63] = r3
+  2975: 82 54 3f                 r4 = u64 [r5 + 63]
   2978: ab 43 c2 0e              jump 6756 if r3 != r4
       :                          @178
   2982: 33 0c 5b                 r12 = 0x5b
   2985: 33 03 00 a0 00           r3 = 0xa000
   2990: 83 33 98 f9              i32 r3 = r3 + 0xfffffffffffff998
   2994: 33 04 98                 r4 = 0xffffffffffffff98
-  2997: 79 53 01                 u16 [r5 + 0x1] = r3
-  3000: 7d 5a 01                 r10 = i8 [r5 + 0x1]
+  2997: 79 53 01                 u16 [r5 + 1] = r3
+  3000: 7d 5a 01                 r10 = i8 [r5 + 1]
   3003: ab a4 a9 0e              jump 6756 if r4 != r10
       :                          @179
   3007: 33 0c 5c                 r12 = 0x5c
   3010: 33 03 00 a0 00           r3 = 0xa000
   3015: 83 33 9a fb              i32 r3 = r3 + 0xfffffffffffffb9a
   3019: 33 04 9b                 r4 = 0xffffffffffffff9b
-  3022: 79 53 01                 u16 [r5 + 0x1] = r3
-  3025: 7d 5a 02                 r10 = i8 [r5 + 0x2]
+  3022: 79 53 01                 u16 [r5 + 1] = r3
+  3025: 7d 5a 02                 r10 = i8 [r5 + 2]
   3028: ab a4 90 0e              jump 6756 if r4 != r10
       :                          @180
   3032: 33 0c 5d                 r12 = 0x5d
   3035: 33 03 00 a0 00           r3 = 0xa000
   3040: 83 33 9c fd              i32 r3 = r3 + 0xfffffffffffffd9c
   3044: 33 04 9c 00              r4 = 0x9c
-  3048: 79 53 01                 u16 [r5 + 0x1] = r3
-  3051: 7c 5a 01                 r10 = u8 [r5 + 0x1]
+  3048: 79 53 01                 u16 [r5 + 1] = r3
+  3051: 7c 5a 01                 r10 = u8 [r5 + 1]
   3054: ab a4 76 0e              jump 6756 if r4 != r10
       :                          @181
   3058: 33 0c 5e                 r12 = 0x5e
   3061: 33 03 00 a0 00           r3 = 0xa000
   3066: 83 33 9e                 i32 r3 = r3 + 0xffffffffffffff9e
   3069: 33 04 9f 00              r4 = 0x9f
-  3073: 79 53 01                 u16 [r5 + 0x1] = r3
-  3076: 7c 5a 02                 r10 = u8 [r5 + 0x2]
+  3073: 79 53 01                 u16 [r5 + 1] = r3
+  3076: 7c 5a 02                 r10 = u8 [r5 + 2]
   3079: ab a4 5d 0e              jump 6756 if r4 != r10
       :                          @182
   3083: 02                       unlikely
@@ -28936,8 +28965,8 @@ Initial program counter: 13
   3096: 97 33 0d                 r3 = r3 << 0xd
   3099: 95 33 a0 01              r3 = r3 + 0x1a0
   3103: 33 04 a0                 r4 = 0xffffffffffffffa0
-  3106: 7a 53 01                 u32 [r5 + 0x1] = r3
-  3109: 7d 5a 01                 r10 = i8 [r5 + 0x1]
+  3106: 7a 53 01                 u32 [r5 + 1] = r3
+  3109: 7d 5a 01                 r10 = i8 [r5 + 1]
   3112: ab a4 3c 0e              jump 6756 if r4 != r10
       :                          @183
   3116: 02                       unlikely
@@ -28947,8 +28976,8 @@ Initial program counter: 13
   3129: 97 33 0d                 r3 = r3 << 0xd
   3132: 95 33 a4 05              r3 = r3 + 0x5a4
   3136: 33 04 a5 00              r4 = 0xa5
-  3140: 7a 53 02                 u32 [r5 + 0x2] = r3
-  3143: 7c 5a 03                 r10 = u8 [r5 + 0x3]
+  3140: 7a 53 02                 u32 [r5 + 2] = r3
+  3143: 7c 5a 03                 r10 = u8 [r5 + 3]
   3146: ab a4 1a 0e              jump 6756 if r4 != r10
       :                          @184
   3150: 33 0c 61                 r12 = 0x61
@@ -28958,8 +28987,8 @@ Initial program counter: 13
   3165: 95 33 a8 f9              r3 = r3 + 0xfffffffffffff9a8
   3169: 33 04 00 b0              r4 = 0xffffffffffffb000
   3173: 83 44 a9 fa              i32 r4 = r4 + 0xfffffffffffffaa9
-  3177: 7a 53 03                 u32 [r5 + 0x3] = r3
-  3180: 7f 5a 04                 r10 = i16 [r5 + 0x4]
+  3177: 7a 53 03                 u32 [r5 + 3] = r3
+  3180: 7f 5a 04                 r10 = i16 [r5 + 4]
   3183: ab a4 f5 0d              jump 6756 if r4 != r10
       :                          @185
   3187: 33 0c 62                 r12 = 0x62
@@ -28969,8 +28998,8 @@ Initial program counter: 13
   3202: 95 33 ac fd              r3 = r3 + 0xfffffffffffffdac
   3206: 33 04 00 b0 00           r4 = 0xb000
   3211: 83 44 ae                 i32 r4 = r4 + 0xffffffffffffffae
-  3214: 7a 53 03                 u32 [r5 + 0x3] = r3
-  3217: 7e 5a 05                 r10 = u16 [r5 + 0x5]
+  3214: 7a 53 03                 u32 [r5 + 3] = r3
+  3217: 7e 5a 05                 r10 = u16 [r5 + 5]
   3220: ab a4 d0 0d              jump 6756 if r4 != r10
       :                          @186
   3224: 02                       unlikely
@@ -28984,8 +29013,8 @@ Initial program counter: 13
   3252: 97 33 0c                 r3 = r3 << 0xc
   3255: 95 33 b0 01              r3 = r3 + 0x1b0
   3259: 33 04 b6                 r4 = 0xffffffffffffffb6
-  3262: 7b 53 01                 u64 [r5 + 0x1] = r3
-  3265: 7d 5a 07                 r10 = i8 [r5 + 0x7]
+  3262: 7b 53 01                 u64 [r5 + 1] = r3
+  3265: 7d 5a 07                 r10 = i8 [r5 + 7]
   3268: ab a4 a0 0d              jump 6756 if r4 != r10
       :                          @187
   3272: 02                       unlikely
@@ -28999,8 +29028,8 @@ Initial program counter: 13
   3300: 97 33 0e                 r3 = r3 << 0xe
   3303: 95 33 b8 f9              r3 = r3 + 0xfffffffffffff9b8
   3307: 33 04 b9 00              r4 = 0xb9
-  3311: 7b 53 02                 u64 [r5 + 0x2] = r3
-  3314: 7c 5a 03                 r10 = u8 [r5 + 0x3]
+  3311: 7b 53 02                 u64 [r5 + 2] = r3
+  3314: 7c 5a 03                 r10 = u8 [r5 + 3]
   3317: ab a4 6f 0d              jump 6756 if r4 != r10
       :                          @188
   3321: 33 0c 65                 r12 = 0x65
@@ -29014,8 +29043,8 @@ Initial program counter: 13
   3351: 95 33 c0 01              r3 = r3 + 0x1c0
   3355: 33 04 00 c0              r4 = 0xffffffffffffc000
   3359: 83 44 c6 07              i32 r4 = r4 + 0x7c6
-  3363: 7b 53 03                 u64 [r5 + 0x3] = r3
-  3366: 7f 5a 09                 r10 = i16 [r5 + 0x9]
+  3363: 7b 53 03                 u64 [r5 + 3] = r3
+  3366: 7f 5a 09                 r10 = i16 [r5 + 9]
   3369: ab a4 3b 0d              jump 6756 if r4 != r10
       :                          @189
   3373: 33 0c 66                 r12 = 0x66
@@ -29029,8 +29058,8 @@ Initial program counter: 13
   3403: 95 33 c8 f9              r3 = r3 + 0xfffffffffffff9c8
   3407: 33 04 00 d0 00           r4 = 0xd000
   3412: 83 44 c9 fa              i32 r4 = r4 + 0xfffffffffffffac9
-  3416: 7b 53 04                 u64 [r5 + 0x4] = r3
-  3419: 7e 5a 05                 r10 = u16 [r5 + 0x5]
+  3416: 7b 53 04                 u64 [r5 + 4] = r3
+  3419: 7e 5a 05                 r10 = u16 [r5 + 5]
   3422: ab a4 06 0d              jump 6756 if r4 != r10
       :                          @190
   3426: 33 0c 67                 r12 = 0x67
@@ -29044,8 +29073,8 @@ Initial program counter: 13
   3456: 95 33 d0 01              r3 = r3 + 0x1d0
   3460: 33 04 00 d0 d6 d7        r4 = 0xffffffffd7d6d000
   3466: 83 44 d4 05              i32 r4 = r4 + 0x5d4
-  3470: 7b 53 05                 u64 [r5 + 0x5] = r3
-  3473: 81 5a 09                 r10 = i32 [r5 + 0x9]
+  3470: 7b 53 05                 u64 [r5 + 5] = r3
+  3473: 81 5a 09                 r10 = i32 [r5 + 9]
   3476: ab a4 d0 0c              jump 6756 if r4 != r10
       :                          @191
   3480: 33 0c 68                 r12 = 0x68
@@ -29059,8 +29088,8 @@ Initial program counter: 13
   3510: 95 33 d8 f9              r3 = r3 + 0xfffffffffffff9d8
   3514: 33 04 00 e0 dc dd        r4 = 0xffffffffdddce000
   3520: 83 44 da fb              i32 r4 = r4 + 0xfffffffffffffbda
-  3524: 7b 53 06                 u64 [r5 + 0x6] = r3
-  3527: 81 5a 08                 r10 = i32 [r5 + 0x8]
+  3524: 7b 53 06                 u64 [r5 + 6] = r3
+  3527: 81 5a 08                 r10 = i32 [r5 + 8]
   3530: ab a4 9a 0c              jump 6756 if r4 != r10
       :                          @192
   3534: 02                       unlikely
@@ -29077,40 +29106,40 @@ Initial program counter: 13
   3573: 83 44 1f 07              i32 r4 = r4 + 0x71f
   3577: 97 44 0d                 r4 = r4 << 0xd
   3580: 95 44 e1 02              r4 = r4 + 0x2e1
-  3584: 7b 53 07                 u64 [r5 + 0x7] = r3
-  3587: 80 5a 08                 r10 = u32 [r5 + 0x8]
+  3584: 7b 53 07                 u64 [r5 + 7] = r3
+  3587: 80 5a 08                 r10 = u32 [r5 + 8]
   3590: ab a4 5e 0c              jump 6756 if r4 != r10
       :                          @193
   3594: 33 0c 6a                 r12 = 0x6a
   3597: 33 03 00 f0 00           r3 = 0xf000
   3602: 83 33 e8 f9              i32 r3 = r3 + 0xfffffffffffff9e8
   3606: 33 04 e8                 r4 = 0xffffffffffffffe8
-  3609: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  3612: 7d 5a 1f                 r10 = i8 [r5 + 0x1f]
+  3609: 79 53 1f                 u16 [r5 + 31] = r3
+  3612: 7d 5a 1f                 r10 = i8 [r5 + 31]
   3615: ab a4 45 0c              jump 6756 if r4 != r10
       :                          @194
   3619: 33 0c 6b                 r12 = 0x6b
   3622: 33 03 00 f0 00           r3 = 0xf000
   3627: 83 33 ea fb              i32 r3 = r3 + 0xfffffffffffffbea
   3631: 33 04 eb                 r4 = 0xffffffffffffffeb
-  3634: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  3637: 7d 5a 20                 r10 = i8 [r5 + 0x20]
+  3634: 79 53 1f                 u16 [r5 + 31] = r3
+  3637: 7d 5a 20                 r10 = i8 [r5 + 32]
   3640: ab a4 2c 0c              jump 6756 if r4 != r10
       :                          @195
   3644: 33 0c 6c                 r12 = 0x6c
   3647: 33 03 00 f0 00           r3 = 0xf000
   3652: 83 33 ec fd              i32 r3 = r3 + 0xfffffffffffffdec
   3656: 33 04 ec 00              r4 = 0xec
-  3660: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  3663: 7c 5a 1f                 r10 = u8 [r5 + 0x1f]
+  3660: 79 53 1f                 u16 [r5 + 31] = r3
+  3663: 7c 5a 1f                 r10 = u8 [r5 + 31]
   3666: ab a4 12 0c              jump 6756 if r4 != r10
       :                          @196
   3670: 33 0c 6d                 r12 = 0x6d
   3673: 33 03 00 f0 00           r3 = 0xf000
   3678: 83 33 ee                 i32 r3 = r3 + 0xffffffffffffffee
   3681: 33 04 ef 00              r4 = 0xef
-  3685: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  3688: 7c 5a 20                 r10 = u8 [r5 + 0x20]
+  3685: 79 53 1f                 u16 [r5 + 31] = r3
+  3688: 7c 5a 20                 r10 = u8 [r5 + 32]
   3691: ab a4 f9 0b              jump 6756 if r4 != r10
       :                          @197
   3695: 02                       unlikely
@@ -29120,8 +29149,8 @@ Initial program counter: 13
   3708: 97 33 0c                 r3 = r3 << 0xc
   3711: 95 33 f0 01              r3 = r3 + 0x1f0
   3715: 33 04 f0                 r4 = 0xfffffffffffffff0
-  3718: 7a 53 1d                 u32 [r5 + 0x1d] = r3
-  3721: 7d 5a 1d                 r10 = i8 [r5 + 0x1d]
+  3718: 7a 53 1d                 u32 [r5 + 29] = r3
+  3721: 7d 5a 1d                 r10 = i8 [r5 + 29]
   3724: ab a4 d8 0b              jump 6756 if r4 != r10
       :                          @198
   3728: 02                       unlikely
@@ -29131,8 +29160,8 @@ Initial program counter: 13
   3741: 97 33 0c                 r3 = r3 << 0xc
   3744: 95 33 f4 05              r3 = r3 + 0x5f4
   3748: 33 04 f6 00              r4 = 0xf6
-  3752: 7a 53 1e                 u32 [r5 + 0x1e] = r3
-  3755: 7c 5a 20                 r10 = u8 [r5 + 0x20]
+  3752: 7a 53 1e                 u32 [r5 + 30] = r3
+  3755: 7c 5a 20                 r10 = u8 [r5 + 32]
   3758: ab a4 b6 0b              jump 6756 if r4 != r10
       :                          @199
   3762: 02                       unlikely
@@ -29142,8 +29171,8 @@ Initial program counter: 13
   3775: 97 33 10                 r3 = r3 << 0x10
   3778: 95 33 f8 f9              r3 = r3 + 0xfffffffffffff9f8
   3782: 33 04 fa fb              r4 = 0xfffffffffffffbfa
-  3786: 7a 53 1d                 u32 [r5 + 0x1d] = r3
-  3789: 7f 5a 1f                 r10 = i16 [r5 + 0x1f]
+  3786: 7a 53 1d                 u32 [r5 + 29] = r3
+  3789: 7f 5a 1f                 r10 = i16 [r5 + 31]
   3792: ab a4 94 0b              jump 6756 if r4 != r10
       :                          @200
   3796: 33 0c 71                 r12 = 0x71
@@ -29153,8 +29182,8 @@ Initial program counter: 13
   3810: 95 33 fc fd              r3 = r3 + 0xfffffffffffffdfc
   3814: 33 04 00 00 01           r4 = 0x10000
   3819: 83 44 fc fd              i32 r4 = r4 + 0xfffffffffffffdfc
-  3823: 7a 53 1f                 u32 [r5 + 0x1f] = r3
-  3826: 7e 5a 1f                 r10 = u16 [r5 + 0x1f]
+  3823: 7a 53 1f                 u32 [r5 + 31] = r3
+  3826: 7e 5a 1f                 r10 = u16 [r5 + 31]
   3829: ab a4 6f 0b              jump 6756 if r4 != r10
       :                          @201
   3833: 33 0c 72                 r12 = 0x72
@@ -29165,8 +29194,8 @@ Initial program counter: 13
   3853: 97 33 11                 r3 = r3 << 0x11
   3856: 95 33 00 01              r3 = r3 + 0x100
   3860: 33 04 07                 r4 = 0x7
-  3863: 7b 53 19                 u64 [r5 + 0x19] = r3
-  3866: 7d 5a 20                 r10 = i8 [r5 + 0x20]
+  3863: 7b 53 19                 u64 [r5 + 25] = r3
+  3866: 7d 5a 20                 r10 = i8 [r5 + 32]
   3869: ab a4 47 0b              jump 6756 if r4 != r10
       :                          @202
   3873: 02                       unlikely
@@ -29180,8 +29209,8 @@ Initial program counter: 13
   3901: 97 33 0c                 r3 = r3 << 0xc
   3904: 95 33 08 f9              r3 = r3 + 0xfffffffffffff908
   3908: 33 04 0f                 r4 = 0xf
-  3911: 7b 53 1a                 u64 [r5 + 0x1a] = r3
-  3914: 7c 5a 21                 r10 = u8 [r5 + 0x21]
+  3911: 7b 53 1a                 u64 [r5 + 26] = r3
+  3914: 7c 5a 21                 r10 = u8 [r5 + 33]
   3917: ab a4 17 0b              jump 6756 if r4 != r10
       :                          @203
   3921: 33 0c 74                 r12 = 0x74
@@ -29195,8 +29224,8 @@ Initial program counter: 13
   3951: 95 33 10 01              r3 = r3 + 0x110
   3955: 33 04 00 10              r4 = 0x1000
   3959: 83 44 14 05              i32 r4 = r4 + 0x514
-  3963: 7b 53 1b                 u64 [r5 + 0x1b] = r3
-  3966: 7f 5a 1f                 r10 = i16 [r5 + 0x1f]
+  3963: 7b 53 1b                 u64 [r5 + 27] = r3
+  3966: 7f 5a 1f                 r10 = i16 [r5 + 31]
   3969: ab a4 e3 0a              jump 6756 if r4 != r10
       :                          @204
   3973: 33 0c 75                 r12 = 0x75
@@ -29210,8 +29239,8 @@ Initial program counter: 13
   4002: 95 33 18 f9              r3 = r3 + 0xfffffffffffff918
   4006: 33 04 00 20              r4 = 0x2000
   4010: 83 44 1b fc              i32 r4 = r4 + 0xfffffffffffffc1b
-  4014: 7b 53 1c                 u64 [r5 + 0x1c] = r3
-  4017: 7e 5a 1f                 r10 = u16 [r5 + 0x1f]
+  4014: 7b 53 1c                 u64 [r5 + 28] = r3
+  4017: 7e 5a 1f                 r10 = u16 [r5 + 31]
   4020: ab a4 b0 0a              jump 6756 if r4 != r10
       :                          @205
   4024: 33 0c 76                 r12 = 0x76
@@ -29225,8 +29254,8 @@ Initial program counter: 13
   4054: 95 33 20 01              r3 = r3 + 0x120
   4058: 33 04 00 20 22 23        r4 = 0x23222000
   4064: 83 44 20 01              i32 r4 = r4 + 0x120
-  4068: 7b 53 1d                 u64 [r5 + 0x1d] = r3
-  4071: 81 5a 1d                 r10 = i32 [r5 + 0x1d]
+  4068: 7b 53 1d                 u64 [r5 + 29] = r3
+  4071: 81 5a 1d                 r10 = i32 [r5 + 29]
   4074: ab a4 7a 0a              jump 6756 if r4 != r10
       :                          @206
   4078: 33 0c 77                 r12 = 0x77
@@ -29240,8 +29269,8 @@ Initial program counter: 13
   4108: 95 33 28 f9              r3 = r3 + 0xfffffffffffff928
   4112: 33 04 00 30 2a 2b        r4 = 0x2b2a3000
   4118: 83 44 28 f9              i32 r4 = r4 + 0xfffffffffffff928
-  4122: 7b 53 1e                 u64 [r5 + 0x1e] = r3
-  4125: 81 5a 1e                 r10 = i32 [r5 + 0x1e]
+  4122: 7b 53 1e                 u64 [r5 + 30] = r3
+  4125: 81 5a 1e                 r10 = i32 [r5 + 30]
   4128: ab a4 44 0a              jump 6756 if r4 != r10
       :                          @207
   4132: 33 0c 78                 r12 = 0x78
@@ -29255,56 +29284,56 @@ Initial program counter: 13
   4162: 95 33 30 01              r3 = r3 + 0x130
   4166: 33 04 00 30 32 33        r4 = 0x33323000
   4172: 83 44 30 01              i32 r4 = r4 + 0x130
-  4176: 7b 53 1f                 u64 [r5 + 0x1f] = r3
-  4179: 80 5a 1f                 r10 = u32 [r5 + 0x1f]
+  4176: 7b 53 1f                 u64 [r5 + 31] = r3
+  4179: 80 5a 1f                 r10 = u32 [r5 + 31]
   4182: ab a4 0e 0a              jump 6756 if r4 != r10
       :                          @208
   4186: 33 0c 79                 r12 = 0x79
   4189: 33 03 00 50              r3 = 0x5000
   4193: 83 33 48 f9              i32 r3 = r3 + 0xfffffffffffff948
   4197: 33 04 48                 r4 = 0x48
-  4200: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  4203: 7d 5a 3f                 r10 = i8 [r5 + 0x3f]
+  4200: 79 53 3f                 u16 [r5 + 63] = r3
+  4203: 7d 5a 3f                 r10 = i8 [r5 + 63]
   4206: ab a4 f6 09              jump 6756 if r4 != r10
       :                          @209
   4210: 33 0c 7a                 r12 = 0x7a
   4213: 33 03 00 50              r3 = 0x5000
   4217: 83 33 4a fb              i32 r3 = r3 + 0xfffffffffffffb4a
   4221: 33 04 4b                 r4 = 0x4b
-  4224: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  4227: 7d 5a 40                 r10 = i8 [r5 + 0x40]
+  4224: 79 53 3f                 u16 [r5 + 63] = r3
+  4227: 7d 5a 40                 r10 = i8 [r5 + 64]
   4230: ab a4 de 09              jump 6756 if r4 != r10
       :                          @210
   4234: 33 0c 7b                 r12 = 0x7b
   4237: 33 03 00 50              r3 = 0x5000
   4241: 83 33 4c fd              i32 r3 = r3 + 0xfffffffffffffd4c
   4245: 33 04 4c                 r4 = 0x4c
-  4248: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  4251: 7c 5a 3f                 r10 = u8 [r5 + 0x3f]
+  4248: 79 53 3f                 u16 [r5 + 63] = r3
+  4251: 7c 5a 3f                 r10 = u8 [r5 + 63]
   4254: ab a4 c6 09              jump 6756 if r4 != r10
       :                          @211
   4258: 33 0c 7c                 r12 = 0x7c
   4261: 33 03 00 50              r3 = 0x5000
   4265: 83 33 4e ff              i32 r3 = r3 + 0xffffffffffffff4e
   4269: 33 04 4f                 r4 = 0x4f
-  4272: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  4275: 7c 5a 40                 r10 = u8 [r5 + 0x40]
+  4272: 79 53 3f                 u16 [r5 + 63] = r3
+  4275: 7c 5a 40                 r10 = u8 [r5 + 64]
   4278: ab a4 ae 09              jump 6756 if r4 != r10
       :                          @212
   4282: 33 0c 7d                 r12 = 0x7d
   4285: 33 03 00 50 52 53        r3 = 0x53525000
   4291: 83 33 50 01              i32 r3 = r3 + 0x150
   4295: 33 04 50                 r4 = 0x50
-  4298: 7a 53 3d                 u32 [r5 + 0x3d] = r3
-  4301: 7d 5a 3d                 r10 = i8 [r5 + 0x3d]
+  4298: 7a 53 3d                 u32 [r5 + 61] = r3
+  4301: 7d 5a 3d                 r10 = i8 [r5 + 61]
   4304: ab a4 94 09              jump 6756 if r4 != r10
       :                          @213
   4308: 33 0c 7e                 r12 = 0x7e
   4311: 33 03 00 50 56 57        r3 = 0x57565000
   4317: 83 33 54 05              i32 r3 = r3 + 0x554
   4321: 33 04 56                 r4 = 0x56
-  4324: 7a 53 3e                 u32 [r5 + 0x3e] = r3
-  4327: 7c 5a 40                 r10 = u8 [r5 + 0x40]
+  4324: 7a 53 3e                 u32 [r5 + 62] = r3
+  4327: 7c 5a 40                 r10 = u8 [r5 + 64]
   4330: ab a4 7a 09              jump 6756 if r4 != r10
       :                          @214
   4334: 02                       unlikely
@@ -29313,8 +29342,8 @@ Initial program counter: 13
   4344: 83 33 58 f9              i32 r3 = r3 + 0xfffffffffffff958
   4348: 33 04 00 60              r4 = 0x6000
   4352: 83 44 5a fb              i32 r4 = r4 + 0xfffffffffffffb5a
-  4356: 7a 53 3d                 u32 [r5 + 0x3d] = r3
-  4359: 7f 5a 3f                 r10 = i16 [r5 + 0x3f]
+  4356: 7a 53 3d                 u32 [r5 + 61] = r3
+  4359: 7f 5a 3f                 r10 = i16 [r5 + 63]
   4362: ab a4 5a 09              jump 6756 if r4 != r10
       :                          @215
   4366: 02                       unlikely
@@ -29323,8 +29352,8 @@ Initial program counter: 13
   4377: 83 33 5c fd              i32 r3 = r3 + 0xfffffffffffffd5c
   4381: 33 04 00 60              r4 = 0x6000
   4385: 83 44 5c fd              i32 r4 = r4 + 0xfffffffffffffd5c
-  4389: 7a 53 3f                 u32 [r5 + 0x3f] = r3
-  4392: 7e 5a 3f                 r10 = u16 [r5 + 0x3f]
+  4389: 7a 53 3f                 u32 [r5 + 63] = r3
+  4392: 7e 5a 3f                 r10 = u16 [r5 + 63]
   4395: ab a4 39 09              jump 6756 if r4 != r10
       :                          @216
   4399: 02                       unlikely
@@ -29338,8 +29367,8 @@ Initial program counter: 13
   4428: 97 33 0d                 r3 = r3 << 0xd
   4431: 95 33 60 01              r3 = r3 + 0x160
   4435: 33 04 67                 r4 = 0x67
-  4438: 7b 53 39                 u64 [r5 + 0x39] = r3
-  4441: 7d 5a 40                 r10 = i8 [r5 + 0x40]
+  4438: 7b 53 39                 u64 [r5 + 57] = r3
+  4441: 7d 5a 40                 r10 = i8 [r5 + 64]
   4444: ab a4 08 09              jump 6756 if r4 != r10
       :                          @217
   4448: 02                       unlikely
@@ -29353,8 +29382,8 @@ Initial program counter: 13
   4477: 97 33 0c                 r3 = r3 << 0xc
   4480: 95 33 68 f9              r3 = r3 + 0xfffffffffffff968
   4484: 33 04 6f                 r4 = 0x6f
-  4487: 7b 53 3a                 u64 [r5 + 0x3a] = r3
-  4490: 7c 5a 41                 r10 = u8 [r5 + 0x41]
+  4487: 7b 53 3a                 u64 [r5 + 58] = r3
+  4490: 7c 5a 41                 r10 = u8 [r5 + 65]
   4493: ab a4 d7 08              jump 6756 if r4 != r10
       :                          @218
   4497: 33 0c 83 00              r12 = 0x83
@@ -29368,8 +29397,8 @@ Initial program counter: 13
   4528: 95 33 70 01              r3 = r3 + 0x170
   4532: 33 04 00 70              r4 = 0x7000
   4536: 83 44 74 05              i32 r4 = r4 + 0x574
-  4540: 7b 53 3b                 u64 [r5 + 0x3b] = r3
-  4543: 7f 5a 3f                 r10 = i16 [r5 + 0x3f]
+  4540: 7b 53 3b                 u64 [r5 + 59] = r3
+  4543: 7f 5a 3f                 r10 = i16 [r5 + 63]
   4546: ab a4 a2 08              jump 6756 if r4 != r10
       :                          @219
   4550: 33 0c 84 00              r12 = 0x84
@@ -29383,8 +29412,8 @@ Initial program counter: 13
   4580: 95 33 78 f9              r3 = r3 + 0xfffffffffffff978
   4584: 33 04 00 80 00           r4 = 0x8000
   4589: 83 44 7b fc              i32 r4 = r4 + 0xfffffffffffffc7b
-  4593: 7b 53 3c                 u64 [r5 + 0x3c] = r3
-  4596: 7e 5a 3f                 r10 = u16 [r5 + 0x3f]
+  4593: 7b 53 3c                 u64 [r5 + 60] = r3
+  4596: 7e 5a 3f                 r10 = u16 [r5 + 63]
   4599: ab a4 6d 08              jump 6756 if r4 != r10
       :                          @220
   4603: 33 0c 85 00              r12 = 0x85
@@ -29398,8 +29427,8 @@ Initial program counter: 13
   4633: 95 33 80 01              r3 = r3 + 0x180
   4637: 33 04 00 80 82 83        r4 = 0xffffffff83828000
   4643: 83 44 80 01              i32 r4 = r4 + 0x180
-  4647: 7b 53 3d                 u64 [r5 + 0x3d] = r3
-  4650: 81 5a 3d                 r10 = i32 [r5 + 0x3d]
+  4647: 7b 53 3d                 u64 [r5 + 61] = r3
+  4650: 81 5a 3d                 r10 = i32 [r5 + 61]
   4653: ab a4 37 08              jump 6756 if r4 != r10
       :                          @221
   4657: 33 0c 86 00              r12 = 0x86
@@ -29413,8 +29442,8 @@ Initial program counter: 13
   4688: 95 33 88 f9              r3 = r3 + 0xfffffffffffff988
   4692: 33 04 00 90 8a 8b        r4 = 0xffffffff8b8a9000
   4698: 83 44 88 f9              i32 r4 = r4 + 0xfffffffffffff988
-  4702: 7b 53 3e                 u64 [r5 + 0x3e] = r3
-  4705: 81 5a 3e                 r10 = i32 [r5 + 0x3e]
+  4702: 7b 53 3e                 u64 [r5 + 62] = r3
+  4705: 81 5a 3e                 r10 = i32 [r5 + 62]
   4708: ab a4 00 08              jump 6756 if r4 != r10
       :                          @222
   4712: 02                       unlikely
@@ -29431,8 +29460,8 @@ Initial program counter: 13
   4753: 83 44 29 f9              i32 r4 = r4 + 0xfffffffffffff929
   4757: 97 44 0c                 r4 = r4 << 0xc
   4760: 95 44 90 01              r4 = r4 + 0x190
-  4764: 7b 53 3f                 u64 [r5 + 0x3f] = r3
-  4767: 80 5a 3f                 r10 = u32 [r5 + 0x3f]
+  4764: 7b 53 3f                 u64 [r5 + 63] = r3
+  4767: 80 5a 3f                 r10 = u32 [r5 + 63]
   4770: ab a4 c2 07              jump 6756 if r4 != r10
       :                          @223
   4774: 02                       unlikely
@@ -29440,8 +29469,8 @@ Initial program counter: 13
   4779: 33 03 98 00              r3 = 0x98
   4783: 33 04 00 c0              r4 = 0xffffffffffffc000
   4787: 83 44 98 f8              i32 r4 = r4 + 0xfffffffffffff898
-  4791: 78 53 01                 u8 [r5 + 0x1] = t1
-  4794: 7f 5a 01                 r10 = i16 [r5 + 0x1]
+  4791: 78 53 01                 u8 [r5 + 1] = t1
+  4794: 7f 5a 01                 r10 = i16 [r5 + 1]
   4797: ab a4 a7 07              jump 6756 if r4 != r10
       :                          @224
   4801: 02                       unlikely
@@ -29449,8 +29478,8 @@ Initial program counter: 13
   4806: 33 03 99 00              r3 = 0x99
   4810: 33 04 00 a0 00           r4 = 0xa000
   4815: 83 44 98 f9              i32 r4 = r4 + 0xfffffffffffff998
-  4819: 78 53 02                 u8 [r5 + 0x2] = t1
-  4822: 7e 5a 01                 r10 = u16 [r5 + 0x1]
+  4819: 78 53 02                 u8 [r5 + 2] = t1
+  4822: 7e 5a 01                 r10 = u16 [r5 + 1]
   4825: ab a4 8b 07              jump 6756 if r4 != r10
       :                          @225
   4829: 02                       unlikely
@@ -29459,8 +29488,8 @@ Initial program counter: 13
   4839: 83 33 9a fb              i32 r3 = r3 + 0xfffffffffffffb9a
   4843: 33 04 00 a0 c0 c8        r4 = 0xffffffffc8c0a000
   4849: 83 44 9a fb              i32 r4 = r4 + 0xfffffffffffffb9a
-  4853: 79 53 01                 u16 [r5 + 0x1] = r3
-  4856: 81 5a 01                 r10 = i32 [r5 + 0x1]
+  4853: 79 53 01                 u16 [r5 + 1] = r3
+  4856: 81 5a 01                 r10 = i32 [r5 + 1]
   4859: ab a4 69 07              jump 6756 if r4 != r10
       :                          @226
   4863: 02                       unlikely
@@ -29469,8 +29498,8 @@ Initial program counter: 13
   4873: 83 33 9c fd              i32 r3 = r3 + 0xfffffffffffffd9c
   4877: 33 04 00 a0 9d d0        r4 = 0xffffffffd09da000
   4883: 83 44 9b fc              i32 r4 = r4 + 0xfffffffffffffc9b
-  4887: 79 53 03                 u16 [r5 + 0x3] = r3
-  4890: 81 5a 02                 r10 = i32 [r5 + 0x2]
+  4887: 79 53 03                 u16 [r5 + 3] = r3
+  4890: 81 5a 02                 r10 = i32 [r5 + 2]
   4893: ab a4 47 07              jump 6756 if r4 != r10
       :                          @227
   4897: 02                       unlikely
@@ -29479,8 +29508,8 @@ Initial program counter: 13
   4907: 83 33 9e                 i32 r3 = r3 + 0xffffffffffffff9e
   4910: 33 04 00 a0 9e 9f        r4 = 0xffffffff9f9ea000
   4916: 83 44 9c fd              i32 r4 = r4 + 0xfffffffffffffd9c
-  4920: 79 53 05                 u16 [r5 + 0x5] = r3
-  4923: 81 5a 03                 r10 = i32 [r5 + 0x3]
+  4920: 79 53 05                 u16 [r5 + 5] = r3
+  4923: 81 5a 03                 r10 = i32 [r5 + 3]
   4926: ab a4 26 07              jump 6756 if r4 != r10
       :                          @228
   4930: 02                       unlikely
@@ -29490,8 +29519,8 @@ Initial program counter: 13
   4944: 83 44 e5 fc              i32 r4 = r4 + 0xfffffffffffffce5
   4948: 97 44 0d                 r4 = r4 << 0xd
   4951: 95 44 9a 00              r4 = r4 + 0x9a
-  4955: 78 53 02                 u8 [r5 + 0x2] = t1
-  4958: 80 5a 01                 r10 = u32 [r5 + 0x1]
+  4955: 78 53 02                 u8 [r5 + 2] = t1
+  4958: 80 5a 01                 r10 = u32 [r5 + 1]
   4961: ab a4 03 07              jump 6756 if r4 != r10
       :                          @229
   4965: 33 0c 8e 00              r12 = 0x8e
@@ -29501,8 +29530,8 @@ Initial program counter: 13
   4983: 83 44 15 05              i32 r4 = r4 + 0x515
   4987: 97 44 0d                 r4 = r4 << 0xd
   4990: 95 44 a0 01              r4 = r4 + 0x1a0
-  4994: 79 53 03                 u16 [r5 + 0x3] = r3
-  4997: 80 5a 02                 r10 = u32 [r5 + 0x2]
+  4994: 79 53 03                 u16 [r5 + 3] = r3
+  4997: 80 5a 02                 r10 = u32 [r5 + 2]
   5000: ab a4 dc 06              jump 6756 if r4 != r10
       :                          @230
   5004: 33 0c 8f 00              r12 = 0x8f
@@ -29512,8 +29541,8 @@ Initial program counter: 13
   5022: 83 44 1d 05              i32 r4 = r4 + 0x51d
   5026: 97 44 0d                 r4 = r4 << 0xd
   5029: 95 44 a1 02              r4 = r4 + 0x2a1
-  5033: 79 53 05                 u16 [r5 + 0x5] = r3
-  5036: 80 5a 03                 r10 = u32 [r5 + 0x3]
+  5033: 79 53 05                 u16 [r5 + 5] = r3
+  5036: 80 5a 03                 r10 = u32 [r5 + 3]
   5039: ab a4 b5 06              jump 6756 if r4 != r10
       :                          @231
   5043: 02                       unlikely
@@ -29527,8 +29556,8 @@ Initial program counter: 13
   5072: 95 44 0d 05              r4 = r4 + 0x50d
   5076: 97 44 0d                 r4 = r4 << 0xd
   5079: 95 44 9a 05              r4 = r4 + 0x59a
-  5083: 78 53 02                 u8 [r5 + 0x2] = t1
-  5086: 82 5a 01                 r10 = u64 [r5 + 0x1]
+  5083: 78 53 02                 u8 [r5 + 2] = t1
+  5086: 82 5a 01                 r10 = u64 [r5 + 1]
   5089: ab a4 83 06              jump 6756 if r4 != r10
       :                          @232
   5093: 33 0c 91 00              r12 = 0x91
@@ -29542,8 +29571,8 @@ Initial program counter: 13
   5125: 95 44 15 fd              r4 = r4 + 0xfffffffffffffd15
   5129: 97 44 0d                 r4 = r4 << 0xd
   5132: 95 44 a5 01              r4 = r4 + 0x1a5
-  5136: 79 53 07                 u16 [r5 + 0x7] = r3
-  5139: 82 5a 02                 r10 = u64 [r5 + 0x2]
+  5136: 79 53 07                 u16 [r5 + 7] = r3
+  5139: 82 5a 02                 r10 = u64 [r5 + 2]
   5142: ab a4 4e 06              jump 6756 if r4 != r10
       :                          @233
   5146: 33 0c 92 00              r12 = 0x92
@@ -29557,8 +29586,8 @@ Initial program counter: 13
   5179: 95 44 1d 05              r4 = r4 + 0x51d
   5183: 97 44 0d                 r4 = r4 << 0xd
   5186: 95 44 a1 02              r4 = r4 + 0x2a1
-  5190: 79 53 09                 u16 [r5 + 0x9] = r3
-  5193: 82 5a 03                 r10 = u64 [r5 + 0x3]
+  5190: 79 53 09                 u16 [r5 + 9] = r3
+  5193: 82 5a 03                 r10 = u64 [r5 + 3]
   5196: ab a4 18 06              jump 6756 if r4 != r10
       :                          @234
   5200: 02                       unlikely
@@ -29575,8 +29604,8 @@ Initial program counter: 13
   5241: 95 44 bb fa              r4 = r4 + 0xfffffffffffffabb
   5245: 97 44 0c                 r4 = r4 << 0xc
   5248: 95 44 a2 fa              r4 = r4 + 0xfffffffffffffaa2
-  5252: 7a 53 05                 u32 [r5 + 0x5] = r3
-  5255: 82 5a 04                 r10 = u64 [r5 + 0x4]
+  5252: 7a 53 05                 u32 [r5 + 5] = r3
+  5255: 82 5a 04                 r10 = u64 [r5 + 4]
   5258: ab a4 da 05              jump 6756 if r4 != r10
       :                          @235
   5262: 02                       unlikely
@@ -29593,8 +29622,8 @@ Initial program counter: 13
   5301: 95 44 eb fa              r4 = r4 + 0xfffffffffffffaeb
   5305: 97 44 0c                 r4 = r4 << 0xc
   5308: 95 44 aa fb              r4 = r4 + 0xfffffffffffffbaa
-  5312: 7a 53 07                 u32 [r5 + 0x7] = r3
-  5315: 82 5a 05                 r10 = u64 [r5 + 0x5]
+  5312: 7a 53 07                 u32 [r5 + 7] = r3
+  5315: 82 5a 05                 r10 = u64 [r5 + 5]
   5318: ab a4 9e 05              jump 6756 if r4 != r10
       :                          @236
   5322: 02                       unlikely
@@ -29611,8 +29640,8 @@ Initial program counter: 13
   5363: 95 44 fb fa              r4 = r4 + 0xfffffffffffffafb
   5367: 97 44 0c                 r4 = r4 << 0xc
   5370: 95 44 ab fe              r4 = r4 + 0xfffffffffffffeab
-  5374: 7a 53 09                 u32 [r5 + 0x9] = r3
-  5377: 82 5a 06                 r10 = u64 [r5 + 0x6]
+  5374: 7a 53 09                 u32 [r5 + 9] = r3
+  5377: 82 5a 06                 r10 = u64 [r5 + 6]
   5380: ab a4 60 05              jump 6756 if r4 != r10
       :                          @237
   5384: 02                       unlikely
@@ -29629,8 +29658,8 @@ Initial program counter: 13
   5425: 95 44 2b fb              r4 = r4 + 0xfffffffffffffb2b
   5429: 97 44 0c                 r4 = r4 << 0xc
   5432: 95 44 ae                 r4 = r4 + 0xffffffffffffffae
-  5435: 7a 53 0b                 u32 [r5 + 0xb] = r3
-  5438: 82 5a 07                 r10 = u64 [r5 + 0x7]
+  5435: 7a 53 0b                 u32 [r5 + 11] = r3
+  5438: 82 5a 07                 r10 = u64 [r5 + 7]
   5441: ab a4 23 05              jump 6756 if r4 != r10
       :                          @238
   5445: 02                       unlikely
@@ -29638,8 +29667,8 @@ Initial program counter: 13
   5450: 33 03 ba 00              r3 = 0xba
   5454: 33 04 00 30              r4 = 0x3000
   5458: 83 44 ba 01              i32 r4 = r4 + 0x1ba
-  5462: 78 53 1f                 u8 [r5 + 0x1f] = t1
-  5465: 7f 5a 1f                 r10 = i16 [r5 + 0x1f]
+  5462: 78 53 1f                 u8 [r5 + 31] = t1
+  5465: 7f 5a 1f                 r10 = i16 [r5 + 31]
   5468: ab a4 08 05              jump 6756 if r4 != r10
       :                          @239
   5472: 02                       unlikely
@@ -29647,8 +29676,8 @@ Initial program counter: 13
   5477: 33 03 bb 00              r3 = 0xbb
   5481: 33 04 00 c0 00           r4 = 0xc000
   5486: 83 44 ba fb              i32 r4 = r4 + 0xfffffffffffffbba
-  5490: 78 53 20                 u8 [r5 + 0x20] = t1
-  5493: 7e 5a 1f                 r10 = u16 [r5 + 0x1f]
+  5490: 78 53 20                 u8 [r5 + 32] = t1
+  5493: 7e 5a 1f                 r10 = u16 [r5 + 31]
   5496: ab a4 ec 04              jump 6756 if r4 != r10
       :                          @240
   5500: 02                       unlikely
@@ -29657,8 +29686,8 @@ Initial program counter: 13
   5510: 83 33 bc fd              i32 r3 = r3 + 0xfffffffffffffdbc
   5514: 33 04 00 c0 bb 32        r4 = 0x32bbc000
   5520: 83 44 bc fd              i32 r4 = r4 + 0xfffffffffffffdbc
-  5524: 79 53 1e                 u16 [r5 + 0x1e] = r3
-  5527: 81 5a 1e                 r10 = i32 [r5 + 0x1e]
+  5524: 79 53 1e                 u16 [r5 + 30] = r3
+  5527: 81 5a 1e                 r10 = i32 [r5 + 30]
   5530: ab a4 ca 04              jump 6756 if r4 != r10
       :                          @241
   5534: 02                       unlikely
@@ -29667,8 +29696,8 @@ Initial program counter: 13
   5544: 83 33 be                 i32 r3 = r3 + 0xffffffffffffffbe
   5547: 33 04 00 c0 bf 32        r4 = 0x32bfc000
   5553: 83 44 bc fe              i32 r4 = r4 + 0xfffffffffffffebc
-  5557: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  5560: 81 5a 1e                 r10 = i32 [r5 + 0x1e]
+  5557: 79 53 1f                 u16 [r5 + 31] = r3
+  5560: 81 5a 1e                 r10 = i32 [r5 + 30]
   5563: ab a4 a9 04              jump 6756 if r4 != r10
       :                          @242
   5567: 02                       unlikely
@@ -29677,8 +29706,8 @@ Initial program counter: 13
   5577: 83 33 c0 01              i32 r3 = r3 + 0x1c0
   5581: 33 04 00 c0 c0 c1        r4 = 0xffffffffc1c0c000
   5587: 83 44 bc fe              i32 r4 = r4 + 0xfffffffffffffebc
-  5591: 79 53 20                 u16 [r5 + 0x20] = r3
-  5594: 81 5a 1e                 r10 = i32 [r5 + 0x1e]
+  5591: 79 53 20                 u16 [r5 + 32] = r3
+  5594: 81 5a 1e                 r10 = i32 [r5 + 30]
   5597: ab a4 87 04              jump 6756 if r4 != r10
       :                          @243
   5601: 02                       unlikely
@@ -29686,8 +29715,8 @@ Initial program counter: 13
   5606: 33 03 c2 00              r3 = 0xc2
   5610: 33 04 00 c0 c1 33        r4 = 0x33c1c000
   5616: 83 44 be 02              i32 r4 = r4 + 0x2be
-  5620: 78 53 20                 u8 [r5 + 0x20] = t1
-  5623: 80 5a 1f                 r10 = u32 [r5 + 0x1f]
+  5620: 78 53 20                 u8 [r5 + 32] = t1
+  5623: 80 5a 1f                 r10 = u32 [r5 + 31]
   5626: ab a4 6a 04              jump 6756 if r4 != r10
       :                          @244
   5630: 33 0c 9d 00              r12 = 0x9d
@@ -29697,8 +29726,8 @@ Initial program counter: 13
   5648: 83 44 0f 03              i32 r4 = r4 + 0x30f
   5652: 97 44 0e                 r4 = r4 << 0xe
   5655: 95 44 20 fc              r4 = r4 + 0xfffffffffffffc20
-  5659: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  5662: 80 5a 1d                 r10 = u32 [r5 + 0x1d]
+  5659: 79 53 1f                 u16 [r5 + 31] = r3
+  5662: 80 5a 1d                 r10 = u32 [r5 + 29]
   5665: ab a4 43 04              jump 6756 if r4 != r10
       :                          @245
   5669: 33 0c 9e 00              r12 = 0x9e
@@ -29708,8 +29737,8 @@ Initial program counter: 13
   5687: 83 44 17 fb              i32 r4 = r4 + 0xfffffffffffffb17
   5691: 97 44 0e                 r4 = r4 << 0xe
   5694: 95 44 bc 03              r4 = r4 + 0x3bc
-  5698: 79 53 20                 u16 [r5 + 0x20] = r3
-  5701: 80 5a 1e                 r10 = u32 [r5 + 0x1e]
+  5698: 79 53 20                 u16 [r5 + 32] = r3
+  5701: 80 5a 1e                 r10 = u32 [r5 + 30]
   5704: ab a4 1c 04              jump 6756 if r4 != r10
       :                          @246
   5708: 02                       unlikely
@@ -29723,8 +29752,8 @@ Initial program counter: 13
   5736: 95 44 01 01              r4 = r4 + 0x101
   5740: 97 44 0c                 r4 = r4 << 0xc
   5743: 95 44 00 f8              r4 = r4 + 0xfffffffffffff800
-  5747: 78 53 20                 u8 [r5 + 0x20] = t1
-  5750: 82 5a 19                 r10 = u64 [r5 + 0x19]
+  5747: 78 53 20                 u8 [r5 + 32] = t1
+  5750: 82 5a 19                 r10 = u64 [r5 + 25]
   5753: ab a4 eb 03              jump 6756 if r4 != r10
       :                          @247
   5757: 33 0c a0 00              r12 = 0xa0
@@ -29738,8 +29767,8 @@ Initial program counter: 13
   5789: 95 44 81 01              r4 = r4 + 0x181
   5793: 97 44 0c                 r4 = r4 << 0xc
   5796: 95 44 08                 r4 = r4 + 0x8
-  5799: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  5802: 82 5a 1a                 r10 = u64 [r5 + 0x1a]
+  5799: 79 53 1f                 u16 [r5 + 31] = r3
+  5802: 82 5a 1a                 r10 = u64 [r5 + 26]
   5805: ab a4 b7 03              jump 6756 if r4 != r10
       :                          @248
   5809: 33 0c a1 00              r12 = 0xa1
@@ -29753,8 +29782,8 @@ Initial program counter: 13
   5842: 95 44 01 01              r4 = r4 + 0x101
   5846: 97 44 0d                 r4 = r4 << 0xd
   5849: 95 44 10 f8              r4 = r4 + 0xfffffffffffff810
-  5853: 79 53 1f                 u16 [r5 + 0x1f] = r3
-  5856: 82 5a 1b                 r10 = u64 [r5 + 0x1b]
+  5853: 79 53 1f                 u16 [r5 + 31] = r3
+  5856: 82 5a 1b                 r10 = u64 [r5 + 27]
   5859: ab a4 81 03              jump 6756 if r4 != r10
       :                          @249
   5863: 02                       unlikely
@@ -29771,8 +29800,8 @@ Initial program counter: 13
   5904: 95 44 e1 05              r4 = r4 + 0x5e1
   5908: 97 44 0d                 r4 = r4 << 0xd
   5911: 95 44 18                 r4 = r4 + 0x18
-  5914: 7a 53 20                 u32 [r5 + 0x20] = r3
-  5917: 82 5a 1c                 r10 = u64 [r5 + 0x1c]
+  5914: 7a 53 20                 u32 [r5 + 32] = r3
+  5917: 82 5a 1c                 r10 = u64 [r5 + 28]
   5920: ab a4 44 03              jump 6756 if r4 != r10
       :                          @250
   5924: 02                       unlikely
@@ -29789,8 +29818,8 @@ Initial program counter: 13
   5964: 95 44 43 07              r4 = r4 + 0x743
   5968: 97 44 0e                 r4 = r4 << 0xe
   5971: 95 44 20 fc              r4 = r4 + 0xfffffffffffffc20
-  5975: 7a 53 1f                 u32 [r5 + 0x1f] = r3
-  5978: 82 5a 1d                 r10 = u64 [r5 + 0x1d]
+  5975: 7a 53 1f                 u32 [r5 + 31] = r3
+  5978: 82 5a 1d                 r10 = u64 [r5 + 29]
   5981: ab a4 07 03              jump 6756 if r4 != r10
       :                          @251
   5985: 02                       unlikely
@@ -29807,8 +29836,8 @@ Initial program counter: 13
   6025: 95 44 6d fd              r4 = r4 + 0xfffffffffffffd6d
   6029: 97 44 0c                 r4 = r4 << 0xc
   6032: 95 44 d4 05              r4 = r4 + 0x5d4
-  6036: 7a 53 1e                 u32 [r5 + 0x1e] = r3
-  6039: 82 5a 1e                 r10 = u64 [r5 + 0x1e]
+  6036: 7a 53 1e                 u32 [r5 + 30] = r3
+  6039: 82 5a 1e                 r10 = u64 [r5 + 30]
   6042: ab a4 ca 02              jump 6756 if r4 != r10
       :                          @252
   6046: 02                       unlikely
@@ -29825,8 +29854,8 @@ Initial program counter: 13
   6087: 95 44 bf fe              r4 = r4 + 0xfffffffffffffebf
   6091: 97 44 0d                 r4 = r4 << 0xd
   6094: 95 44 da fb              r4 = r4 + 0xfffffffffffffbda
-  6098: 7a 53 1d                 u32 [r5 + 0x1d] = r3
-  6101: 82 5a 1f                 r10 = u64 [r5 + 0x1f]
+  6098: 7a 53 1d                 u32 [r5 + 29] = r3
+  6101: 82 5a 1f                 r10 = u64 [r5 + 31]
   6104: ab a4 8c 02              jump 6756 if r4 != r10
       :                          @253
   6108: 02                       unlikely
@@ -29834,8 +29863,8 @@ Initial program counter: 13
   6113: 33 03 dc 00              r3 = 0xdc
   6117: 33 04 00 90              r4 = 0xffffffffffff9000
   6121: 83 44 dc 01              i32 r4 = r4 + 0x1dc
-  6125: 78 53 3f                 u8 [r5 + 0x3f] = t1
-  6128: 7f 5a 3f                 r10 = i16 [r5 + 0x3f]
+  6125: 78 53 3f                 u8 [r5 + 63] = t1
+  6128: 7f 5a 3f                 r10 = i16 [r5 + 63]
   6131: ab a4 71 02              jump 6756 if r4 != r10
       :                          @254
   6135: 02                       unlikely
@@ -29843,8 +29872,8 @@ Initial program counter: 13
   6140: 33 03 dd 00              r3 = 0xdd
   6144: 33 04 00 e0 00           r4 = 0xe000
   6149: 83 44 dc fd              i32 r4 = r4 + 0xfffffffffffffddc
-  6153: 78 53 40                 u8 [r5 + 0x40] = t1
-  6156: 7e 5a 3f                 r10 = u16 [r5 + 0x3f]
+  6153: 78 53 40                 u8 [r5 + 64] = t1
+  6156: 7e 5a 3f                 r10 = u16 [r5 + 63]
   6159: ab a4 55 02              jump 6756 if r4 != r10
       :                          @255
   6163: 02                       unlikely
@@ -29853,8 +29882,8 @@ Initial program counter: 13
   6173: 83 33 de                 i32 r3 = r3 + 0xffffffffffffffde
   6176: 33 04 00 e0 dd 92        r4 = 0xffffffff92dde000
   6182: 83 44 de                 i32 r4 = r4 + 0xffffffffffffffde
-  6185: 79 53 3e                 u16 [r5 + 0x3e] = r3
-  6188: 81 5a 3e                 r10 = i32 [r5 + 0x3e]
+  6185: 79 53 3e                 u16 [r5 + 62] = r3
+  6188: 81 5a 3e                 r10 = i32 [r5 + 62]
   6191: ab a4 35 02              jump 6756 if r4 != r10
       :                          @256
   6195: 02                       unlikely
@@ -29863,8 +29892,8 @@ Initial program counter: 13
   6205: 83 33 e0 01              i32 r3 = r3 + 0x1e0
   6209: 33 04 00 e0 e1 92        r4 = 0xffffffff92e1e000
   6215: 83 44 de 00              i32 r4 = r4 + 0xde
-  6219: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  6222: 81 5a 3e                 r10 = i32 [r5 + 0x3e]
+  6219: 79 53 3f                 u16 [r5 + 63] = r3
+  6222: 81 5a 3e                 r10 = i32 [r5 + 62]
   6225: ab a4 13 02              jump 6756 if r4 != r10
       :                          @257
   6229: 02                       unlikely
@@ -29873,8 +29902,8 @@ Initial program counter: 13
   6239: 83 33 e2 03              i32 r3 = r3 + 0x3e2
   6243: 33 04 00 e0 e2 e3        r4 = 0xffffffffe3e2e000
   6249: 83 44 de 00              i32 r4 = r4 + 0xde
-  6253: 79 53 40                 u16 [r5 + 0x40] = r3
-  6256: 81 5a 3e                 r10 = i32 [r5 + 0x3e]
+  6253: 79 53 40                 u16 [r5 + 64] = r3
+  6256: 81 5a 3e                 r10 = i32 [r5 + 62]
   6259: ab a4 f1 01              jump 6756 if r4 != r10
       :                          @258
   6263: 02                       unlikely
@@ -29884,8 +29913,8 @@ Initial program counter: 13
   6277: 83 44 1f ff              i32 r4 = r4 + 0xffffffffffffff1f
   6281: 97 44 0d                 r4 = r4 << 0xd
   6284: 95 44 e0 04              r4 = r4 + 0x4e0
-  6288: 78 53 40                 u8 [r5 + 0x40] = t1
-  6291: 80 5a 3f                 r10 = u32 [r5 + 0x3f]
+  6288: 78 53 40                 u8 [r5 + 64] = t1
+  6291: 80 5a 3f                 r10 = u32 [r5 + 63]
   6294: ab a4 ce 01              jump 6756 if r4 != r10
       :                          @259
   6298: 33 0c ac 00              r12 = 0xac
@@ -29895,8 +29924,8 @@ Initial program counter: 13
   6316: 83 44 2f 07              i32 r4 = r4 + 0x72f
   6320: 97 44 0d                 r4 = r4 << 0xd
   6323: 95 44 80 fe              r4 = r4 + 0xfffffffffffffe80
-  6327: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  6330: 80 5a 3d                 r10 = u32 [r5 + 0x3d]
+  6327: 79 53 3f                 u16 [r5 + 63] = r3
+  6330: 80 5a 3d                 r10 = u32 [r5 + 61]
   6333: ab a4 a7 01              jump 6756 if r4 != r10
       :                          @260
   6337: 33 0c ad 00              r12 = 0xad
@@ -29906,8 +29935,8 @@ Initial program counter: 13
   6355: 83 44 3f 07              i32 r4 = r4 + 0x73f
   6359: 97 44 0d                 r4 = r4 << 0xd
   6362: 95 44 de 05              r4 = r4 + 0x5de
-  6366: 79 53 40                 u16 [r5 + 0x40] = r3
-  6369: 80 5a 3e                 r10 = u32 [r5 + 0x3e]
+  6366: 79 53 40                 u16 [r5 + 64] = r3
+  6369: 80 5a 3e                 r10 = u32 [r5 + 62]
   6372: ab a4 80 01              jump 6756 if r4 != r10
       :                          @261
   6376: 02                       unlikely
@@ -29921,8 +29950,8 @@ Initial program counter: 13
   6403: 95 44 07 07              r4 = r4 + 0x707
   6407: 97 44 0c                 r4 = r4 << 0xc
   6410: 95 44 60 f8              r4 = r4 + 0xfffffffffffff860
-  6414: 78 53 40                 u8 [r5 + 0x40] = t1
-  6417: 82 5a 39                 r10 = u64 [r5 + 0x39]
+  6414: 78 53 40                 u8 [r5 + 64] = t1
+  6417: 82 5a 39                 r10 = u64 [r5 + 57]
   6420: ab a4 50 01              jump 6756 if r4 != r10
       :                          @262
   6424: 02                       unlikely
@@ -29935,8 +29964,8 @@ Initial program counter: 13
   6451: 95 44 87 07              r4 = r4 + 0x787
   6455: 97 44 0c                 r4 = r4 << 0xc
   6458: 95 44 68                 r4 = r4 + 0x68
-  6461: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  6464: 82 5a 3a                 r10 = u64 [r5 + 0x3a]
+  6461: 79 53 3f                 u16 [r5 + 63] = r3
+  6464: 82 5a 3a                 r10 = u64 [r5 + 58]
   6467: ab a4 21 01              jump 6756 if r4 != r10
       :                          @263
   6471: 33 0c b0 00              r12 = 0xb0
@@ -29950,8 +29979,8 @@ Initial program counter: 13
   6503: 95 44 01 fd              r4 = r4 + 0xfffffffffffffd01
   6507: 97 44 0f                 r4 = r4 << 0xf
   6510: 95 44 70 f8              r4 = r4 + 0xfffffffffffff870
-  6514: 79 53 3f                 u16 [r5 + 0x3f] = r3
-  6517: 82 5a 3b                 r10 = u64 [r5 + 0x3b]
+  6514: 79 53 3f                 u16 [r5 + 63] = r3
+  6517: 82 5a 3b                 r10 = u64 [r5 + 59]
   6520: ab a4 ec 00              jump 6756 if r4 != r10
       :                          @264
   6524: 02                       unlikely
@@ -29968,8 +29997,8 @@ Initial program counter: 13
   6563: 95 44 bd f9              r4 = r4 + 0xfffffffffffff9bd
   6567: 97 44 0f                 r4 = r4 << 0xf
   6570: 95 44 78                 r4 = r4 + 0x78
-  6573: 7a 53 40                 u32 [r5 + 0x40] = r3
-  6576: 82 5a 3c                 r10 = u64 [r5 + 0x3c]
+  6573: 7a 53 40                 u32 [r5 + 64] = r3
+  6576: 82 5a 3c                 r10 = u64 [r5 + 60]
   6579: ab a4 b1 00              jump 6756 if r4 != r10
       :                          @265
   6583: 02                       unlikely
@@ -29986,8 +30015,8 @@ Initial program counter: 13
   6623: 95 44 97                 r4 = r4 + 0xffffffffffffff97
   6626: 97 44 0d                 r4 = r4 << 0xd
   6629: 95 44 80 fe              r4 = r4 + 0xfffffffffffffe80
-  6633: 7a 53 3f                 u32 [r5 + 0x3f] = r3
-  6636: 82 5a 3d                 r10 = u64 [r5 + 0x3d]
+  6633: 7a 53 3f                 u32 [r5 + 63] = r3
+  6636: 82 5a 3d                 r10 = u64 [r5 + 61]
   6639: ab a4 75                 jump 6756 if r4 != r10
       :                          @266
   6642: 02                       unlikely
@@ -30004,8 +30033,8 @@ Initial program counter: 13
   6681: 95 44 8f                 r4 = r4 + 0xffffffffffffff8f
   6684: 97 44 0c                 r4 = r4 << 0xc
   6687: 95 44 f6 07              r4 = r4 + 0x7f6
-  6691: 7a 53 3e                 u32 [r5 + 0x3e] = r3
-  6694: 82 5a 3e                 r10 = u64 [r5 + 0x3e]
+  6691: 7a 53 3e                 u32 [r5 + 62] = r3
+  6694: 82 5a 3e                 r10 = u64 [r5 + 62]
   6697: ab a4 3b                 jump 6756 if r4 != r10
       :                          @267
   6700: 33 0c b4 00              r12 = 0xb4
@@ -30019,8 +30048,8 @@ Initial program counter: 13
   6733: 95 44 fd fa              r4 = r4 + 0xfffffffffffffafd
   6737: 97 44 11                 r4 = r4 << 0x11
   6740: 95 44 fc fd              r4 = r4 + 0xfffffffffffffdfc
-  6744: 7a 53 3d                 u32 [r5 + 0x3d] = r3
-  6747: 82 5a 3f                 r10 = u64 [r5 + 0x3f]
+  6744: 7a 53 3d                 u32 [r5 + 61] = r3
+  6747: 82 5a 3f                 r10 = u64 [r5 + 63]
   6750: ab a4 06                 jump 6756 if r4 != r10
       :                          @268
   6753: 52 0c 04                 jump 6757 if r12 != 0
@@ -30064,7 +30093,7 @@ Gas simulation at offset 13 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r5 = u64 [0x10000]
     DeE------------------------R..........................  r12 = 0x1
     DeE------------------------R..........................  r3 = 0x201
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = i16 [r5 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = i16 [r5 + 1]
     .D=================================================eER  jump 34 if r3 == r4
 ```
 
@@ -30080,7 +30109,7 @@ Gas simulation at offset 34 with total cost of 40:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER  unlikely
     DeE---------------------------------------R  r12 = 0x2
     DeE---------------------------------------R  r3 = 0x201
-    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r4 = u16 [r5 + 0x1]
+    DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R  r4 = u16 [r5 + 1]
     .D========================eE--------------R  jump 51 if r3 == r4
 ```
 
@@ -30097,7 +30126,7 @@ Gas simulation at offset 51 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x3
     DeE---------------------------------------R  r3 = 0x4030000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x201
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x1]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 1]
     .D=========================eE-------------R  jump 74 if r3 == r4
 ```
 
@@ -30114,7 +30143,7 @@ Gas simulation at offset 74 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x4
     DeE---------------------------------------R  r3 = 0x5040000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x302
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x2]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 2]
     .D=========================eE-------------R  jump 97 if r3 == r4
 ```
 
@@ -30131,7 +30160,7 @@ Gas simulation at offset 97 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x5
     DeE---------------------------------------R  r3 = 0x6050000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x403
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x3]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 3]
     .D=========================eE-------------R  jump 120 if r3 == r4
 ```
 
@@ -30148,7 +30177,7 @@ Gas simulation at offset 120 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x6
     DeE---------------------------------------R  r3 = 0x4030000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x201
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x1]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 1]
     .D=========================eE-------------R  jump 143 if r3 == r4
 ```
 
@@ -30165,7 +30194,7 @@ Gas simulation at offset 143 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x7
     DeE---------------------------------------R  r3 = 0x5040000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x302
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x2]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 2]
     .D=========================eE-------------R  jump 166 if r3 == r4
 ```
 
@@ -30182,7 +30211,7 @@ Gas simulation at offset 166 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x8
     DeE---------------------------------------R  r3 = 0x6050000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x403
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x3]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 3]
     .D=========================eE-------------R  jump 189 if r3 == r4
 ```
 
@@ -30203,7 +30232,7 @@ Gas simulation at offset 189 with total cost of 40:
     .D===eE-----------------------------------R  r3 = r3 + 0x403
     ..D===eE----------------------------------R  r3 = r3 << 0x10
     ..D====eE---------------------------------R  r3 = r3 + 0x201
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r4 = u64 [r5 + 0x1]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r4 = u64 [r5 + 1]
     ..D=========================eE------------R  jump 226 if r3 == r4
 ```
 
@@ -30224,7 +30253,7 @@ Gas simulation at offset 226 with total cost of 40:
     .D===eE-----------------------------------R  r3 = r3 + 0x141
     ..D===eE----------------------------------R  r3 = r3 << 0x12
     ..D====eE---------------------------------R  r3 = r3 + 0x302
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r4 = u64 [r5 + 0x2]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r4 = u64 [r5 + 2]
     ..D=========================eE------------R  jump 263 if r3 == r4
 ```
 
@@ -30245,7 +30274,7 @@ Gas simulation at offset 263 with total cost of 40:
     .D===eE-----------------------------------R  r3 = r3 + 0x605
     ..D===eE----------------------------------R  r3 = r3 << 0x10
     ..D====eE---------------------------------R  r3 = r3 + 0x403
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r4 = u64 [r5 + 0x3]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r4 = u64 [r5 + 3]
     ..D=========================eE------------R  jump 300 if r3 == r4
 ```
 
@@ -30266,7 +30295,7 @@ Gas simulation at offset 300 with total cost of 47:
     .D===eE-----------------------------------R.......  r3 = r3 + 0x383
     ..D===eE----------------------------------R.......  r3 = r3 << 0x11
     ..D====eE---------------------------------R.......  r3 = r3 + 0x504
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.......  r4 = u64 [r5 + 0x4]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.......  r4 = u64 [r5 + 4]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 337 if r3 == r4
 ```
 
@@ -30288,7 +30317,7 @@ Gas simulation at offset 337 with total cost of 28:
     .D=====eER.....................  r3 = r3 + 0xfffffffffffff807
     ..D=====eER....................  r3 = r3 << 0x10
     ..D======eER...................  r3 = r3 + 0x605
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = u64 [r5 + 0x5]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = u64 [r5 + 5]
     ..D=========================eER  jump 379 if r3 == r4
 ```
 
@@ -30309,7 +30338,7 @@ Gas simulation at offset 379 with total cost of 47:
     .D===eE-----------------------------------R.......  r3 = r3 + 0x121
     ..D===eE----------------------------------R.......  r3 = r3 << 0x13
     ..D====eE---------------------------------R.......  r3 = r3 + 0x706
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.......  r4 = u64 [r5 + 0x6]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.......  r4 = u64 [r5 + 6]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 416 if r3 == r4
 ```
 
@@ -30331,7 +30360,7 @@ Gas simulation at offset 416 with total cost of 28:
     .D=====eER.....................  r3 = r3 + 0x91
     ..D=====eER....................  r3 = r3 << 0xc
     ..D======eER...................  r3 = r3 + 0xfffffffffffff807
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = u64 [r5 + 0x7]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = u64 [r5 + 7]
     ..D=========================eER  jump 458 if r3 == r4
 ```
 
@@ -30348,7 +30377,7 @@ Gas simulation at offset 458 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x10
     DeE---------------------------------------R  r3 = 0x2000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x1f
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 0x1f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 31]
     .D=========================eE-------------R  jump 478 if r3 == r4
 ```
 
@@ -30365,7 +30394,7 @@ Gas simulation at offset 478 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x11
     DeE---------------------------------------R  r3 = 0x2000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x1f
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 0x1f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 31]
     .D=========================eE-------------R  jump 498 if r3 == r4
 ```
 
@@ -30382,7 +30411,7 @@ Gas simulation at offset 498 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x12
     DeE---------------------------------------R  r3 = 0x201f2000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffe1d
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x1d]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 29]
     .D=========================eE-------------R  jump 521 if r3 == r4
 ```
 
@@ -30399,7 +30428,7 @@ Gas simulation at offset 521 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x13
     DeE---------------------------------------R  r3 = 0x21202000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xffffffffffffff1e
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x1e]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 30]
     .D=========================eE-------------R  jump 544 if r3 == r4
 ```
 
@@ -30416,7 +30445,7 @@ Gas simulation at offset 544 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x14
     DeE---------------------------------------R  r3 = 0x22212000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x1f
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x1f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 31]
     .D=========================eE-------------R  jump 566 if r3 == r4
 ```
 
@@ -30433,7 +30462,7 @@ Gas simulation at offset 566 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x15
     DeE---------------------------------------R  r3 = 0x201f2000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffe1d
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x1d]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 29]
     .D=========================eE-------------R  jump 589 if r3 == r4
 ```
 
@@ -30450,7 +30479,7 @@ Gas simulation at offset 589 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x16
     DeE---------------------------------------R  r3 = 0x21202000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xffffffffffffff1e
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x1e]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 30]
     .D=========================eE-------------R  jump 612 if r3 == r4
 ```
 
@@ -30467,7 +30496,7 @@ Gas simulation at offset 612 with total cost of 46:
     DeE---------------------------------------R......  r12 = 0x17
     DeE---------------------------------------R......  r3 = 0x22212000
     .DeeE-------------------------------------R......  i32 r3 = r3 + 0x1f
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = u32 [r5 + 0x1f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = u32 [r5 + 31]
     .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 634 if r3 == r4
 ```
 
@@ -30489,7 +30518,7 @@ Gas simulation at offset 634 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xd9
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffa19
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x19]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 25]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 675 if r3 == r4
 ```
 
@@ -30511,7 +30540,7 @@ Gas simulation at offset 675 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffff8e1
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffb1a
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x1a]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 26]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 718 if r3 == r4
 ```
 
@@ -30533,7 +30562,7 @@ Gas simulation at offset 718 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xe9
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffc1b
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x1b]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 27]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 760 if r3 == r4
 ```
 
@@ -30555,7 +30584,7 @@ Gas simulation at offset 760 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffff8f1
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffd1c
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x1c]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 28]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 802 if r3 == r4
 ```
 
@@ -30577,7 +30606,7 @@ Gas simulation at offset 802 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xf9
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffe1d
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x1d]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 29]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 844 if r3 == r4
 ```
 
@@ -30599,7 +30628,7 @@ Gas simulation at offset 844 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffff901
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xffffffffffffff1e
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x1e]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 30]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 887 if r3 == r4
 ```
 
@@ -30621,7 +30650,7 @@ Gas simulation at offset 887 with total cost of 28:
     .D=====eER.....................  r3 = r3 + 0x109
     ..D=====eER....................  r3 = r3 << 0xd
     ..D======eER...................  r3 = r3 + 0x1f
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = u64 [r5 + 0x1f]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = u64 [r5 + 31]
     ..D=========================eER  jump 929 if r3 == r4
 ```
 
@@ -30638,7 +30667,7 @@ Gas simulation at offset 929 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x1f
     DeE---------------------------------------R  r3 = 0x4000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x3f
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 0x3f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 63]
     .D=========================eE-------------R  jump 949 if r3 == r4
 ```
 
@@ -30655,7 +30684,7 @@ Gas simulation at offset 949 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x20
     DeE---------------------------------------R  r3 = 0x4000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x3f
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 0x3f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 63]
     .D=========================eE-------------R  jump 969 if r3 == r4
 ```
 
@@ -30672,7 +30701,7 @@ Gas simulation at offset 969 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x21
     DeE---------------------------------------R  r3 = 0x403f4000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffe3d
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x3d]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 61]
     .D=========================eE-------------R  jump 992 if r3 == r4
 ```
 
@@ -30689,7 +30718,7 @@ Gas simulation at offset 992 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x22
     DeE---------------------------------------R  r3 = 0x41404000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xffffffffffffff3e
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x3e]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 62]
     .D=========================eE-------------R  jump 1015 if r3 == r4
 ```
 
@@ -30706,7 +30735,7 @@ Gas simulation at offset 1015 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x23
     DeE---------------------------------------R  r3 = 0x42414000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x3f
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x3f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 63]
     .D=========================eE-------------R  jump 1037 if r3 == r4
 ```
 
@@ -30723,7 +30752,7 @@ Gas simulation at offset 1037 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x24
     DeE---------------------------------------R  r3 = 0x403f4000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffe3d
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x3d]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 61]
     .D=========================eE-------------R  jump 1060 if r3 == r4
 ```
 
@@ -30740,7 +30769,7 @@ Gas simulation at offset 1060 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x25
     DeE---------------------------------------R  r3 = 0x41404000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xffffffffffffff3e
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x3e]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 62]
     .D=========================eE-------------R  jump 1083 if r3 == r4
 ```
 
@@ -30757,7 +30786,7 @@ Gas simulation at offset 1083 with total cost of 46:
     DeE---------------------------------------R......  r12 = 0x26
     DeE---------------------------------------R......  r3 = 0x42414000
     .DeeE-------------------------------------R......  i32 r3 = r3 + 0x3f
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = u32 [r5 + 0x3f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = u32 [r5 + 63]
     .D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1105 if r3 == r4
 ```
 
@@ -30779,7 +30808,7 @@ Gas simulation at offset 1105 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xed
     ..D=====eER.......................................  r3 = r3 << 0xe
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffa39
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x39]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 57]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1148 if r3 == r4
 ```
 
@@ -30801,7 +30830,7 @@ Gas simulation at offset 1148 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0x4f1
     ..D=====eER.......................................  r3 = r3 << 0xe
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffb3a
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x3a]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 58]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1190 if r3 == r4
 ```
 
@@ -30823,7 +30852,7 @@ Gas simulation at offset 1190 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffff8f5
     ..D=====eER.......................................  r3 = r3 << 0xe
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffc3b
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x3b]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 59]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1232 if r3 == r4
 ```
 
@@ -30845,7 +30874,7 @@ Gas simulation at offset 1232 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffffcf9
     ..D=====eER.......................................  r3 = r3 << 0xe
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffd3c
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x3c]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 60]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1274 if r3 == r4
 ```
 
@@ -30867,7 +30896,7 @@ Gas simulation at offset 1274 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfd
     ..D=====eER.......................................  r3 = r3 << 0xe
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffe3d
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x3d]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 61]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1316 if r3 == r4
 ```
 
@@ -30889,7 +30918,7 @@ Gas simulation at offset 1316 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0x501
     ..D=====eER.......................................  r3 = r3 << 0xe
     ..D======eER......................................  r3 = r3 + 0xffffffffffffff3e
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 0x3e]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER....................  r4 = u64 [r5 + 62]
     ..D=========================eeeeeeeeeeeeeeeeeeeeER  jump 1358 if r3 == r4
 ```
 
@@ -30911,7 +30940,7 @@ Gas simulation at offset 1358 with total cost of 28:
     .D=====eER.....................  r3 = r3 + 0xfffffffffffff905
     ..D=====eER....................  r3 = r3 << 0xe
     ..D======eER...................  r3 = r3 + 0x3f
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = u64 [r5 + 0x3f]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r4 = u64 [r5 + 63]
     ..D=========================eER  jump 1400 if r3 == r4
 ```
 
@@ -30928,8 +30957,8 @@ Gas simulation at offset 1400 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x2e
     DeE---------------------------------------R  r3 = 0xffffffffffff8000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x180
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x1] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 0x1]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 1] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 1]
     ..D========================eE-------------R  jump 1424 if r3 == r4
 ```
 
@@ -30946,8 +30975,8 @@ Gas simulation at offset 1424 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x2f
     DeE---------------------------------------R  r3 = 0x8000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x382
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x1] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 0x1]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 1] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 1]
     ..D========================eE-------------R  jump 1449 if r3 == r4
 ```
 
@@ -30964,8 +30993,8 @@ Gas simulation at offset 1449 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x30
     DeE---------------------------------------R  r3 = 0xffffffff87868000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x584
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x1] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x1]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 1] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 1]
     ..D========================eE-------------R  jump 1475 if r3 == r4
 ```
 
@@ -30982,8 +31011,8 @@ Gas simulation at offset 1475 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x31
     DeE---------------------------------------R  r3 = 0xffffffff8b8a9000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffff988
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x2] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x2]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 2] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 2]
     ..D========================eE-------------R  jump 1501 if r3 == r4
 ```
 
@@ -31000,8 +31029,8 @@ Gas simulation at offset 1501 with total cost of 46:
     DeE---------------------------------------R......  r12 = 0x32
     DeE---------------------------------------R......  r3 = 0xffffffff8f8e9000
     .DeeE-------------------------------------R......  i32 r3 = r3 + 0xfffffffffffffd8c
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R......  u32 [r5 + 0x3] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = i32 [r5 + 0x3]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R......  u32 [r5 + 3] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = i32 [r5 + 3]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 1527 if r3 == r4
 ```
 
@@ -31019,8 +31048,8 @@ Gas simulation at offset 1527 with total cost of 46:
     D=eeER...........................................  i32 r3 = r3 + 0xfffffffffffff929
     .D==eER..........................................  r3 = r3 << 0xc
     .D===eER.........................................  r3 = r3 + 0x190
-    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 0x1] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 0x1]
+    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 1] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 1]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 1558 if r3 == r4
 ```
 
@@ -31038,8 +31067,8 @@ Gas simulation at offset 1558 with total cost of 46:
     D=eeER...........................................  i32 r3 = r3 + 0xfffffffffffff969
     .D==eER..........................................  r3 = r3 << 0xc
     .D===eER.........................................  r3 = r3 + 0x594
-    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 0x2] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 0x2]
+    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 2] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 2]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 1589 if r3 == r4
 ```
 
@@ -31057,8 +31086,8 @@ Gas simulation at offset 1589 with total cost of 46:
     D=eeER...........................................  i32 r3 = r3 + 0xfffffffffffffcd5
     .D==eER..........................................  r3 = r3 << 0xd
     .D===eER.........................................  r3 = r3 + 0xfffffffffffff998
-    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 0x3] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 0x3]
+    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 3] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 3]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 1620 if r3 == r4
 ```
 
@@ -31080,8 +31109,8 @@ Gas simulation at offset 1620 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffffcf5
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffd9c
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x1] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x1]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 1] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 1]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 1665 if r3 == r4
 ```
 
@@ -31103,8 +31132,8 @@ Gas simulation at offset 1665 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffffd35
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0x5a4
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x2] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x2]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 2] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 2]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 1711 if r3 == r4
 ```
 
@@ -31126,8 +31155,8 @@ Gas simulation at offset 1711 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffffaeb
     ..D=====eER.......................................  r3 = r3 << 0xc
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffdac
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x3] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x3]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 3] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 3]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 1756 if r3 == r4
 ```
 
@@ -31149,8 +31178,8 @@ Gas simulation at offset 1756 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffffb6b
     ..D=====eER.......................................  r3 = r3 << 0xc
     ..D======eER......................................  r3 = r3 + 0x5b4
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x4] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x4]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 4] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 4]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 1802 if r3 == r4
 ```
 
@@ -31172,8 +31201,8 @@ Gas simulation at offset 1802 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffffefb
     ..D=====eER.......................................  r3 = r3 << 0xe
     ..D======eER......................................  r3 = r3 + 0xfffffffffffffdbc
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x5] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x5]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 5] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 5]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 1847 if r3 == r4
 ```
 
@@ -31195,8 +31224,8 @@ Gas simulation at offset 1847 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xffffffffffffff1b
     ..D=====eER.......................................  r3 = r3 << 0xe
     ..D======eER......................................  r3 = r3 + 0x5c4
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x6] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x6]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 6] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 6]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 1892 if r3 == r4
 ```
 
@@ -31218,8 +31247,8 @@ Gas simulation at offset 1892 with total cost of 34:
     .D=====eER...........................  r3 = r3 + 0xfffffffffffffced
     ..D=====eER..........................  r3 = r3 << 0xc
     ..D======eER.........................  r3 = r3 + 0xfffffffffffffdcc
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x7] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 0x7]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 7] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 7]
     ...D========================eE------R  jump 1937 if r3 == r4
 ```
 
@@ -31236,8 +31265,8 @@ Gas simulation at offset 1937 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x3d
     DeE---------------------------------------R  r3 = 0xffffffffffffd000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x5d4
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x1f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 0x1f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 31] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 31]
     ..D========================eE-------------R  jump 1961 if r3 == r4
 ```
 
@@ -31254,8 +31283,8 @@ Gas simulation at offset 1961 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x3e
     DeE---------------------------------------R  r3 = 0xd000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x7d6
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x1f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 0x1f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 31] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 31]
     ..D========================eE-------------R  jump 1986 if r3 == r4
 ```
 
@@ -31272,8 +31301,8 @@ Gas simulation at offset 1986 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x3f
     DeE---------------------------------------R  r3 = 0xffffffffdbdae000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffff9d8
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x1d] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x1d]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 29] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 29]
     ..D========================eE-------------R  jump 2012 if r3 == r4
 ```
 
@@ -31290,8 +31319,8 @@ Gas simulation at offset 2012 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x40
     DeE---------------------------------------R  r3 = 0xffffffffdfdee000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffddc
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x1e] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x1e]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 30] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 30]
     ..D========================eE-------------R  jump 2038 if r3 == r4
 ```
 
@@ -31308,8 +31337,8 @@ Gas simulation at offset 2038 with total cost of 46:
     DeE---------------------------------------R......  r12 = 0x41
     DeE---------------------------------------R......  r3 = 0xffffffffe3e2e000
     .DeeE-------------------------------------R......  i32 r3 = r3 + 0x1e0
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R......  u32 [r5 + 0x1f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = i32 [r5 + 0x1f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R......  u32 [r5 + 31] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = i32 [r5 + 31]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 2064 if r3 == r4
 ```
 
@@ -31327,8 +31356,8 @@ Gas simulation at offset 2064 with total cost of 46:
     D=eeER...........................................  i32 r3 = r3 + 0xffffffffffffff37
     .D==eER..........................................  r3 = r3 << 0xd
     .D===eER.........................................  r3 = r3 + 0x5e4
-    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 0x1d] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 0x1d]
+    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 29] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 29]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 2095 if r3 == r4
 ```
 
@@ -31346,8 +31375,8 @@ Gas simulation at offset 2095 with total cost of 46:
     D=eeER...........................................  i32 r3 = r3 + 0xfffffffffffffeaf
     .D==eER..........................................  r3 = r3 << 0xc
     .D===eER.........................................  r3 = r3 + 0xfffffffffffff9e8
-    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 0x1e] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 0x1e]
+    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 30] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 30]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 2126 if r3 == r4
 ```
 
@@ -31365,8 +31394,8 @@ Gas simulation at offset 2126 with total cost of 46:
     D=eeER...........................................  i32 r3 = r3 + 0xfffffffffffffeef
     .D==eER..........................................  r3 = r3 << 0xc
     .D===eER.........................................  r3 = r3 + 0xfffffffffffffdec
-    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 0x1f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 0x1f]
+    .D====eeeeeeeeeeeeeeeeeeeeeeeeeER................  u32 [r5 + 31] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE----R................  r4 = u32 [r5 + 31]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 2157 if r3 == r4
 ```
 
@@ -31388,8 +31417,8 @@ Gas simulation at offset 2157 with total cost of 34:
     .D=====eER...........................  r3 = r3 + 0xffffffffffffff2f
     ..D=====eER..........................  r3 = r3 << 0xc
     ..D======eER.........................  r3 = r3 + 0x1f0
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x19] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 0x19]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 25] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 25]
     ...D========================eE------R  jump 2202 if r3 == r4
 ```
 
@@ -31410,8 +31439,8 @@ Gas simulation at offset 2202 with total cost of 40:
     .D===eE-----------------------------------R  r3 = r3 + 0xfffffffffffffbfb
     ..D===eE----------------------------------R  r3 = r3 << 0x10
     ..D====eE---------------------------------R  r3 = r3 + 0xfffffffffffff9f8
-    ..D=====eeeeeeeeeeeeeeeeeeeeeeeeeE--------R  u64 [r5 + 0x1a] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r4 = u64 [r5 + 0x1a]
+    ..D=====eeeeeeeeeeeeeeeeeeeeeeeeeE--------R  u64 [r5 + 26] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r4 = u64 [r5 + 26]
     ...D========================eE------------R  jump 2241 if r3 == r4
 ```
 
@@ -31432,8 +31461,8 @@ Gas simulation at offset 2241 with total cost of 47:
     .D===eE-----------------------------------R.......  r3 = r3 + 0x181
     ..D===eE----------------------------------R.......  r3 = r3 << 0x11
     ..D====eE---------------------------------R.......  r3 = r3 + 0x100
-    ..D=====eeeeeeeeeeeeeeeeeeeeeeeeeE--------R.......  u64 [r5 + 0x1b] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.......  r4 = u64 [r5 + 0x1b]
+    ..D=====eeeeeeeeeeeeeeeeeeeeeeeeeE--------R.......  u64 [r5 + 27] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R.......  r4 = u64 [r5 + 27]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 2281 if r3 == r4
 ```
 
@@ -31455,8 +31484,8 @@ Gas simulation at offset 2281 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xa1
     ..D=====eER.......................................  r3 = r3 << 0xc
     ..D======eER......................................  r3 = r3 + 0xfffffffffffff908
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x1c] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x1c]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 28] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 28]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 2327 if r3 == r4
 ```
 
@@ -31478,8 +31507,8 @@ Gas simulation at offset 2327 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0x121
     ..D=====eER.......................................  r3 = r3 << 0xc
     ..D======eER......................................  r3 = r3 + 0x110
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x1d] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x1d]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 29] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 29]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 2373 if r3 == r4
 ```
 
@@ -31501,8 +31530,8 @@ Gas simulation at offset 2373 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffff8d1
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xfffffffffffff918
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x1e] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x1e]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 30] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 30]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 2418 if r3 == r4
 ```
 
@@ -31524,8 +31553,8 @@ Gas simulation at offset 2418 with total cost of 34:
     .D=====eER...........................  r3 = r3 + 0xfffffffffffff911
     ..D=====eER..........................  r3 = r3 << 0xd
     ..D======eER.........................  r3 = r3 + 0x120
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x1f] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 0x1f]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 31] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 31]
     ...D========================eE------R  jump 2464 if r3 == r4
 ```
 
@@ -31542,8 +31571,8 @@ Gas simulation at offset 2464 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x4c
     DeE---------------------------------------R  r3 = 0x3000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x534
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x3f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 0x3f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 63] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i16 [r5 + 63]
     ..D========================eE-------------R  jump 2488 if r3 == r4
 ```
 
@@ -31560,8 +31589,8 @@ Gas simulation at offset 2488 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x4d
     DeE---------------------------------------R  r3 = 0x3000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x736
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x3f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 0x3f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 63] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u16 [r5 + 63]
     ..D========================eE-------------R  jump 2512 if r3 == r4
 ```
 
@@ -31578,8 +31607,8 @@ Gas simulation at offset 2512 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x4e
     DeE---------------------------------------R  r3 = 0x3b3a4000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffff938
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x3d] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x3d]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 61] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 61]
     ..D========================eE-------------R  jump 2538 if r3 == r4
 ```
 
@@ -31596,8 +31625,8 @@ Gas simulation at offset 2538 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x4f
     DeE---------------------------------------R  r3 = 0x3f3e4000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffd3c
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x3e] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x3e]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 62] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 62]
     ..D========================eE-------------R  jump 2564 if r3 == r4
 ```
 
@@ -31614,8 +31643,8 @@ Gas simulation at offset 2564 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x50
     DeE---------------------------------------R  r3 = 0x43424000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x140
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x3f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 0x3f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 63] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = i32 [r5 + 63]
     ..D========================eE-------------R  jump 2590 if r3 == r4
 ```
 
@@ -31632,8 +31661,8 @@ Gas simulation at offset 2590 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x51
     DeE---------------------------------------R  r3 = 0x47464000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x544
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x3d] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x3d]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 61] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 61]
     ..D========================eE-------------R  jump 2616 if r3 == r4
 ```
 
@@ -31650,8 +31679,8 @@ Gas simulation at offset 2616 with total cost of 40:
     DeE---------------------------------------R  r12 = 0x52
     DeE---------------------------------------R  r3 = 0x4b4a5000
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffff948
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x3e] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 0x3e]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 62] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r4 = u32 [r5 + 62]
     ..D========================eE-------------R  jump 2642 if r3 == r4
 ```
 
@@ -31668,8 +31697,8 @@ Gas simulation at offset 2642 with total cost of 46:
     DeE---------------------------------------R......  r12 = 0x53
     DeE---------------------------------------R......  r3 = 0x4f4e5000
     .DeeE-------------------------------------R......  i32 r3 = r3 + 0xfffffffffffffd4c
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R......  u32 [r5 + 0x3f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = u32 [r5 + 0x3f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeE------------R......  u32 [r5 + 63] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R......  r4 = u32 [r5 + 63]
     ..D========================eeeeeeeeeeeeeeeeeeeeER  jump 2668 if r3 == r4
 ```
 
@@ -31691,8 +31720,8 @@ Gas simulation at offset 2668 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0x525
     ..D=====eER.......................................  r3 = r3 << 0xc
     ..D======eER......................................  r3 = r3 + 0x150
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x39] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x39]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 57] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 57]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 2714 if r3 == r4
 ```
 
@@ -31714,8 +31743,8 @@ Gas simulation at offset 2714 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffffad3
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0xfffffffffffff958
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x3a] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x3a]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 58] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 58]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 2760 if r3 == r4
 ```
 
@@ -31737,8 +31766,8 @@ Gas simulation at offset 2760 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0xfffffffffffffb13
     ..D=====eER.......................................  r3 = r3 << 0xd
     ..D======eER......................................  r3 = r3 + 0x160
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x3b] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x3b]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 59] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 59]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 2806 if r3 == r4
 ```
 
@@ -31760,8 +31789,8 @@ Gas simulation at offset 2806 with total cost of 47:
     .D=====eER........................................  r3 = r3 + 0x6a7
     ..D=====eER.......................................  r3 = r3 << 0xc
     ..D======eER......................................  r3 = r3 + 0xfffffffffffff968
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 0x3c] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 0x3c]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER.............  u64 [r5 + 60] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R.............  r4 = u64 [r5 + 60]
     ...D========================eeeeeeeeeeeeeeeeeeeeER  jump 2852 if r3 == r4
 ```
 
@@ -31783,8 +31812,8 @@ Gas simulation at offset 2852 with total cost of 34:
     .D=====eER...........................  r3 = r3 + 0x727
     ..D=====eER..........................  r3 = r3 << 0xc
     ..D======eER.........................  r3 = r3 + 0x170
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x3d] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 0x3d]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 61] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 61]
     ...D========================eE------R  jump 6756 if r3 != r4
 ```
 
@@ -31800,8 +31829,8 @@ Gas simulation at offset 2896 with total cost of 34:
     .D=====eER...........................  r3 = r3 + 0x6f5
     ..D=====eER..........................  r3 = r3 << 0xf
     ..D======eER.........................  r3 = r3 + 0xfffffffffffff978
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x3e] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 0x3e]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 62] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 62]
     ...D========================eE------R  jump 6756 if r3 != r4
 ```
 
@@ -31817,8 +31846,8 @@ Gas simulation at offset 2939 with total cost of 34:
     .D=====eER...........................  r3 = r3 + 0x705
     ..D=====eER..........................  r3 = r3 << 0xf
     ..D======eER.........................  r3 = r3 + 0x180
-    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x3f] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 0x3f]
+    ..D=======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 63] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------R  r4 = u64 [r5 + 63]
     ...D========================eE------R  jump 6756 if r3 != r4
 ```
 
@@ -31829,8 +31858,8 @@ Gas simulation at offset 2982 with total cost of 28:
     DeER...........................  r3 = 0xa000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffff998
     .DeE-R.........................  r4 = 0xffffffffffffff98
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 0x1]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 1] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 1]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -31841,8 +31870,8 @@ Gas simulation at offset 3007 with total cost of 28:
     DeER...........................  r3 = 0xa000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffffb9a
     .DeE-R.........................  r4 = 0xffffffffffffff9b
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 0x2]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 1] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 2]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -31853,8 +31882,8 @@ Gas simulation at offset 3032 with total cost of 28:
     DeER...........................  r3 = 0xa000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffffd9c
     .DeE-R.........................  r4 = 0x9c
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 0x1]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 1] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 1]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -31865,8 +31894,8 @@ Gas simulation at offset 3058 with total cost of 28:
     DeER...........................  r3 = 0xa000
     D=eeER.........................  i32 r3 = r3 + 0xffffffffffffff9e
     .DeE-R.........................  r4 = 0x9f
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 0x2]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 1] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 2]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -31880,8 +31909,8 @@ Gas simulation at offset 3083 with total cost of 40:
     .D==eE------------------------------------R  r3 = r3 << 0xd
     .D===eE-----------------------------------R  r3 = r3 + 0x1a0
     ..DeE-------------------------------------R  r4 = 0xffffffffffffffa0
-    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x1] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i8 [r5 + 0x1]
+    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 1] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i8 [r5 + 1]
     ..D=========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -31895,8 +31924,8 @@ Gas simulation at offset 3116 with total cost of 40:
     .D==eE------------------------------------R  r3 = r3 << 0xd
     .D===eE-----------------------------------R  r3 = r3 + 0x5a4
     ..DeE-------------------------------------R  r4 = 0xa5
-    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x2] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u8 [r5 + 0x3]
+    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 2] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u8 [r5 + 3]
     ..D=========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -31910,8 +31939,8 @@ Gas simulation at offset 3150 with total cost of 30:
     .D===eER.........................  r3 = r3 + 0xfffffffffffff9a8
     .DeE---R.........................  r4 = 0xffffffffffffb000
     ..DeeE-R.........................  i32 r4 = r4 + 0xfffffffffffffaa9
-    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x3] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE---R  r10 = i16 [r5 + 0x4]
+    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 3] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE---R  r10 = i16 [r5 + 4]
     ...D========================eE--R  jump 6756 if r4 != r10
 ```
 
@@ -31925,8 +31954,8 @@ Gas simulation at offset 3187 with total cost of 30:
     .D===eER.........................  r3 = r3 + 0xfffffffffffffdac
     .DeE---R.........................  r4 = 0xb000
     ..DeeE-R.........................  i32 r4 = r4 + 0xffffffffffffffae
-    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x3] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE---R  r10 = u16 [r5 + 0x5]
+    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 3] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE---R  r10 = u16 [r5 + 5]
     ...D========================eE--R  jump 6756 if r4 != r10
 ```
 
@@ -31944,8 +31973,8 @@ Gas simulation at offset 3224 with total cost of 40:
     ..D=====eE--------------------------------R  r3 = r3 << 0xc
     ..D======eE-------------------------------R  r3 = r3 + 0x1b0
     ...DeE------------------------------------R  r4 = 0xffffffffffffffb6
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 0x1] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = i8 [r5 + 0x7]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 1] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = i8 [r5 + 7]
     ...D=========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -31963,8 +31992,8 @@ Gas simulation at offset 3272 with total cost of 40:
     ..D=====eE--------------------------------R  r3 = r3 << 0xe
     ..D======eE-------------------------------R  r3 = r3 + 0xfffffffffffff9b8
     ...DeE------------------------------------R  r4 = 0xb9
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 0x2] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u8 [r5 + 0x3]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 2] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u8 [r5 + 3]
     ...D=========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -31982,8 +32011,8 @@ Gas simulation at offset 3321 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0x1c0
     ..DeE------R.........................  r4 = 0xffffffffffffc000
     ...DeeE----R.........................  i32 r4 = r4 + 0x7c6
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x3] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i16 [r5 + 0x9]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 3] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i16 [r5 + 9]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32001,8 +32030,8 @@ Gas simulation at offset 3373 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0xfffffffffffff9c8
     ..DeE------R.........................  r4 = 0xd000
     ...DeeE----R.........................  i32 r4 = r4 + 0xfffffffffffffac9
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x4] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = u16 [r5 + 0x5]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 4] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = u16 [r5 + 5]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32020,8 +32049,8 @@ Gas simulation at offset 3426 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0x1d0
     ..DeE------R.........................  r4 = 0xffffffffd7d6d000
     ...DeeE----R.........................  i32 r4 = r4 + 0x5d4
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x5] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 0x9]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 5] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 9]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32039,8 +32068,8 @@ Gas simulation at offset 3480 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0xfffffffffffff9d8
     ..DeE------R.........................  r4 = 0xffffffffdddce000
     ...DeeE----R.........................  i32 r4 = r4 + 0xfffffffffffffbda
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x6] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 0x8]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 6] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 8]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32061,8 +32090,8 @@ Gas simulation at offset 3534 with total cost of 40:
     ...D=eeE----------------------------------R  i32 r4 = r4 + 0x71f
     ...D===eE---------------------------------R  r4 = r4 << 0xd
     ....D===eE--------------------------------R  r4 = r4 + 0x2e1
-    ....D=====eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 0x7] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u32 [r5 + 0x8]
+    ....D=====eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 7] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u32 [r5 + 8]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -32073,8 +32102,8 @@ Gas simulation at offset 3594 with total cost of 28:
     DeER...........................  r3 = 0xf000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffff9e8
     .DeE-R.........................  r4 = 0xffffffffffffffe8
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 0x1f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 31] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 31]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32085,8 +32114,8 @@ Gas simulation at offset 3619 with total cost of 28:
     DeER...........................  r3 = 0xf000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffffbea
     .DeE-R.........................  r4 = 0xffffffffffffffeb
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 0x20]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 31] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 32]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32097,8 +32126,8 @@ Gas simulation at offset 3644 with total cost of 28:
     DeER...........................  r3 = 0xf000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffffdec
     .DeE-R.........................  r4 = 0xec
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 0x1f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 31] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 31]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32109,8 +32138,8 @@ Gas simulation at offset 3670 with total cost of 28:
     DeER...........................  r3 = 0xf000
     D=eeER.........................  i32 r3 = r3 + 0xffffffffffffffee
     .DeE-R.........................  r4 = 0xef
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 0x20]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 31] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 32]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32124,8 +32153,8 @@ Gas simulation at offset 3695 with total cost of 40:
     .D==eE------------------------------------R  r3 = r3 << 0xc
     .D===eE-----------------------------------R  r3 = r3 + 0x1f0
     ..DeE-------------------------------------R  r4 = 0xfffffffffffffff0
-    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x1d] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i8 [r5 + 0x1d]
+    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 29] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i8 [r5 + 29]
     ..D=========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32139,8 +32168,8 @@ Gas simulation at offset 3728 with total cost of 40:
     .D==eE------------------------------------R  r3 = r3 << 0xc
     .D===eE-----------------------------------R  r3 = r3 + 0x5f4
     ..DeE-------------------------------------R  r4 = 0xf6
-    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x1e] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u8 [r5 + 0x20]
+    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 30] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u8 [r5 + 32]
     ..D=========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32154,8 +32183,8 @@ Gas simulation at offset 3762 with total cost of 40:
     .D==eE------------------------------------R  r3 = r3 << 0x10
     .D===eE-----------------------------------R  r3 = r3 + 0xfffffffffffff9f8
     ..DeE-------------------------------------R  r4 = 0xfffffffffffffbfa
-    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x1d] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i16 [r5 + 0x1f]
+    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 29] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i16 [r5 + 31]
     ..D=========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32169,8 +32198,8 @@ Gas simulation at offset 3796 with total cost of 30:
     .D===eER.........................  r3 = r3 + 0xfffffffffffffdfc
     .DeE---R.........................  r4 = 0x10000
     ..DeeE-R.........................  i32 r4 = r4 + 0xfffffffffffffdfc
-    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x1f] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE---R  r10 = u16 [r5 + 0x1f]
+    ..D===eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 31] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE---R  r10 = u16 [r5 + 31]
     ...D========================eE--R  jump 6756 if r4 != r10
 ```
 
@@ -32185,8 +32214,8 @@ Gas simulation at offset 3833 with total cost of 32:
     .D====eER..........................  r3 = r3 << 0x11
     .D=====eER.........................  r3 = r3 + 0x100
     ..DeE----R.........................  r4 = 0x7
-    ..D=====eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x19] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-----R  r10 = i8 [r5 + 0x20]
+    ..D=====eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 25] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-----R  r10 = i8 [r5 + 32]
     ..D=========================eE----R  jump 6756 if r4 != r10
 ```
 
@@ -32204,8 +32233,8 @@ Gas simulation at offset 3873 with total cost of 40:
     ..D=====eE--------------------------------R  r3 = r3 << 0xc
     ..D======eE-------------------------------R  r3 = r3 + 0xfffffffffffff908
     ...DeE------------------------------------R  r4 = 0xf
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 0x1a] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u8 [r5 + 0x21]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 26] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u8 [r5 + 33]
     ...D=========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -32223,8 +32252,8 @@ Gas simulation at offset 3921 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0x110
     ..DeE------R.........................  r4 = 0x1000
     ...DeeE----R.........................  i32 r4 = r4 + 0x514
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x1b] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i16 [r5 + 0x1f]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 27] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i16 [r5 + 31]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32242,8 +32271,8 @@ Gas simulation at offset 3973 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0xfffffffffffff918
     ..DeE------R.........................  r4 = 0x2000
     ...DeeE----R.........................  i32 r4 = r4 + 0xfffffffffffffc1b
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x1c] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = u16 [r5 + 0x1f]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 28] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = u16 [r5 + 31]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32261,8 +32290,8 @@ Gas simulation at offset 4024 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0x120
     ..DeE------R.........................  r4 = 0x23222000
     ...DeeE----R.........................  i32 r4 = r4 + 0x120
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x1d] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 0x1d]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 29] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 29]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32280,8 +32309,8 @@ Gas simulation at offset 4078 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0xfffffffffffff928
     ..DeE------R.........................  r4 = 0x2b2a3000
     ...DeeE----R.........................  i32 r4 = r4 + 0xfffffffffffff928
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x1e] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 0x1e]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 30] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 30]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32299,8 +32328,8 @@ Gas simulation at offset 4132 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0x130
     ..DeE------R.........................  r4 = 0x33323000
     ...DeeE----R.........................  i32 r4 = r4 + 0x130
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x1f] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = u32 [r5 + 0x1f]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 31] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = u32 [r5 + 31]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32311,8 +32340,8 @@ Gas simulation at offset 4186 with total cost of 28:
     DeER...........................  r3 = 0x5000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffff948
     .DeE-R.........................  r4 = 0x48
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x3f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 0x3f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 63] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 63]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32323,8 +32352,8 @@ Gas simulation at offset 4210 with total cost of 28:
     DeER...........................  r3 = 0x5000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffffb4a
     .DeE-R.........................  r4 = 0x4b
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x3f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 0x40]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 63] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 64]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32335,8 +32364,8 @@ Gas simulation at offset 4234 with total cost of 28:
     DeER...........................  r3 = 0x5000
     D=eeER.........................  i32 r3 = r3 + 0xfffffffffffffd4c
     .DeE-R.........................  r4 = 0x4c
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x3f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 0x3f]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 63] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 63]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32347,8 +32376,8 @@ Gas simulation at offset 4258 with total cost of 28:
     DeER...........................  r3 = 0x5000
     D=eeER.........................  i32 r3 = r3 + 0xffffffffffffff4e
     .DeE-R.........................  r4 = 0x4f
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x3f] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 0x40]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 63] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 64]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32359,8 +32388,8 @@ Gas simulation at offset 4282 with total cost of 28:
     DeER...........................  r3 = 0x53525000
     D=eeER.........................  i32 r3 = r3 + 0x150
     .DeE-R.........................  r4 = 0x50
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x3d] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 0x3d]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 61] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = i8 [r5 + 61]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32371,8 +32400,8 @@ Gas simulation at offset 4308 with total cost of 28:
     DeER...........................  r3 = 0x57565000
     D=eeER.........................  i32 r3 = r3 + 0x554
     .DeE-R.........................  r4 = 0x56
-    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x3e] = r3
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 0x40]
+    .D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 62] = r3
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u8 [r5 + 64]
     .D=========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -32385,8 +32414,8 @@ Gas simulation at offset 4334 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffff958
     .DeE--------------------------------------R  r4 = 0x6000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xfffffffffffffb5a
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x3d] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i16 [r5 + 0x3f]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 61] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i16 [r5 + 63]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32399,8 +32428,8 @@ Gas simulation at offset 4366 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffd5c
     .DeE--------------------------------------R  r4 = 0x6000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xfffffffffffffd5c
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 0x3f] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u16 [r5 + 0x3f]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u32 [r5 + 63] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u16 [r5 + 63]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32418,8 +32447,8 @@ Gas simulation at offset 4399 with total cost of 40:
     ..D=====eE--------------------------------R  r3 = r3 << 0xd
     ..D======eE-------------------------------R  r3 = r3 + 0x160
     ...DeE------------------------------------R  r4 = 0x67
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 0x39] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = i8 [r5 + 0x40]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 57] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = i8 [r5 + 64]
     ...D=========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -32437,8 +32466,8 @@ Gas simulation at offset 4448 with total cost of 40:
     ..D=====eE--------------------------------R  r3 = r3 << 0xc
     ..D======eE-------------------------------R  r3 = r3 + 0xfffffffffffff968
     ...DeE------------------------------------R  r4 = 0x6f
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 0x3a] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u8 [r5 + 0x41]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 58] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u8 [r5 + 65]
     ...D=========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -32456,8 +32485,8 @@ Gas simulation at offset 4497 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0x170
     ..DeE------R.........................  r4 = 0x7000
     ...DeeE----R.........................  i32 r4 = r4 + 0x574
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x3b] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i16 [r5 + 0x3f]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 59] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i16 [r5 + 63]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32475,8 +32504,8 @@ Gas simulation at offset 4550 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0xfffffffffffff978
     ..DeE------R.........................  r4 = 0x8000
     ...DeeE----R.........................  i32 r4 = r4 + 0xfffffffffffffc7b
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x3c] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = u16 [r5 + 0x3f]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 60] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = u16 [r5 + 63]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32494,8 +32523,8 @@ Gas simulation at offset 4603 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0x180
     ..DeE------R.........................  r4 = 0xffffffff83828000
     ...DeeE----R.........................  i32 r4 = r4 + 0x180
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x3d] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 0x3d]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 61] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 61]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32513,8 +32542,8 @@ Gas simulation at offset 4657 with total cost of 34:
     ..D======eER.........................  r3 = r3 + 0xfffffffffffff988
     ..DeE------R.........................  r4 = 0xffffffff8b8a9000
     ...DeeE----R.........................  i32 r4 = r4 + 0xfffffffffffff988
-    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 0x3e] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 0x3e]
+    ...D======eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r5 + 62] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------R  r10 = i32 [r5 + 62]
     ....D========================eE-----R  jump 6756 if r4 != r10
 ```
 
@@ -32535,8 +32564,8 @@ Gas simulation at offset 4712 with total cost of 40:
     ...D=eeE----------------------------------R  i32 r4 = r4 + 0xfffffffffffff929
     ...D===eE---------------------------------R  r4 = r4 << 0xc
     ....D===eE--------------------------------R  r4 = r4 + 0x190
-    ....D=====eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 0x3f] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u32 [r5 + 0x3f]
+    ....D=====eeeeeeeeeeeeeeeeeeeeeeeeeE------R  u64 [r5 + 63] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u32 [r5 + 63]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -32548,8 +32577,8 @@ Gas simulation at offset 4774 with total cost of 40:
     DeE---------------------------------------R  r3 = 0x98
     DeE---------------------------------------R  r4 = 0xffffffffffffc000
     .DeeE-------------------------------------R  i32 r4 = r4 + 0xfffffffffffff898
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 0x1] = t1
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = i16 [r5 + 0x1]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 1] = t1
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = i16 [r5 + 1]
     ..D========================eE-------------R  jump 6756 if r4 != r10
 ```
 
@@ -32561,8 +32590,8 @@ Gas simulation at offset 4801 with total cost of 40:
     DeE---------------------------------------R  r3 = 0x99
     DeE---------------------------------------R  r4 = 0xa000
     .DeeE-------------------------------------R  i32 r4 = r4 + 0xfffffffffffff998
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 0x2] = t1
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = u16 [r5 + 0x1]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 2] = t1
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = u16 [r5 + 1]
     ..D========================eE-------------R  jump 6756 if r4 != r10
 ```
 
@@ -32575,8 +32604,8 @@ Gas simulation at offset 4829 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffb9a
     .DeE--------------------------------------R  r4 = 0xffffffffc8c0a000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xfffffffffffffb9a
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x1] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x1]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 1] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 1]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32589,8 +32618,8 @@ Gas simulation at offset 4863 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffd9c
     .DeE--------------------------------------R  r4 = 0xffffffffd09da000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xfffffffffffffc9b
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x3] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x2]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 3] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 2]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32603,8 +32632,8 @@ Gas simulation at offset 4897 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xffffffffffffff9e
     .DeE--------------------------------------R  r4 = 0xffffffff9f9ea000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xfffffffffffffd9c
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x5] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x3]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 5] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 3]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32618,8 +32647,8 @@ Gas simulation at offset 4930 with total cost of 40:
     .DeeE-------------------------------------R  i32 r4 = r4 + 0xfffffffffffffce5
     .D==eE------------------------------------R  r4 = r4 << 0xd
     .D===eE-----------------------------------R  r4 = r4 + 0x9a
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  u8 [r5 + 0x2] = t1
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u32 [r5 + 0x1]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  u8 [r5 + 2] = t1
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u32 [r5 + 1]
     ..D=========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32633,8 +32662,8 @@ Gas simulation at offset 4965 with total cost of 28:
     .D=eeER........................  i32 r4 = r4 + 0x515
     .D===eER.......................  r4 = r4 << 0xd
     ..D===eER......................  r4 = r4 + 0x1a0
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x3] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 0x2]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 3] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 2]
     ..D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -32648,8 +32677,8 @@ Gas simulation at offset 5004 with total cost of 28:
     .D=eeER........................  i32 r4 = r4 + 0x51d
     .D===eER.......................  r4 = r4 << 0xd
     ..D===eER......................  r4 = r4 + 0x2a1
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x5] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 0x3]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 5] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 3]
     ..D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -32667,8 +32696,8 @@ Gas simulation at offset 5043 with total cost of 40:
     ..D====eE---------------------------------R  r4 = r4 + 0x50d
     ..D=====eE--------------------------------R  r4 = r4 << 0xd
     ..D======eE-------------------------------R  r4 = r4 + 0x59a
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u8 [r5 + 0x2] = t1
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u64 [r5 + 0x1]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u8 [r5 + 2] = t1
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u64 [r5 + 1]
     ...D=========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -32686,8 +32715,8 @@ Gas simulation at offset 5093 with total cost of 29:
     ..D=====eER.....................  r4 = r4 + 0xfffffffffffffd15
     ..D======eER....................  r4 = r4 << 0xd
     ...D======eER...................  r4 = r4 + 0x1a5
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 0x7] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 0x2]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 7] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 2]
     ...D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -32705,8 +32734,8 @@ Gas simulation at offset 5146 with total cost of 29:
     ..D=====eER.....................  r4 = r4 + 0x51d
     ..D======eER....................  r4 = r4 << 0xd
     ...D======eER...................  r4 = r4 + 0x2a1
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 0x9] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 0x3]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 9] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 3]
     ...D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -32727,8 +32756,8 @@ Gas simulation at offset 5200 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xfffffffffffffabb
     ...D======eE------------------------------R  r4 = r4 << 0xc
     ....D======eE-----------------------------R  r4 = r4 + 0xfffffffffffffaa2
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x5] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x4]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 5] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 4]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -32749,8 +32778,8 @@ Gas simulation at offset 5262 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xfffffffffffffaeb
     ...D======eE------------------------------R  r4 = r4 << 0xc
     ....D======eE-----------------------------R  r4 = r4 + 0xfffffffffffffbaa
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x7] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x5]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 7] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 5]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -32771,8 +32800,8 @@ Gas simulation at offset 5322 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xfffffffffffffafb
     ...D======eE------------------------------R  r4 = r4 << 0xc
     ....D======eE-----------------------------R  r4 = r4 + 0xfffffffffffffeab
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x9] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x6]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 9] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 6]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -32793,8 +32822,8 @@ Gas simulation at offset 5384 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xfffffffffffffb2b
     ...D======eE------------------------------R  r4 = r4 << 0xc
     ....D======eE-----------------------------R  r4 = r4 + 0xffffffffffffffae
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0xb] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x7]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 11] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 7]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -32806,8 +32835,8 @@ Gas simulation at offset 5445 with total cost of 40:
     DeE---------------------------------------R  r3 = 0xba
     DeE---------------------------------------R  r4 = 0x3000
     .DeeE-------------------------------------R  i32 r4 = r4 + 0x1ba
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 0x1f] = t1
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = i16 [r5 + 0x1f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 31] = t1
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = i16 [r5 + 31]
     ..D========================eE-------------R  jump 6756 if r4 != r10
 ```
 
@@ -32819,8 +32848,8 @@ Gas simulation at offset 5472 with total cost of 40:
     DeE---------------------------------------R  r3 = 0xbb
     DeE---------------------------------------R  r4 = 0xc000
     .DeeE-------------------------------------R  i32 r4 = r4 + 0xfffffffffffffbba
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 0x20] = t1
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = u16 [r5 + 0x1f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 32] = t1
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = u16 [r5 + 31]
     ..D========================eE-------------R  jump 6756 if r4 != r10
 ```
 
@@ -32833,8 +32862,8 @@ Gas simulation at offset 5500 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xfffffffffffffdbc
     .DeE--------------------------------------R  r4 = 0x32bbc000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xfffffffffffffdbc
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x1e] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x1e]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 30] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 30]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32847,8 +32876,8 @@ Gas simulation at offset 5534 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xffffffffffffffbe
     .DeE--------------------------------------R  r4 = 0x32bfc000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xfffffffffffffebc
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x1f] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x1e]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 31] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 30]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32861,8 +32890,8 @@ Gas simulation at offset 5567 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x1c0
     .DeE--------------------------------------R  r4 = 0xffffffffc1c0c000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xfffffffffffffebc
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x20] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x1e]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 32] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 30]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -32874,8 +32903,8 @@ Gas simulation at offset 5601 with total cost of 40:
     DeE---------------------------------------R  r3 = 0xc2
     DeE---------------------------------------R  r4 = 0x33c1c000
     .DeeE-------------------------------------R  i32 r4 = r4 + 0x2be
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 0x20] = t1
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = u32 [r5 + 0x1f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 32] = t1
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = u32 [r5 + 31]
     ..D========================eE-------------R  jump 6756 if r4 != r10
 ```
 
@@ -32889,8 +32918,8 @@ Gas simulation at offset 5630 with total cost of 28:
     .D=eeER........................  i32 r4 = r4 + 0x30f
     .D===eER.......................  r4 = r4 << 0xe
     ..D===eER......................  r4 = r4 + 0xfffffffffffffc20
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x1f] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 0x1d]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 31] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 29]
     ..D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -32904,8 +32933,8 @@ Gas simulation at offset 5669 with total cost of 28:
     .D=eeER........................  i32 r4 = r4 + 0xfffffffffffffb17
     .D===eER.......................  r4 = r4 << 0xe
     ..D===eER......................  r4 = r4 + 0x3bc
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x20] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 0x1e]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 32] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 30]
     ..D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -32923,8 +32952,8 @@ Gas simulation at offset 5708 with total cost of 40:
     ..D====eE---------------------------------R  r4 = r4 + 0x101
     ..D=====eE--------------------------------R  r4 = r4 << 0xc
     ..D======eE-------------------------------R  r4 = r4 + 0xfffffffffffff800
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u8 [r5 + 0x20] = t1
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u64 [r5 + 0x19]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u8 [r5 + 32] = t1
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u64 [r5 + 25]
     ...D=========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -32942,8 +32971,8 @@ Gas simulation at offset 5757 with total cost of 29:
     ..D=====eER.....................  r4 = r4 + 0x181
     ..D======eER....................  r4 = r4 << 0xc
     ...D======eER...................  r4 = r4 + 0x8
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 0x1f] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 0x1a]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 31] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 26]
     ...D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -32961,8 +32990,8 @@ Gas simulation at offset 5809 with total cost of 29:
     ..D=====eER.....................  r4 = r4 + 0x101
     ..D======eER....................  r4 = r4 << 0xd
     ...D======eER...................  r4 = r4 + 0xfffffffffffff810
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 0x1f] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 0x1b]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 31] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 27]
     ...D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -32983,8 +33012,8 @@ Gas simulation at offset 5863 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0x5e1
     ...D======eE------------------------------R  r4 = r4 << 0xd
     ....D======eE-----------------------------R  r4 = r4 + 0x18
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x20] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x1c]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 32] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 28]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -33005,8 +33034,8 @@ Gas simulation at offset 5924 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0x743
     ...D======eE------------------------------R  r4 = r4 << 0xe
     ....D======eE-----------------------------R  r4 = r4 + 0xfffffffffffffc20
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x1f] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x1d]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 31] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 29]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -33027,8 +33056,8 @@ Gas simulation at offset 5985 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xfffffffffffffd6d
     ...D======eE------------------------------R  r4 = r4 << 0xc
     ....D======eE-----------------------------R  r4 = r4 + 0x5d4
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x1e] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x1e]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 30] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 30]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -33049,8 +33078,8 @@ Gas simulation at offset 6046 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xfffffffffffffebf
     ...D======eE------------------------------R  r4 = r4 << 0xd
     ....D======eE-----------------------------R  r4 = r4 + 0xfffffffffffffbda
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x1d] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x1f]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 29] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 31]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -33062,8 +33091,8 @@ Gas simulation at offset 6108 with total cost of 40:
     DeE---------------------------------------R  r3 = 0xdc
     DeE---------------------------------------R  r4 = 0xffffffffffff9000
     .DeeE-------------------------------------R  i32 r4 = r4 + 0x1dc
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 0x3f] = t1
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = i16 [r5 + 0x3f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 63] = t1
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = i16 [r5 + 63]
     ..D========================eE-------------R  jump 6756 if r4 != r10
 ```
 
@@ -33075,8 +33104,8 @@ Gas simulation at offset 6135 with total cost of 40:
     DeE---------------------------------------R  r3 = 0xdd
     DeE---------------------------------------R  r4 = 0xe000
     .DeeE-------------------------------------R  i32 r4 = r4 + 0xfffffffffffffddc
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 0x40] = t1
-    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = u16 [r5 + 0x3f]
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  u8 [r5 + 64] = t1
+    .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R  r10 = u16 [r5 + 63]
     ..D========================eE-------------R  jump 6756 if r4 != r10
 ```
 
@@ -33089,8 +33118,8 @@ Gas simulation at offset 6163 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0xffffffffffffffde
     .DeE--------------------------------------R  r4 = 0xffffffff92dde000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xffffffffffffffde
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x3e] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x3e]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 62] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 62]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -33103,8 +33132,8 @@ Gas simulation at offset 6195 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x1e0
     .DeE--------------------------------------R  r4 = 0xffffffff92e1e000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xde
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x3f] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x3e]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 63] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 62]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -33117,8 +33146,8 @@ Gas simulation at offset 6229 with total cost of 40:
     .DeeE-------------------------------------R  i32 r3 = r3 + 0x3e2
     .DeE--------------------------------------R  r4 = 0xffffffffe3e2e000
     ..DeeE------------------------------------R  i32 r4 = r4 + 0xde
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x40] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 0x3e]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 64] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = i32 [r5 + 62]
     ...D========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -33132,8 +33161,8 @@ Gas simulation at offset 6263 with total cost of 40:
     .DeeE-------------------------------------R  i32 r4 = r4 + 0xffffffffffffff1f
     .D==eE------------------------------------R  r4 = r4 << 0xd
     .D===eE-----------------------------------R  r4 = r4 + 0x4e0
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  u8 [r5 + 0x40] = t1
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u32 [r5 + 0x3f]
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  u8 [r5 + 64] = t1
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R  r10 = u32 [r5 + 63]
     ..D=========================eE------------R  jump 6756 if r4 != r10
 ```
 
@@ -33147,8 +33176,8 @@ Gas simulation at offset 6298 with total cost of 28:
     .D=eeER........................  i32 r4 = r4 + 0x72f
     .D===eER.......................  r4 = r4 << 0xd
     ..D===eER......................  r4 = r4 + 0xfffffffffffffe80
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x3f] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 0x3d]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 63] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 61]
     ..D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -33162,8 +33191,8 @@ Gas simulation at offset 6337 with total cost of 28:
     .D=eeER........................  i32 r4 = r4 + 0x73f
     .D===eER.......................  r4 = r4 << 0xd
     ..D===eER......................  r4 = r4 + 0x5de
-    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 0x40] = r3
-    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 0x3e]
+    ..D=eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r5 + 64] = r3
+    ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-R  r10 = u32 [r5 + 62]
     ..D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -33181,8 +33210,8 @@ Gas simulation at offset 6376 with total cost of 40:
     ..D====eE---------------------------------R  r4 = r4 + 0x707
     ..D=====eE--------------------------------R  r4 = r4 << 0xc
     ..D======eE-------------------------------R  r4 = r4 + 0xfffffffffffff860
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u8 [r5 + 0x40] = t1
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u64 [r5 + 0x39]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u8 [r5 + 64] = t1
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u64 [r5 + 57]
     ...D=========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -33199,8 +33228,8 @@ Gas simulation at offset 6424 with total cost of 40:
     ..D===eE----------------------------------R  r4 = r4 + 0x787
     ...D===eE---------------------------------R  r4 = r4 << 0xc
     ...D====eE--------------------------------R  r4 = r4 + 0x68
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 0x3f] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u64 [r5 + 0x3a]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  u16 [r5 + 63] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R  r10 = u64 [r5 + 58]
     ....D========================eE-----------R  jump 6756 if r4 != r10
 ```
 
@@ -33218,8 +33247,8 @@ Gas simulation at offset 6471 with total cost of 29:
     ..D=====eER.....................  r4 = r4 + 0xfffffffffffffd01
     ..D======eER....................  r4 = r4 << 0xf
     ...D======eER...................  r4 = r4 + 0xfffffffffffff870
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 0x3f] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 0x3b]
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r5 + 63] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeER.  r10 = u64 [r5 + 59]
     ...D=========================eER  jump 6756 if r4 != r10
 ```
 
@@ -33240,8 +33269,8 @@ Gas simulation at offset 6524 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xfffffffffffff9bd
     ...D======eE------------------------------R  r4 = r4 << 0xf
     ....D======eE-----------------------------R  r4 = r4 + 0x78
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x40] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x3c]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 64] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 60]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -33262,8 +33291,8 @@ Gas simulation at offset 6583 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xffffffffffffff97
     ...D======eE------------------------------R  r4 = r4 << 0xd
     ....D======eE-----------------------------R  r4 = r4 + 0xfffffffffffffe80
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x3f] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x3d]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 63] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 61]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -33284,8 +33313,8 @@ Gas simulation at offset 6642 with total cost of 40:
     ...D=====eE-------------------------------R  r4 = r4 + 0xffffffffffffff8f
     ...D======eE------------------------------R  r4 = r4 << 0xc
     ....D======eE-----------------------------R  r4 = r4 + 0x7f6
-    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 0x3e] = r3
-    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 0x3e]
+    ....D=eeeeeeeeeeeeeeeeeeeeeeeeeE----------R  u32 [r5 + 62] = r3
+    ....DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------R  r10 = u64 [r5 + 62]
     ....D=========================eE----------R  jump 6756 if r4 != r10
 ```
 
@@ -33303,8 +33332,8 @@ Gas simulation at offset 6700 with total cost of 30:
     ..D===eER........................  r4 = r4 + 0xfffffffffffffafd
     ...D===eER.......................  r4 = r4 << 0x11
     ...D====eER......................  r4 = r4 + 0xfffffffffffffdfc
-    ...D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 0x3d] = r3
-    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u64 [r5 + 0x3f]
+    ...D==eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r5 + 61] = r3
+    ...DeeeeeeeeeeeeeeeeeeeeeeeeeE--R  r10 = u64 [r5 + 63]
     ....D========================eE-R  jump 6756 if r4 != r10
 ```
 
@@ -34970,8 +34999,8 @@ Initial program counter: 13
     49: 3a 01 00 00 01           r1 = u64 [0x10000]
     54: 33 00                    r0 = 0
     56: 3a 0c 10 00 01           r12 = u64 [0x10010]
-    61: 78 10 01                 u8 [r1 + 0x1] = ra
-    64: 7d 1b 01                 r11 = i8 [r1 + 0x1]
+    61: 78 10 01                 u8 [r1 + 1] = ra
+    64: 7d 1b 01                 r11 = i8 [r1 + 1]
     67: 28 05                    jump 72
       :                          @5 [@dyn 2]
     69: 64 0b                    r11 = r0
@@ -34986,8 +35015,8 @@ Initial program counter: 13
     87: 33 00 00 f0              r0 = 0xfffffffffffff000
     91: 83 00 a0                 i32 r0 = r0 + 0xffffffffffffffa0
     94: 3a 0c 18 00 01           r12 = u64 [0x10018]
-    99: 78 10 02                 u8 [r1 + 0x2] = ra
-   102: 7f 1b 02                 r11 = i16 [r1 + 0x2]
+    99: 78 10 02                 u8 [r1 + 2] = ra
+   102: 7f 1b 02                 r11 = i16 [r1 + 2]
    105: 28 05                    jump 110
       :                          @8 [@dyn 3]
    107: 64 0b                    r11 = r0
@@ -35002,8 +35031,8 @@ Initial program counter: 13
    125: 3a 01 00 00 01           r1 = u64 [0x10000]
    130: 33 00 0a                 r0 = 0xa
    133: 3a 0c 20 00 01           r12 = u64 [0x10020]
-   138: 78 10 03                 u8 [r1 + 0x3] = ra
-   141: 7d 1b 03                 r11 = i8 [r1 + 0x3]
+   138: 78 10 03                 u8 [r1 + 3] = ra
+   141: 7d 1b 03                 r11 = i8 [r1 + 3]
    144: 28 05                    jump 149
       :                          @11 [@dyn 4]
    146: 64 0b                    r11 = r0
@@ -35017,8 +35046,8 @@ Initial program counter: 13
    160: 3a 01 28 00 01           r1 = u64 [0x10028]
    165: 33 00 aa                 r0 = 0xffffffffffffffaa
    168: 3a 0c 30 00 01           r12 = u64 [0x10030]
-   173: 78 10 fd                 u8 [r1 + 0xfffffffffffffffd] = ra
-   176: 7d 1b fd                 r11 = i8 [r1 + 0xfffffffffffffffd]
+   173: 78 10 fd                 u8 [r1 - 3] = ra
+   176: 7d 1b fd                 r11 = i8 [r1 - 3]
    179: 28 05                    jump 184
       :                          @14 [@dyn 5]
    181: 64 0b                    r11 = r0
@@ -35032,8 +35061,8 @@ Initial program counter: 13
    195: 3a 01 28 00 01           r1 = u64 [0x10028]
    200: 33 00                    r0 = 0
    202: 3a 0c 38 00 01           r12 = u64 [0x10038]
-   207: 78 10 fe                 u8 [r1 + 0xfffffffffffffffe] = ra
-   210: 7d 1b fe                 r11 = i8 [r1 + 0xfffffffffffffffe]
+   207: 78 10 fe                 u8 [r1 - 2] = ra
+   210: 7d 1b fe                 r11 = i8 [r1 - 2]
    213: 28 05                    jump 218
       :                          @17 [@dyn 6]
    215: 64 0b                    r11 = r0
@@ -35047,8 +35076,8 @@ Initial program counter: 13
    228: 3a 01 28 00 01           r1 = u64 [0x10028]
    233: 33 00 a0                 r0 = 0xffffffffffffffa0
    236: 3a 0c 40 00 01           r12 = u64 [0x10040]
-   241: 78 10 ff                 u8 [r1 + 0xffffffffffffffff] = ra
-   244: 7d 1b ff                 r11 = i8 [r1 + 0xffffffffffffffff]
+   241: 78 10 ff                 u8 [r1 - 1] = ra
+   244: 7d 1b ff                 r11 = i8 [r1 - 1]
    247: 28 05                    jump 252
       :                          @20 [@dyn 7]
    249: 64 0b                    r11 = r0
@@ -35078,7 +35107,7 @@ Initial program counter: 13
    301: 33 01 00 50 34 12        r1 = 0x12345000
    307: 83 11 78 06              i32 r1 = r1 + 0x678
    311: 95 03 e0                 r3 = r0 + 0xffffffffffffffe0
-   314: 78 31 20                 u8 [r3 + 0x20] = sp
+   314: 78 31 20                 u8 [r3 + 32] = sp
    317: 7d 02                    r2 = i8 [r0 + 0]
    319: 33 04 78                 r4 = 0x78
    322: ab 42 ee 01              jump 816 if r2 != r4
@@ -35089,7 +35118,7 @@ Initial program counter: 13
    335: 33 01 00 30              r1 = 0x3000
    339: 83 11 98 00              i32 r1 = r1 + 0x98
    343: 95 00 fa                 r0 = r0 + 0xfffffffffffffffa
-   346: 78 01 07                 u8 [r0 + 0x7] = sp
+   346: 78 01 07                 u8 [r0 + 7] = sp
    349: 3a 03 58 00 01           r3 = u64 [0x10058]
    354: 7d 32                    r2 = i8 [r3 + 0]
    356: 33 04 98                 r4 = 0xffffffffffffff98
@@ -35118,8 +35147,8 @@ Initial program counter: 13
    404: 02                       unlikely
    405: 33 0a cd                 r10 = 0xffffffffffffffcd
    408: 3a 09 00 00 01           r9 = u64 [0x10000]
-   413: 78 9a 01                 u8 [r9 + 0x1] = a3
-   416: 7d 9b 01                 r11 = i8 [r9 + 0x1]
+   413: 78 9a 01                 u8 [r9 + 1] = a3
+   416: 7d 9b 01                 r11 = i8 [r9 + 1]
    419: 33 04 cd                 r4 = 0xffffffffffffffcd
    422: ab 4b 8a 01              jump 816 if r11 != r4
       :                          @32
@@ -35134,8 +35163,8 @@ Initial program counter: 13
    441: 02                       unlikely
    442: 33 0a cc                 r10 = 0xffffffffffffffcc
    445: 3a 09 00 00 01           r9 = u64 [0x10000]
-   450: 78 9a 02                 u8 [r9 + 0x2] = a3
-   453: 7d 9b 02                 r11 = i8 [r9 + 0x2]
+   450: 78 9a 02                 u8 [r9 + 2] = a3
+   453: 7d 9b 02                 r11 = i8 [r9 + 2]
    456: 33 04 cc                 r4 = 0xffffffffffffffcc
    459: ab 4b 65 01              jump 816 if r11 != r4
       :                          @35
@@ -35150,8 +35179,8 @@ Initial program counter: 13
    478: 02                       unlikely
    479: 33 0a bc                 r10 = 0xffffffffffffffbc
    482: 3a 09 00 00 01           r9 = u64 [0x10000]
-   487: 78 9a 03                 u8 [r9 + 0x3] = a3
-   490: 7d 9b 03                 r11 = i8 [r9 + 0x3]
+   487: 78 9a 03                 u8 [r9 + 3] = a3
+   490: 7d 9b 03                 r11 = i8 [r9 + 3]
    493: 33 04 bc                 r4 = 0xffffffffffffffbc
    496: ab 4b 40 01              jump 816 if r11 != r4
       :                          @38
@@ -35166,8 +35195,8 @@ Initial program counter: 13
    515: 02                       unlikely
    516: 33 0a bb                 r10 = 0xffffffffffffffbb
    519: 3a 09 00 00 01           r9 = u64 [0x10000]
-   524: 78 9a 04                 u8 [r9 + 0x4] = a3
-   527: 7d 9b 04                 r11 = i8 [r9 + 0x4]
+   524: 78 9a 04                 u8 [r9 + 4] = a3
+   527: 7d 9b 04                 r11 = i8 [r9 + 4]
    530: 33 04 bb                 r4 = 0xffffffffffffffbb
    533: ab 4b 1b 01              jump 816 if r11 != r4
       :                          @41
@@ -35182,8 +35211,8 @@ Initial program counter: 13
    552: 02                       unlikely
    553: 33 0a ab                 r10 = 0xffffffffffffffab
    556: 3a 09 00 00 01           r9 = u64 [0x10000]
-   561: 78 9a 05                 u8 [r9 + 0x5] = a3
-   564: 7d 9b 05                 r11 = i8 [r9 + 0x5]
+   561: 78 9a 05                 u8 [r9 + 5] = a3
+   564: 7d 9b 05                 r11 = i8 [r9 + 5]
    567: 33 04 ab                 r4 = 0xffffffffffffffab
    570: ab 4b f6 00              jump 816 if r11 != r4
       :                          @44
@@ -35214,8 +35243,8 @@ Initial program counter: 13
    624: 02                       unlikely
    625: 3a 01 00 00 01           r1 = u64 [0x10000]
    630: 33 00 23                 r0 = 0x23
-   633: 78 10 01                 u8 [r1 + 0x1] = ra
-   636: 7d 1b 01                 r11 = i8 [r1 + 0x1]
+   633: 78 10 01                 u8 [r1 + 1] = ra
+   636: 7d 1b 01                 r11 = i8 [r1 + 1]
    639: 33 04 23                 r4 = 0x23
    642: ab 4b ae 00              jump 816 if r11 != r4
       :                          @50
@@ -35230,8 +35259,8 @@ Initial program counter: 13
    661: 02                       unlikely
    662: 3a 01 00 00 01           r1 = u64 [0x10000]
    667: 33 00 22                 r0 = 0x22
-   670: 78 10 02                 u8 [r1 + 0x2] = ra
-   673: 7d 1b 02                 r11 = i8 [r1 + 0x2]
+   670: 78 10 02                 u8 [r1 + 2] = ra
+   673: 7d 1b 02                 r11 = i8 [r1 + 2]
    676: 33 04 22                 r4 = 0x22
    679: ab 4b 89 00              jump 816 if r11 != r4
       :                          @53
@@ -35246,8 +35275,8 @@ Initial program counter: 13
    698: 02                       unlikely
    699: 3a 01 00 00 01           r1 = u64 [0x10000]
    704: 33 00 12                 r0 = 0x12
-   707: 78 10 03                 u8 [r1 + 0x3] = ra
-   710: 7d 1b 03                 r11 = i8 [r1 + 0x3]
+   707: 78 10 03                 u8 [r1 + 3] = ra
+   710: 7d 1b 03                 r11 = i8 [r1 + 3]
    713: 33 04 12                 r4 = 0x12
    716: ab 4b 64                 jump 816 if r11 != r4
       :                          @56
@@ -35262,8 +35291,8 @@ Initial program counter: 13
    734: 02                       unlikely
    735: 3a 01 00 00 01           r1 = u64 [0x10000]
    740: 33 00 11                 r0 = 0x11
-   743: 78 10 04                 u8 [r1 + 0x4] = ra
-   746: 7d 1b 04                 r11 = i8 [r1 + 0x4]
+   743: 78 10 04                 u8 [r1 + 4] = ra
+   746: 7d 1b 04                 r11 = i8 [r1 + 4]
    749: 33 04 11                 r4 = 0x11
    752: ab 4b 40                 jump 816 if r11 != r4
       :                          @59
@@ -35278,8 +35307,8 @@ Initial program counter: 13
    770: 02                       unlikely
    771: 3a 01 00 00 01           r1 = u64 [0x10000]
    776: 33 00 01                 r0 = 0x1
-   779: 78 10 05                 u8 [r1 + 0x5] = ra
-   782: 7d 1b 05                 r11 = i8 [r1 + 0x5]
+   779: 78 10 05                 u8 [r1 + 5] = ra
+   782: 7d 1b 05                 r11 = i8 [r1 + 5]
    785: 33 04 01                 r4 = 0x1
    788: ab 4b 1c                 jump 816 if r11 != r4
       :                          @62
@@ -35290,7 +35319,7 @@ Initial program counter: 13
    800: 02                       unlikely
    801: 33 07 ef 00              r7 = 0xef
    805: 3a 08 00 00 01           r8 = u64 [0x10000]
-   810: 78 87 03                 u8 [r8 + 0x3] = a0
+   810: 78 87 03                 u8 [r8 + 3] = a0
    813: 52 05 04                 jump 817 if r5 != 0
       :                          @64
    816: 00                       trap
@@ -35379,8 +35408,8 @@ Gas simulation at offset 45 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r1 = u64 [0x10000]
     DeE---------------------------------------R..........  r0 = 0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10010]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 0x1] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 + 0x1]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 1] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 + 1]
     .DeeeeeeeeeeeeeeeE----------------------------------R  jump 72
 ```
 
@@ -35407,8 +35436,8 @@ Gas simulation at offset 78 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xfffffffffffff000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xffffffffffffffa0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10018]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 0x2] = ra
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 0x2]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 2] = ra
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 2]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 110
 ```
 
@@ -35435,8 +35464,8 @@ Gas simulation at offset 121 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r1 = u64 [0x10000]
     DeE---------------------------------------R..........  r0 = 0xa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10020]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 0x3] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 + 0x3]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 3] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 + 3]
     .DeeeeeeeeeeeeeeeE----------------------------------R  jump 149
 ```
 
@@ -35462,8 +35491,8 @@ Gas simulation at offset 156 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r1 = u64 [0x10028]
     DeE---------------------------------------R..........  r0 = 0xffffffffffffffaa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10030]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 0xfffffffffffffffd] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 + 0xfffffffffffffffd]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 - 3] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 - 3]
     .DeeeeeeeeeeeeeeeE----------------------------------R  jump 184
 ```
 
@@ -35489,8 +35518,8 @@ Gas simulation at offset 191 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r1 = u64 [0x10028]
     DeE---------------------------------------R..........  r0 = 0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10038]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 0xfffffffffffffffe] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 + 0xfffffffffffffffe]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 - 2] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 - 2]
     .DeeeeeeeeeeeeeeeE----------------------------------R  jump 218
 ```
 
@@ -35516,8 +35545,8 @@ Gas simulation at offset 224 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r1 = u64 [0x10028]
     DeE---------------------------------------R..........  r0 = 0xffffffffffffffa0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10040]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 + 0xffffffffffffffff] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 + 0xffffffffffffffff]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r1 - 1] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i8 [r1 - 1]
     .DeeeeeeeeeeeeeeeE----------------------------------R  jump 252
 ```
 
@@ -35571,7 +35600,7 @@ Gas simulation at offset 292 with total cost of 51:
     DeE---------------------------------------R...........  r1 = 0x12345000
     .DeeE-------------------------------------R...........  i32 r1 = r1 + 0x678
     .D========================eE--------------R...........  r3 = r0 + 0xffffffffffffffe0
-    ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r3 + 0x20] = sp
+    ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r3 + 32] = sp
     ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeE-R  r2 = i8 [r0 + 0]
     ..DeE------------------------------------------------R  r4 = 0x78
     ..D================================================eER  jump 816 if r2 != r4
@@ -35586,7 +35615,7 @@ Gas simulation at offset 326 with total cost of 53:
     DeE---------------------------------------R.............  r1 = 0x3000
     .DeeE-------------------------------------R.............  i32 r1 = r1 + 0x98
     .D========================eE--------------R.............  r0 = r0 + 0xfffffffffffffffa
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..  u8 [r0 + 0x7] = sp
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..  u8 [r0 + 7] = sp
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE------------------------R..  r3 = u64 [0x10058]
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i8 [r3 + 0]
     ..DeE-------------------------------------------------R.  r4 = 0xffffffffffffff98
@@ -35635,8 +35664,8 @@ Gas simulation at offset 404 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeE---------------------------------------R...........  r10 = 0xffffffffffffffcd
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r9 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 0x1] = a3
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 1] = a3
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 1]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffffcd
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35663,8 +35692,8 @@ Gas simulation at offset 441 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeE---------------------------------------R...........  r10 = 0xffffffffffffffcc
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r9 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 0x2] = a3
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 2] = a3
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 2]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffffcc
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35691,8 +35720,8 @@ Gas simulation at offset 478 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeE---------------------------------------R...........  r10 = 0xffffffffffffffbc
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r9 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 0x3] = a3
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 0x3]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 3] = a3
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 3]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffffbc
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35719,8 +35748,8 @@ Gas simulation at offset 515 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeE---------------------------------------R...........  r10 = 0xffffffffffffffbb
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r9 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 0x4] = a3
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 4] = a3
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 4]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffffbb
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35747,8 +35776,8 @@ Gas simulation at offset 552 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeE---------------------------------------R...........  r10 = 0xffffffffffffffab
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r9 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 0x5] = a3
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 0x5]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r9 + 5] = a3
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r9 + 5]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffffab
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35803,8 +35832,8 @@ Gas simulation at offset 624 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x23
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 0x1] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0x1]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 1] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 1]
     .DeE------------------------------------------------R.  r4 = 0x23
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35831,8 +35860,8 @@ Gas simulation at offset 661 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x22
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 0x2] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0x2]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 2] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 2]
     .DeE------------------------------------------------R.  r4 = 0x22
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35859,8 +35888,8 @@ Gas simulation at offset 698 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x12
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 0x3] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0x3]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 3] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 3]
     .DeE------------------------------------------------R.  r4 = 0x12
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35887,8 +35916,8 @@ Gas simulation at offset 734 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x11
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 0x4] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0x4]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 4] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 4]
     .DeE------------------------------------------------R.  r4 = 0x11
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35915,8 +35944,8 @@ Gas simulation at offset 770 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x1
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 0x5] = ra
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 0x5]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u8 [r1 + 5] = ra
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i8 [r1 + 5]
     .DeE------------------------------------------------R.  r4 = 0x1
     .D=================================================eER  jump 816 if r11 != r4
 ```
@@ -35935,7 +35964,7 @@ Gas simulation at offset 800 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER..........  unlikely
     DeE---------------------------------------R..........  r7 = 0xef
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r8 = u64 [0x10000]
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r8 + 0x3] = a0
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u8 [r8 + 3] = a0
     .DeE------------------------------------------------R  jump 817 if r5 != 0
 ```
 
@@ -36021,8 +36050,8 @@ Initial program counter: 13
    110: 97 00 0c                 r0 = r0 << 0xc
    113: 95 00 00 fa              r0 = r0 + 0xfffffffffffffa00
    117: 3a 0c 10 00 01           r12 = u64 [0x10010]
-   122: 7b 10 08                 u64 [r1 + 0x8] = r0
-   125: 82 1b 08                 r11 = u64 [r1 + 0x8]
+   122: 7b 10 08                 u64 [r1 + 8] = r0
+   125: 82 1b 08                 r11 = u64 [r1 + 8]
    128: 28 05                    jump 133
       :                          @5 [@dyn 2]
    130: 64 0b                    r11 = r0
@@ -36050,8 +36079,8 @@ Initial program counter: 13
    194: 97 00 0c                 r0 = r0 << 0xc
    197: 95 00 a0 fa              r0 = r0 + 0xfffffffffffffaa0
    201: 3a 0c 18 00 01           r12 = u64 [0x10018]
-   206: 7b 10 10                 u64 [r1 + 0x10] = r0
-   209: 82 1b 10                 r11 = u64 [r1 + 0x10]
+   206: 7b 10 10                 u64 [r1 + 16] = r0
+   209: 82 1b 10                 r11 = u64 [r1 + 16]
    212: 28 05                    jump 217
       :                          @8 [@dyn 3]
    214: 64 0b                    r11 = r0
@@ -36079,8 +36108,8 @@ Initial program counter: 13
    278: 97 00 0d                 r0 = r0 << 0xd
    281: 95 00 0a                 r0 = r0 + 0xa
    284: 3a 0c 20 00 01           r12 = u64 [0x10020]
-   289: 7b 10 18                 u64 [r1 + 0x18] = r0
-   292: 82 1b 18                 r11 = u64 [r1 + 0x18]
+   289: 7b 10 18                 u64 [r1 + 24] = r0
+   292: 82 1b 18                 r11 = u64 [r1 + 24]
    295: 28 05                    jump 300
       :                          @11 [@dyn 4]
    297: 64 0b                    r11 = r0
@@ -36106,8 +36135,8 @@ Initial program counter: 13
    353: 97 00 11                 r0 = r0 << 0x11
    356: 95 00 aa 00              r0 = r0 + 0xaa
    360: 3a 0c 30 00 01           r12 = u64 [0x10030]
-   365: 7b 10 e8                 u64 [r1 + 0xffffffffffffffe8] = r0
-   368: 82 1b e8                 r11 = u64 [r1 + 0xffffffffffffffe8]
+   365: 7b 10 e8                 u64 [r1 - 24] = r0
+   368: 82 1b e8                 r11 = u64 [r1 - 24]
    371: 28 05                    jump 376
       :                          @14 [@dyn 5]
    373: 64 0b                    r11 = r0
@@ -36133,8 +36162,8 @@ Initial program counter: 13
    430: 97 00 0c                 r0 = r0 << 0xc
    433: 95 00 00 fa              r0 = r0 + 0xfffffffffffffa00
    437: 3a 0c 38 00 01           r12 = u64 [0x10038]
-   442: 7b 10 f0                 u64 [r1 + 0xfffffffffffffff0] = r0
-   445: 82 1b f0                 r11 = u64 [r1 + 0xfffffffffffffff0]
+   442: 7b 10 f0                 u64 [r1 - 16] = r0
+   445: 82 1b f0                 r11 = u64 [r1 - 16]
    448: 28 05                    jump 453
       :                          @17 [@dyn 6]
    450: 64 0b                    r11 = r0
@@ -36162,8 +36191,8 @@ Initial program counter: 13
    514: 97 00 0c                 r0 = r0 << 0xc
    517: 95 00 a0 fa              r0 = r0 + 0xfffffffffffffaa0
    521: 3a 0c 40 00 01           r12 = u64 [0x10040]
-   526: 7b 10 f8                 u64 [r1 + 0xfffffffffffffff8] = r0
-   529: 82 1b f8                 r11 = u64 [r1 + 0xfffffffffffffff8]
+   526: 7b 10 f8                 u64 [r1 - 8] = r0
+   529: 82 1b f8                 r11 = u64 [r1 - 8]
    532: 28 05                    jump 537
       :                          @20 [@dyn 7]
    534: 64 0b                    r11 = r0
@@ -36220,7 +36249,7 @@ Initial program counter: 13
    680: 97 11 0c                 r1 = r1 << 0xc
    683: 95 11 78 06              r1 = r1 + 0x678
    687: 95 07 e0                 r7 = r0 + 0xffffffffffffffe0
-   690: 7b 71 20                 u64 [r7 + 0x20] = r1
+   690: 7b 71 20                 u64 [r7 + 32] = r1
    693: 82 02                    r2 = u64 [r0 + 0]
    695: 33 04 00 70 24           r4 = 0x247000
    700: 83 44 ad f8              i32 r4 = r4 + 0xfffffffffffff8ad
@@ -36244,7 +36273,7 @@ Initial program counter: 13
    762: 97 11 0c                 r1 = r1 << 0xc
    765: 95 11 98 00              r1 = r1 + 0x98
    769: 95 00 fd                 r0 = r0 + 0xfffffffffffffffd
-   772: 7b 01 0b                 u64 [r0 + 0xb] = r1
+   772: 7b 01 0b                 u64 [r0 + 11] = r1
    775: 3a 07 58 00 01           r7 = u64 [0x10058]
    780: 82 72                    r2 = u64 [r7 + 0]
    782: 33 04 00 40 b0 00        r4 = 0xb04000
@@ -36281,8 +36310,8 @@ Initial program counter: 13
    871: 33 0a 00 c0 ab 0a        r10 = 0xaabc000
    877: 83 aa cd fc              i32 r10 = r10 + 0xfffffffffffffccd
    881: 3a 09 00 00 01           r9 = u64 [0x10000]
-   886: 7b 9a 08                 u64 [r9 + 0x8] = r10
-   889: 82 9b 08                 r11 = u64 [r9 + 0x8]
+   886: 7b 9a 08                 u64 [r9 + 8] = r10
+   889: 82 9b 08                 r11 = u64 [r9 + 8]
    892: 33 04 00 c0 ab 0a        r4 = 0xaabc000
    898: 83 44 cd fc              i32 r4 = r4 + 0xfffffffffffffccd
    902: ab 4b ff 01              jump 1413 if r11 != r4
@@ -36298,8 +36327,8 @@ Initial program counter: 13
    921: 33 0a 00 c0 aa 0d        r10 = 0xdaac000
    927: 83 aa cc fb              i32 r10 = r10 + 0xfffffffffffffbcc
    931: 3a 09 00 00 01           r9 = u64 [0x10000]
-   936: 7b 9a 10                 u64 [r9 + 0x10] = r10
-   939: 82 9b 10                 r11 = u64 [r9 + 0x10]
+   936: 7b 9a 10                 u64 [r9 + 16] = r10
+   939: 82 9b 10                 r11 = u64 [r9 + 16]
    942: 33 04 00 c0 aa 0d        r4 = 0xdaac000
    948: 83 44 cc fb              i32 r4 = r4 + 0xfffffffffffffbcc
    952: ab 4b cd 01              jump 1413 if r11 != r4
@@ -36315,8 +36344,8 @@ Initial program counter: 13
    971: 33 0a 00 b0 da 0d        r10 = 0xddab000
    977: 83 aa bc fb              i32 r10 = r10 + 0xfffffffffffffbbc
    981: 3a 09 00 00 01           r9 = u64 [0x10000]
-   986: 7b 9a 18                 u64 [r9 + 0x18] = r10
-   989: 82 9b 18                 r11 = u64 [r9 + 0x18]
+   986: 7b 9a 18                 u64 [r9 + 24] = r10
+   989: 82 9b 18                 r11 = u64 [r9 + 24]
    992: 33 04 00 b0 da 0d        r4 = 0xddab000
    998: 83 44 bc fb              i32 r4 = r4 + 0xfffffffffffffbbc
   1002: ab 4b 9b 01              jump 1413 if r11 != r4
@@ -36332,8 +36361,8 @@ Initial program counter: 13
   1021: 33 0a 00 b0 dd 0c        r10 = 0xcddb000
   1027: 83 aa bb fa              i32 r10 = r10 + 0xfffffffffffffabb
   1031: 3a 09 00 00 01           r9 = u64 [0x10000]
-  1036: 7b 9a 20                 u64 [r9 + 0x20] = r10
-  1039: 82 9b 20                 r11 = u64 [r9 + 0x20]
+  1036: 7b 9a 20                 u64 [r9 + 32] = r10
+  1039: 82 9b 20                 r11 = u64 [r9 + 32]
   1042: 33 04 00 b0 dd 0c        r4 = 0xcddb000
   1048: 83 44 bb fa              i32 r4 = r4 + 0xfffffffffffffabb
   1052: ab 4b 69 01              jump 1413 if r11 != r4
@@ -36349,8 +36378,8 @@ Initial program counter: 13
   1071: 33 0a 00 e0 cd 0c        r10 = 0xccde000
   1077: 83 aa ab fa              i32 r10 = r10 + 0xfffffffffffffaab
   1081: 3a 09 00 00 01           r9 = u64 [0x10000]
-  1086: 7b 9a 28                 u64 [r9 + 0x28] = r10
-  1089: 82 9b 28                 r11 = u64 [r9 + 0x28]
+  1086: 7b 9a 28                 u64 [r9 + 40] = r10
+  1089: 82 9b 28                 r11 = u64 [r9 + 40]
   1092: 33 04 00 e0 cd 0c        r4 = 0xccde000
   1098: 83 44 ab fa              i32 r4 = r4 + 0xfffffffffffffaab
   1102: ab 4b 37 01              jump 1413 if r11 != r4
@@ -36385,8 +36414,8 @@ Initial program counter: 13
   1169: 3a 01 00 00 01           r1 = u64 [0x10000]
   1174: 33 00 00 10 01 30        r0 = 0x30011000
   1180: 83 00 23 02              i32 r0 = r0 + 0x223
-  1184: 7b 10 08                 u64 [r1 + 0x8] = r0
-  1187: 82 1b 08                 r11 = u64 [r1 + 0x8]
+  1184: 7b 10 08                 u64 [r1 + 8] = r0
+  1187: 82 1b 08                 r11 = u64 [r1 + 8]
   1190: 33 04 00 10 01 30        r4 = 0x30011000
   1196: 83 44 23 02              i32 r4 = r4 + 0x223
   1200: ab 4b d5 00              jump 1413 if r11 != r4
@@ -36403,8 +36432,8 @@ Initial program counter: 13
   1220: 3a 01 00 00 01           r1 = u64 [0x10000]
   1225: 33 00 00 10 00 33        r0 = 0x33001000
   1231: 83 00 22 01              i32 r0 = r0 + 0x122
-  1235: 7b 10 10                 u64 [r1 + 0x10] = r0
-  1238: 82 1b 10                 r11 = u64 [r1 + 0x10]
+  1235: 7b 10 10                 u64 [r1 + 16] = r0
+  1238: 82 1b 10                 r11 = u64 [r1 + 16]
   1241: 33 04 00 10 00 33        r4 = 0x33001000
   1247: 83 44 22 01              i32 r4 = r4 + 0x122
   1251: ab 4b a2 00              jump 1413 if r11 != r4
@@ -36421,8 +36450,8 @@ Initial program counter: 13
   1271: 3a 01 00 00 01           r1 = u64 [0x10000]
   1276: 33 00 00 00 30 23        r0 = 0x23300000
   1282: 83 00 12 01              i32 r0 = r0 + 0x112
-  1286: 7b 10 18                 u64 [r1 + 0x18] = r0
-  1289: 82 1b 18                 r11 = u64 [r1 + 0x18]
+  1286: 7b 10 18                 u64 [r1 + 24] = r0
+  1289: 82 1b 18                 r11 = u64 [r1 + 24]
   1292: 33 04 00 00 30 23        r4 = 0x23300000
   1298: 83 44 12 01              i32 r4 = r4 + 0x112
   1302: ab 4b 6f                 jump 1413 if r11 != r4
@@ -36439,8 +36468,8 @@ Initial program counter: 13
   1321: 3a 01 00 00 01           r1 = u64 [0x10000]
   1326: 33 00 00 00 33 22        r0 = 0x22330000
   1332: 83 00 11                 i32 r0 = r0 + 0x11
-  1335: 7b 10 20                 u64 [r1 + 0x20] = r0
-  1338: 82 1b 20                 r11 = u64 [r1 + 0x20]
+  1335: 7b 10 20                 u64 [r1 + 32] = r0
+  1338: 82 1b 20                 r11 = u64 [r1 + 32]
   1341: 33 04 00 00 33 22        r4 = 0x22330000
   1347: 83 44 11                 i32 r4 = r4 + 0x11
   1350: ab 4b 3f                 jump 1413 if r11 != r4
@@ -36457,8 +36486,8 @@ Initial program counter: 13
   1369: 3a 01 00 00 01           r1 = u64 [0x10000]
   1374: 33 00 00 30 23 12        r0 = 0x12233000
   1380: 83 00 01                 i32 r0 = r0 + 0x1
-  1383: 7b 10 28                 u64 [r1 + 0x28] = r0
-  1386: 82 1b 28                 r11 = u64 [r1 + 0x28]
+  1383: 7b 10 28                 u64 [r1 + 40] = r0
+  1386: 82 1b 28                 r11 = u64 [r1 + 40]
   1389: 33 04 00 30 23 12        r4 = 0x12233000
   1395: 83 44 01                 i32 r4 = r4 + 0x1
   1398: ab 4b 0f                 jump 1413 if r11 != r4
@@ -36578,8 +36607,8 @@ Gas simulation at offset 81 with total cost of 50:
     ..D=====eE--------------------------------R..........  r0 = r0 << 0xc
     ..D======eE-------------------------------R..........  r0 = r0 + 0xfffffffffffffa00
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R..........  r12 = u64 [0x10010]
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x8] = r0
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 0x8]
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 8] = r0
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 8]
     ...DeeeeeeeeeeeeeeeE--------------------------------R  jump 133
 ```
 
@@ -36619,8 +36648,8 @@ Gas simulation at offset 164 with total cost of 50:
     ..D=====eE--------------------------------R..........  r0 = r0 << 0xc
     ..D======eE-------------------------------R..........  r0 = r0 + 0xfffffffffffffaa0
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R..........  r12 = u64 [0x10018]
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x10] = r0
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 0x10]
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 16] = r0
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 16]
     ...DeeeeeeeeeeeeeeeE--------------------------------R  jump 217
 ```
 
@@ -36660,8 +36689,8 @@ Gas simulation at offset 249 with total cost of 50:
     ..D=====eE--------------------------------R..........  r0 = r0 << 0xd
     ..D======eE-------------------------------R..........  r0 = r0 + 0xa
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R..........  r12 = u64 [0x10020]
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0x18] = r0
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 0x18]
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 24] = r0
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 24]
     ...DeeeeeeeeeeeeeeeE--------------------------------R  jump 300
 ```
 
@@ -36699,8 +36728,8 @@ Gas simulation at offset 330 with total cost of 50:
     ..D===eE----------------------------------R..........  r0 = r0 << 0x11
     ..D====eE---------------------------------R..........  r0 = r0 + 0xaa
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE-------------R..........  r12 = u64 [0x10030]
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0xffffffffffffffe8] = r0
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 0xffffffffffffffe8]
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 - 24] = r0
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 - 24]
     ...DeeeeeeeeeeeeeeeE--------------------------------R  jump 376
 ```
 
@@ -36738,8 +36767,8 @@ Gas simulation at offset 401 with total cost of 50:
     ..D=====eE--------------------------------R..........  r0 = r0 << 0xc
     ..D======eE-------------------------------R..........  r0 = r0 + 0xfffffffffffffa00
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R..........  r12 = u64 [0x10038]
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0xfffffffffffffff0] = r0
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 0xfffffffffffffff0]
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 - 16] = r0
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 - 16]
     ...DeeeeeeeeeeeeeeeE--------------------------------R  jump 453
 ```
 
@@ -36779,8 +36808,8 @@ Gas simulation at offset 484 with total cost of 50:
     ..D=====eE--------------------------------R..........  r0 = r0 << 0xc
     ..D======eE-------------------------------R..........  r0 = r0 + 0xfffffffffffffaa0
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE------------R..........  r12 = u64 [0x10040]
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 + 0xfffffffffffffff8] = r0
-    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 + 0xfffffffffffffff8]
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r1 - 8] = r0
+    ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = u64 [r1 - 8]
     ...DeeeeeeeeeeeeeeeE--------------------------------R  jump 537
 ```
 
@@ -36861,7 +36890,7 @@ Gas simulation at offset 648 with total cost of 51:
     ..D=====eE--------------------------------R...........  r1 = r1 << 0xc
     ..D======eE-------------------------------R...........  r1 = r1 + 0x678
     ...D======================eE--------------R...........  r7 = r0 + 0xffffffffffffffe0
-    ...D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r7 + 0x20] = r1
+    ...D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  u64 [r7 + 32] = r1
     ...D======================eeeeeeeeeeeeeeeeeeeeeeeeeE-R  r2 = u64 [r0 + 0]
     ....DeE----------------------------------------------R  r4 = 0x247000
     ....D=eeE--------------------------------------------R  i32 r4 = r4 + 0xfffffffffffff8ad
@@ -36889,7 +36918,7 @@ Gas simulation at offset 729 with total cost of 54:
     ..D=====eE--------------------------------R..............  r1 = r1 << 0xc
     ..D======eE-------------------------------R..............  r1 = r1 + 0x98
     ...D======================eE--------------R..............  r0 = r0 + 0xfffffffffffffffd
-    ...D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER...  u64 [r0 + 0xb] = r1
+    ...D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER...  u64 [r0 + 11] = r1
     ...DeeeeeeeeeeeeeeeeeeeeeeeeeE-----------------------R...  r7 = u64 [0x10058]
     ...D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = u64 [r7 + 0]
     ....DeE------------------------------------------------R.  r4 = 0xb04000
@@ -36946,8 +36975,8 @@ Gas simulation at offset 871 with total cost of 51:
     DeER..................................................  r10 = 0xaabc000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffccd
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 0x8] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 0x8]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 8] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 8]
     .DeE------------------------------------------------R.  r4 = 0xaabc000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffccd
     ..D================================================eER  jump 1413 if r11 != r4
@@ -36975,8 +37004,8 @@ Gas simulation at offset 921 with total cost of 51:
     DeER..................................................  r10 = 0xdaac000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffbcc
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 0x10] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 0x10]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 16] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 16]
     .DeE------------------------------------------------R.  r4 = 0xdaac000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffbcc
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37004,8 +37033,8 @@ Gas simulation at offset 971 with total cost of 51:
     DeER..................................................  r10 = 0xddab000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffbbc
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 0x18] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 0x18]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 24] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 24]
     .DeE------------------------------------------------R.  r4 = 0xddab000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffbbc
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37033,8 +37062,8 @@ Gas simulation at offset 1021 with total cost of 51:
     DeER..................................................  r10 = 0xcddb000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffabb
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 0x20] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 0x20]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 32] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 32]
     .DeE------------------------------------------------R.  r4 = 0xcddb000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffabb
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37062,8 +37091,8 @@ Gas simulation at offset 1071 with total cost of 51:
     DeER..................................................  r10 = 0xccde000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffaab
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 0x28] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 0x28]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r9 + 40] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r9 + 40]
     .DeE------------------------------------------------R.  r4 = 0xccde000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffaab
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37122,8 +37151,8 @@ Gas simulation at offset 1168 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x30011000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x223
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x8] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0x8]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 8] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 8]
     ..DeE-----------------------------------------------R.  r4 = 0x30011000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x223
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37152,8 +37181,8 @@ Gas simulation at offset 1219 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x33001000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x122
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x10] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0x10]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 16] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 16]
     ..DeE-----------------------------------------------R.  r4 = 0x33001000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x122
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37182,8 +37211,8 @@ Gas simulation at offset 1270 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x23300000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x112
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x18] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0x18]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 24] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 24]
     ..DeE-----------------------------------------------R.  r4 = 0x23300000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x112
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37212,8 +37241,8 @@ Gas simulation at offset 1320 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x22330000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x11
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x20] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0x20]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 32] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 32]
     ..DeE-----------------------------------------------R.  r4 = 0x22330000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x11
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37242,8 +37271,8 @@ Gas simulation at offset 1368 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x12233000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x1
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 0x28] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 0x28]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u64 [r1 + 40] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = u64 [r1 + 40]
     ..DeE-----------------------------------------------R.  r4 = 0x12233000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x1
     ..D================================================eER  jump 1413 if r11 != r4
@@ -37329,8 +37358,8 @@ Initial program counter: 13
     56: 33 00 00 b0              r0 = 0xffffffffffffb000
     60: 83 00 00 fa              i32 r0 = r0 + 0xfffffffffffffa00
     64: 3a 0c 10 00 01           r12 = u64 [0x10010]
-    69: 79 10 02                 u16 [r1 + 0x2] = r0
-    72: 7f 1b 02                 r11 = i16 [r1 + 0x2]
+    69: 79 10 02                 u16 [r1 + 2] = r0
+    72: 7f 1b 02                 r11 = i16 [r1 + 2]
     75: 28 05                    jump 80
       :                          @5 [@dyn 2]
     77: 64 0b                    r11 = r0
@@ -37346,8 +37375,8 @@ Initial program counter: 13
    101: 33 00 00 10 ef be        r0 = 0xffffffffbeef1000
    107: 83 00 a0 fa              i32 r0 = r0 + 0xfffffffffffffaa0
    111: 3a 0c 18 00 01           r12 = u64 [0x10018]
-   116: 79 10 04                 u16 [r1 + 0x4] = r0
-   119: 81 1b 04                 r11 = i32 [r1 + 0x4]
+   116: 79 10 04                 u16 [r1 + 4] = r0
+   119: 81 1b 04                 r11 = i32 [r1 + 4]
    122: 28 05                    jump 127
       :                          @8 [@dyn 3]
    124: 64 0b                    r11 = r0
@@ -37363,8 +37392,8 @@ Initial program counter: 13
    150: 33 00 00 a0              r0 = 0xffffffffffffa000
    154: 83 00 0a                 i32 r0 = r0 + 0xa
    157: 3a 0c 20 00 01           r12 = u64 [0x10020]
-   162: 79 10 06                 u16 [r1 + 0x6] = r0
-   165: 7f 1b 06                 r11 = i16 [r1 + 0x6]
+   162: 79 10 06                 u16 [r1 + 6] = r0
+   165: 7f 1b 06                 r11 = i16 [r1 + 6]
    168: 28 05                    jump 173
       :                          @11 [@dyn 4]
    170: 64 0b                    r11 = r0
@@ -37379,8 +37408,8 @@ Initial program counter: 13
    188: 3a 01 28 00 01           r1 = u64 [0x10028]
    193: 33 00 aa 00              r0 = 0xaa
    197: 3a 0c 30 00 01           r12 = u64 [0x10030]
-   202: 79 10 fa                 u16 [r1 + 0xfffffffffffffffa] = r0
-   205: 7f 1b fa                 r11 = i16 [r1 + 0xfffffffffffffffa]
+   202: 79 10 fa                 u16 [r1 - 6] = r0
+   205: 7f 1b fa                 r11 = i16 [r1 - 6]
    208: 28 05                    jump 213
       :                          @14 [@dyn 5]
    210: 64 0b                    r11 = r0
@@ -37395,8 +37424,8 @@ Initial program counter: 13
    230: 33 00 00 b0              r0 = 0xffffffffffffb000
    234: 83 00 00 fa              i32 r0 = r0 + 0xfffffffffffffa00
    238: 3a 0c 38 00 01           r12 = u64 [0x10038]
-   243: 79 10 fc                 u16 [r1 + 0xfffffffffffffffc] = r0
-   246: 7f 1b fc                 r11 = i16 [r1 + 0xfffffffffffffffc]
+   243: 79 10 fc                 u16 [r1 - 4] = r0
+   246: 7f 1b fc                 r11 = i16 [r1 - 4]
    249: 28 05                    jump 254
       :                          @17 [@dyn 6]
    251: 64 0b                    r11 = r0
@@ -37412,8 +37441,8 @@ Initial program counter: 13
    275: 33 00 00 10              r0 = 0x1000
    279: 83 00 a0 fa              i32 r0 = r0 + 0xfffffffffffffaa0
    283: 3a 0c 40 00 01           r12 = u64 [0x10040]
-   288: 79 10 fe                 u16 [r1 + 0xfffffffffffffffe] = r0
-   291: 7f 1b fe                 r11 = i16 [r1 + 0xfffffffffffffffe]
+   288: 79 10 fe                 u16 [r1 - 2] = r0
+   291: 7f 1b fe                 r11 = i16 [r1 - 2]
    294: 28 05                    jump 299
       :                          @20 [@dyn 7]
    296: 64 0b                    r11 = r0
@@ -37446,7 +37475,7 @@ Initial program counter: 13
    361: 33 01 00 50 34 12        r1 = 0x12345000
    367: 83 11 78 06              i32 r1 = r1 + 0x678
    371: 95 03 e0                 r3 = r0 + 0xffffffffffffffe0
-   374: 79 31 20                 u16 [r3 + 0x20] = r1
+   374: 79 31 20                 u16 [r3 + 32] = r1
    377: 7f 02                    r2 = i16 [r0 + 0]
    379: 33 04 00 50              r4 = 0x5000
    383: 83 44 78 06              i32 r4 = r4 + 0x678
@@ -37458,7 +37487,7 @@ Initial program counter: 13
    400: 33 01 00 30              r1 = 0x3000
    404: 83 11 98 00              i32 r1 = r1 + 0x98
    408: 95 00 fb                 r0 = r0 + 0xfffffffffffffffb
-   411: 79 01 07                 u16 [r0 + 0x7] = r1
+   411: 79 01 07                 u16 [r0 + 7] = r1
    414: 3a 03 58 00 01           r3 = u64 [0x10058]
    419: 7f 32                    r2 = i16 [r3 + 0]
    421: 33 04 00 30              r4 = 0x3000
@@ -37489,8 +37518,8 @@ Initial program counter: 13
    483: 33 0a 00 c0              r10 = 0xffffffffffffc000
    487: 83 aa cd fc              i32 r10 = r10 + 0xfffffffffffffccd
    491: 3a 09 00 00 01           r9 = u64 [0x10000]
-   496: 79 9a 02                 u16 [r9 + 0x2] = r10
-   499: 7f 9b 02                 r11 = i16 [r9 + 0x2]
+   496: 79 9a 02                 u16 [r9 + 2] = r10
+   499: 7f 9b 02                 r11 = i16 [r9 + 2]
    502: 33 04 00 c0              r4 = 0xffffffffffffc000
    506: 83 44 cd fc              i32 r4 = r4 + 0xfffffffffffffccd
    510: ab 4b da 01              jump 984 if r11 != r4
@@ -37506,8 +37535,8 @@ Initial program counter: 13
    529: 33 0a 00 c0              r10 = 0xffffffffffffc000
    533: 83 aa cc fb              i32 r10 = r10 + 0xfffffffffffffbcc
    537: 3a 09 00 00 01           r9 = u64 [0x10000]
-   542: 79 9a 04                 u16 [r9 + 0x4] = r10
-   545: 7f 9b 04                 r11 = i16 [r9 + 0x4]
+   542: 79 9a 04                 u16 [r9 + 4] = r10
+   545: 7f 9b 04                 r11 = i16 [r9 + 4]
    548: 33 04 00 c0              r4 = 0xffffffffffffc000
    552: 83 44 cc fb              i32 r4 = r4 + 0xfffffffffffffbcc
    556: ab 4b ac 01              jump 984 if r11 != r4
@@ -37523,8 +37552,8 @@ Initial program counter: 13
    575: 33 0a 00 b0              r10 = 0xffffffffffffb000
    579: 83 aa bc fb              i32 r10 = r10 + 0xfffffffffffffbbc
    583: 3a 09 00 00 01           r9 = u64 [0x10000]
-   588: 79 9a 06                 u16 [r9 + 0x6] = r10
-   591: 7f 9b 06                 r11 = i16 [r9 + 0x6]
+   588: 79 9a 06                 u16 [r9 + 6] = r10
+   591: 7f 9b 06                 r11 = i16 [r9 + 6]
    594: 33 04 00 b0              r4 = 0xffffffffffffb000
    598: 83 44 bc fb              i32 r4 = r4 + 0xfffffffffffffbbc
    602: ab 4b 7e 01              jump 984 if r11 != r4
@@ -37540,8 +37569,8 @@ Initial program counter: 13
    621: 33 0a 00 b0              r10 = 0xffffffffffffb000
    625: 83 aa bb fa              i32 r10 = r10 + 0xfffffffffffffabb
    629: 3a 09 00 00 01           r9 = u64 [0x10000]
-   634: 79 9a 08                 u16 [r9 + 0x8] = r10
-   637: 7f 9b 08                 r11 = i16 [r9 + 0x8]
+   634: 79 9a 08                 u16 [r9 + 8] = r10
+   637: 7f 9b 08                 r11 = i16 [r9 + 8]
    640: 33 04 00 b0              r4 = 0xffffffffffffb000
    644: 83 44 bb fa              i32 r4 = r4 + 0xfffffffffffffabb
    648: ab 4b 50 01              jump 984 if r11 != r4
@@ -37557,8 +37586,8 @@ Initial program counter: 13
    667: 33 0a 00 e0              r10 = 0xffffffffffffe000
    671: 83 aa ab fa              i32 r10 = r10 + 0xfffffffffffffaab
    675: 3a 09 00 00 01           r9 = u64 [0x10000]
-   680: 79 9a 0a                 u16 [r9 + 0xa] = r10
-   683: 7f 9b 0a                 r11 = i16 [r9 + 0xa]
+   680: 79 9a 0a                 u16 [r9 + 10] = r10
+   683: 7f 9b 0a                 r11 = i16 [r9 + 10]
    686: 33 04 00 e0              r4 = 0xffffffffffffe000
    690: 83 44 ab fa              i32 r4 = r4 + 0xfffffffffffffaab
    694: ab 4b 22 01              jump 984 if r11 != r4
@@ -37593,8 +37622,8 @@ Initial program counter: 13
    759: 3a 01 00 00 01           r1 = u64 [0x10000]
    764: 33 00 00 10              r0 = 0x1000
    768: 83 00 23 02              i32 r0 = r0 + 0x223
-   772: 79 10 02                 u16 [r1 + 0x2] = r0
-   775: 7f 1b 02                 r11 = i16 [r1 + 0x2]
+   772: 79 10 02                 u16 [r1 + 2] = r0
+   775: 7f 1b 02                 r11 = i16 [r1 + 2]
    778: 33 04 00 10              r4 = 0x1000
    782: 83 44 23 02              i32 r4 = r4 + 0x223
    786: ab 4b c6 00              jump 984 if r11 != r4
@@ -37611,8 +37640,8 @@ Initial program counter: 13
    806: 3a 01 00 00 01           r1 = u64 [0x10000]
    811: 33 00 00 10              r0 = 0x1000
    815: 83 00 22 01              i32 r0 = r0 + 0x122
-   819: 79 10 04                 u16 [r1 + 0x4] = r0
-   822: 7f 1b 04                 r11 = i16 [r1 + 0x4]
+   819: 79 10 04                 u16 [r1 + 4] = r0
+   822: 7f 1b 04                 r11 = i16 [r1 + 4]
    825: 33 04 00 10              r4 = 0x1000
    829: 83 44 22 01              i32 r4 = r4 + 0x122
    833: ab 4b 97 00              jump 984 if r11 != r4
@@ -37628,8 +37657,8 @@ Initial program counter: 13
    852: 02                       unlikely
    853: 3a 01 00 00 01           r1 = u64 [0x10000]
    858: 33 00 12 01              r0 = 0x112
-   862: 79 10 06                 u16 [r1 + 0x6] = r0
-   865: 7f 1b 06                 r11 = i16 [r1 + 0x6]
+   862: 79 10 06                 u16 [r1 + 6] = r0
+   865: 7f 1b 06                 r11 = i16 [r1 + 6]
    868: 33 04 12 01              r4 = 0x112
    872: ab 4b 70                 jump 984 if r11 != r4
       :                          @56
@@ -37644,8 +37673,8 @@ Initial program counter: 13
    890: 02                       unlikely
    891: 3a 01 00 00 01           r1 = u64 [0x10000]
    896: 33 00 11                 r0 = 0x11
-   899: 79 10 08                 u16 [r1 + 0x8] = r0
-   902: 7f 1b 08                 r11 = i16 [r1 + 0x8]
+   899: 79 10 08                 u16 [r1 + 8] = r0
+   902: 7f 1b 08                 r11 = i16 [r1 + 8]
    905: 33 04 11                 r4 = 0x11
    908: ab 4b 4c                 jump 984 if r11 != r4
       :                          @59
@@ -37661,8 +37690,8 @@ Initial program counter: 13
    927: 3a 01 00 00 01           r1 = u64 [0x10000]
    932: 33 00 00 30              r0 = 0x3000
    936: 83 00 01                 i32 r0 = r0 + 0x1
-   939: 79 10 0a                 u16 [r1 + 0xa] = r0
-   942: 7f 1b 0a                 r11 = i16 [r1 + 0xa]
+   939: 79 10 0a                 u16 [r1 + 10] = r0
+   942: 7f 1b 0a                 r11 = i16 [r1 + 10]
    945: 33 04 00 30              r4 = 0x3000
    949: 83 44 01                 i32 r4 = r4 + 0x1
    952: ab 4b 20                 jump 984 if r11 != r4
@@ -37674,7 +37703,7 @@ Initial program counter: 13
    964: 33 07 00 c0 00           r7 = 0xc000
    969: 83 77 ef fe              i32 r7 = r7 + 0xfffffffffffffeef
    973: 3a 08 00 00 01           r8 = u64 [0x10000]
-   978: 79 87 06                 u16 [r8 + 0x6] = r7
+   978: 79 87 06                 u16 [r8 + 6] = r7
    981: 52 05 04                 jump 985 if r5 != 0
       :                          @64
    984: 00                       trap
@@ -37765,8 +37794,8 @@ Gas simulation at offset 47 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xffffffffffffb000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xfffffffffffffa00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10010]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 0x2] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 0x2]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 2] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 2]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 80
 ```
 
@@ -37794,8 +37823,8 @@ Gas simulation at offset 92 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xffffffffbeef1000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xfffffffffffffaa0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10018]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 0x4] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 0x4]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 4] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 4]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 127
 ```
 
@@ -37823,8 +37852,8 @@ Gas simulation at offset 141 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xffffffffffffa000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10020]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 0x6] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 0x6]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 6] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 6]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 173
 ```
 
@@ -37851,8 +37880,8 @@ Gas simulation at offset 184 with total cost of 50:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R..........  r1 = u64 [0x10028]
     DeE---------------------------------------R..........  r0 = 0xaa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10030]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 0xfffffffffffffffa] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 0xfffffffffffffffa]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 - 6] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 - 6]
     .DeeeeeeeeeeeeeeeE----------------------------------R  jump 213
 ```
 
@@ -37879,8 +37908,8 @@ Gas simulation at offset 221 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xffffffffffffb000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xfffffffffffffa00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10038]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 0xfffffffffffffffc] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 0xfffffffffffffffc]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 - 4] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 - 4]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 254
 ```
 
@@ -37908,8 +37937,8 @@ Gas simulation at offset 266 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0x1000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xfffffffffffffaa0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10040]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 + 0xfffffffffffffffe] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 + 0xfffffffffffffffe]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r1 - 2] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i16 [r1 - 2]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 299
 ```
 
@@ -37966,7 +37995,7 @@ Gas simulation at offset 352 with total cost of 51:
     DeE---------------------------------------R...........  r1 = 0x12345000
     .DeeE-------------------------------------R...........  i32 r1 = r1 + 0x678
     .D========================eE--------------R...........  r3 = r0 + 0xffffffffffffffe0
-    ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r3 + 0x20] = r1
+    ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r3 + 32] = r1
     ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeE-R  r2 = i16 [r0 + 0]
     ..DeE------------------------------------------------R  r4 = 0x5000
     ...DeeE----------------------------------------------R  i32 r4 = r4 + 0x678
@@ -37982,7 +38011,7 @@ Gas simulation at offset 391 with total cost of 53:
     DeE---------------------------------------R.............  r1 = 0x3000
     .DeeE-------------------------------------R.............  i32 r1 = r1 + 0x98
     .D========================eE--------------R.............  r0 = r0 + 0xfffffffffffffffb
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..  u16 [r0 + 0x7] = r1
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..  u16 [r0 + 7] = r1
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE------------------------R..  r3 = u64 [0x10058]
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i16 [r3 + 0]
     ..DeE-------------------------------------------------R.  r4 = 0x3000
@@ -38033,8 +38062,8 @@ Gas simulation at offset 483 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffffffc000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffccd
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 0x2] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 0x2]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 2] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 2]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffc000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffccd
     ..D================================================eER  jump 984 if r11 != r4
@@ -38062,8 +38091,8 @@ Gas simulation at offset 529 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffffffc000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffbcc
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 0x4] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 0x4]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 4] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 4]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffc000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffbcc
     ..D================================================eER  jump 984 if r11 != r4
@@ -38091,8 +38120,8 @@ Gas simulation at offset 575 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffffffb000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffbbc
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 0x6] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 0x6]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 6] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 6]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffb000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffbbc
     ..D================================================eER  jump 984 if r11 != r4
@@ -38120,8 +38149,8 @@ Gas simulation at offset 621 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffffffb000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffabb
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 0x8] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 0x8]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 8] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 8]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffb000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffabb
     ..D================================================eER  jump 984 if r11 != r4
@@ -38149,8 +38178,8 @@ Gas simulation at offset 667 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffffffe000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffaab
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 0xa] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 0xa]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r9 + 10] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r9 + 10]
     .DeE------------------------------------------------R.  r4 = 0xffffffffffffe000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffaab
     ..D================================================eER  jump 984 if r11 != r4
@@ -38209,8 +38238,8 @@ Gas simulation at offset 758 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x1000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x223
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 0x2] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0x2]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 2] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 2]
     ..DeE-----------------------------------------------R.  r4 = 0x1000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x223
     ..D================================================eER  jump 984 if r11 != r4
@@ -38239,8 +38268,8 @@ Gas simulation at offset 805 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x1000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x122
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 0x4] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0x4]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 4] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 4]
     ..DeE-----------------------------------------------R.  r4 = 0x1000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x122
     ..D================================================eER  jump 984 if r11 != r4
@@ -38268,8 +38297,8 @@ Gas simulation at offset 852 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x112
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 0x6] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0x6]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 6] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 6]
     .DeE------------------------------------------------R.  r4 = 0x112
     .D=================================================eER  jump 984 if r11 != r4
 ```
@@ -38296,8 +38325,8 @@ Gas simulation at offset 890 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeER...........  unlikely
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x11
-    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 0x8] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0x8]
+    D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 8] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 8]
     .DeE------------------------------------------------R.  r4 = 0x11
     .D=================================================eER  jump 984 if r11 != r4
 ```
@@ -38325,8 +38354,8 @@ Gas simulation at offset 926 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x3000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x1
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 0xa] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 0xa]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u16 [r1 + 10] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i16 [r1 + 10]
     ..DeE-----------------------------------------------R.  r4 = 0x3000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x1
     ..D================================================eER  jump 984 if r11 != r4
@@ -38346,7 +38375,7 @@ Gas simulation at offset 964 with total cost of 50:
     DeER.................................................  r7 = 0xc000
     D=eeER...............................................  i32 r7 = r7 + 0xfffffffffffffeef
     DeeeeeeeeeeeeeeeeeeeeeeeeeER.........................  r8 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r8 + 0x6] = r7
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u16 [r8 + 6] = r7
     .DeE------------------------------------------------R  jump 985 if r5 != 0
 ```
 
@@ -55622,8 +55651,8 @@ Initial program counter: 13
     68: 33 00 00 b0 00 aa        r0 = 0xffffffffaa00b000
     74: 83 00 00 fa              i32 r0 = r0 + 0xfffffffffffffa00
     78: 3a 0c 10 00 01           r12 = u64 [0x10010]
-    83: 7a 10 04                 u32 [r1 + 0x4] = r0
-    86: 81 1b 04                 r11 = i32 [r1 + 0x4]
+    83: 7a 10 04                 u32 [r1 + 4] = r0
+    86: 81 1b 04                 r11 = i32 [r1 + 4]
     89: 28 05                    jump 94
       :                          @5 [@dyn 2]
     91: 64 0b                    r11 = r0
@@ -55639,8 +55668,8 @@ Initial program counter: 13
    117: 33 00 00 10 a0 0a        r0 = 0xaa01000
    123: 83 00 a0 fa              i32 r0 = r0 + 0xfffffffffffffaa0
    127: 3a 0c 18 00 01           r12 = u64 [0x10018]
-   132: 7a 10 08                 u32 [r1 + 0x8] = r0
-   135: 81 1b 08                 r11 = i32 [r1 + 0x8]
+   132: 7a 10 08                 u32 [r1 + 8] = r0
+   135: 81 1b 08                 r11 = i32 [r1 + 8]
    138: 28 05                    jump 143
       :                          @8 [@dyn 3]
    140: 64 0b                    r11 = r0
@@ -55656,8 +55685,8 @@ Initial program counter: 13
    166: 33 00 00 a0 0a a0        r0 = 0xffffffffa00aa000
    172: 83 00 0a                 i32 r0 = r0 + 0xa
    175: 3a 0c 20 00 01           r12 = u64 [0x10020]
-   180: 7a 10 0c                 u32 [r1 + 0xc] = r0
-   183: 81 1b 0c                 r11 = i32 [r1 + 0xc]
+   180: 7a 10 0c                 u32 [r1 + 12] = r0
+   183: 81 1b 0c                 r11 = i32 [r1 + 12]
    186: 28 05                    jump 191
       :                          @11 [@dyn 4]
    188: 64 0b                    r11 = r0
@@ -55673,8 +55702,8 @@ Initial program counter: 13
    213: 33 00 00 00 aa 00        r0 = 0xaa0000
    219: 83 00 aa 00              i32 r0 = r0 + 0xaa
    223: 3a 0c 30 00 01           r12 = u64 [0x10030]
-   228: 7a 10 f4                 u32 [r1 + 0xfffffffffffffff4] = r0
-   231: 81 1b f4                 r11 = i32 [r1 + 0xfffffffffffffff4]
+   228: 7a 10 f4                 u32 [r1 - 12] = r0
+   231: 81 1b f4                 r11 = i32 [r1 - 12]
    234: 28 05                    jump 239
       :                          @14 [@dyn 5]
    236: 64 0b                    r11 = r0
@@ -55690,8 +55719,8 @@ Initial program counter: 13
    262: 33 00 00 b0 00 aa        r0 = 0xffffffffaa00b000
    268: 83 00 00 fa              i32 r0 = r0 + 0xfffffffffffffa00
    272: 3a 0c 38 00 01           r12 = u64 [0x10038]
-   277: 7a 10 f8                 u32 [r1 + 0xfffffffffffffff8] = r0
-   280: 81 1b f8                 r11 = i32 [r1 + 0xfffffffffffffff8]
+   277: 7a 10 f8                 u32 [r1 - 8] = r0
+   280: 81 1b f8                 r11 = i32 [r1 - 8]
    283: 28 05                    jump 288
       :                          @17 [@dyn 6]
    285: 64 0b                    r11 = r0
@@ -55707,8 +55736,8 @@ Initial program counter: 13
    311: 33 00 00 10 a0 0a        r0 = 0xaa01000
    317: 83 00 a0 fa              i32 r0 = r0 + 0xfffffffffffffaa0
    321: 3a 0c 40 00 01           r12 = u64 [0x10040]
-   326: 7a 10 fc                 u32 [r1 + 0xfffffffffffffffc] = r0
-   329: 81 1b fc                 r11 = i32 [r1 + 0xfffffffffffffffc]
+   326: 7a 10 fc                 u32 [r1 - 4] = r0
+   329: 81 1b fc                 r11 = i32 [r1 - 4]
    332: 28 05                    jump 337
       :                          @20 [@dyn 7]
    334: 64 0b                    r11 = r0
@@ -55741,7 +55770,7 @@ Initial program counter: 13
    405: 33 01 00 50 34 12        r1 = 0x12345000
    411: 83 11 78 06              i32 r1 = r1 + 0x678
    415: 95 07 e0                 r7 = r0 + 0xffffffffffffffe0
-   418: 7a 71 20                 u32 [r7 + 0x20] = r1
+   418: 7a 71 20                 u32 [r7 + 32] = r1
    421: 81 02                    r2 = i32 [r0 + 0]
    423: 33 04 00 50 34 12        r4 = 0x12345000
    429: 83 44 78 06              i32 r4 = r4 + 0x678
@@ -55753,7 +55782,7 @@ Initial program counter: 13
    446: 33 01 00 30 21 58        r1 = 0x58213000
    452: 83 11 98 00              i32 r1 = r1 + 0x98
    456: 95 00 fd                 r0 = r0 + 0xfffffffffffffffd
-   459: 7a 01 07                 u32 [r0 + 0x7] = r1
+   459: 7a 01 07                 u32 [r0 + 7] = r1
    462: 3a 07 58 00 01           r7 = u64 [0x10058]
    467: 81 72                    r2 = i32 [r7 + 0]
    469: 33 04 00 30 21 58        r4 = 0x58213000
@@ -55784,8 +55813,8 @@ Initial program counter: 13
    537: 33 0a 00 c0 ab da        r10 = 0xffffffffdaabc000
    543: 83 aa cd fc              i32 r10 = r10 + 0xfffffffffffffccd
    547: 3a 09 00 00 01           r9 = u64 [0x10000]
-   552: 7a 9a 04                 u32 [r9 + 0x4] = r10
-   555: 81 9b 04                 r11 = i32 [r9 + 0x4]
+   552: 7a 9a 04                 u32 [r9 + 4] = r10
+   555: 81 9b 04                 r11 = i32 [r9 + 4]
    558: 33 04 00 c0 ab da        r4 = 0xffffffffdaabc000
    564: 83 44 cd fc              i32 r4 = r4 + 0xfffffffffffffccd
    568: ab 4b ff 01              jump 1079 if r11 != r4
@@ -55801,8 +55830,8 @@ Initial program counter: 13
    587: 33 0a 00 c0 aa dd        r10 = 0xffffffffddaac000
    593: 83 aa cc fb              i32 r10 = r10 + 0xfffffffffffffbcc
    597: 3a 09 00 00 01           r9 = u64 [0x10000]
-   602: 7a 9a 08                 u32 [r9 + 0x8] = r10
-   605: 81 9b 08                 r11 = i32 [r9 + 0x8]
+   602: 7a 9a 08                 u32 [r9 + 8] = r10
+   605: 81 9b 08                 r11 = i32 [r9 + 8]
    608: 33 04 00 c0 aa dd        r4 = 0xffffffffddaac000
    614: 83 44 cc fb              i32 r4 = r4 + 0xfffffffffffffbcc
    618: ab 4b cd 01              jump 1079 if r11 != r4
@@ -55818,8 +55847,8 @@ Initial program counter: 13
    637: 33 0a 00 b0 da cd        r10 = 0xffffffffcddab000
    643: 83 aa bc fb              i32 r10 = r10 + 0xfffffffffffffbbc
    647: 3a 09 00 00 01           r9 = u64 [0x10000]
-   652: 7a 9a 0c                 u32 [r9 + 0xc] = r10
-   655: 81 9b 0c                 r11 = i32 [r9 + 0xc]
+   652: 7a 9a 0c                 u32 [r9 + 12] = r10
+   655: 81 9b 0c                 r11 = i32 [r9 + 12]
    658: 33 04 00 b0 da cd        r4 = 0xffffffffcddab000
    664: 83 44 bc fb              i32 r4 = r4 + 0xfffffffffffffbbc
    668: ab 4b 9b 01              jump 1079 if r11 != r4
@@ -55835,8 +55864,8 @@ Initial program counter: 13
    687: 33 0a 00 b0 dd cc        r10 = 0xffffffffccddb000
    693: 83 aa bb fa              i32 r10 = r10 + 0xfffffffffffffabb
    697: 3a 09 00 00 01           r9 = u64 [0x10000]
-   702: 7a 9a 10                 u32 [r9 + 0x10] = r10
-   705: 81 9b 10                 r11 = i32 [r9 + 0x10]
+   702: 7a 9a 10                 u32 [r9 + 16] = r10
+   705: 81 9b 10                 r11 = i32 [r9 + 16]
    708: 33 04 00 b0 dd cc        r4 = 0xffffffffccddb000
    714: 83 44 bb fa              i32 r4 = r4 + 0xfffffffffffffabb
    718: ab 4b 69 01              jump 1079 if r11 != r4
@@ -55852,8 +55881,8 @@ Initial program counter: 13
    737: 33 0a 00 e0 cd bc        r10 = 0xffffffffbccde000
    743: 83 aa ab fa              i32 r10 = r10 + 0xfffffffffffffaab
    747: 3a 09 00 00 01           r9 = u64 [0x10000]
-   752: 7a 9a 14                 u32 [r9 + 0x14] = r10
-   755: 81 9b 14                 r11 = i32 [r9 + 0x14]
+   752: 7a 9a 14                 u32 [r9 + 20] = r10
+   755: 81 9b 14                 r11 = i32 [r9 + 20]
    758: 33 04 00 e0 cd bc        r4 = 0xffffffffbccde000
    764: 83 44 ab fa              i32 r4 = r4 + 0xfffffffffffffaab
    768: ab 4b 37 01              jump 1079 if r11 != r4
@@ -55888,8 +55917,8 @@ Initial program counter: 13
    835: 3a 01 00 00 01           r1 = u64 [0x10000]
    840: 33 00 00 10 01 30        r0 = 0x30011000
    846: 83 00 23 02              i32 r0 = r0 + 0x223
-   850: 7a 10 04                 u32 [r1 + 0x4] = r0
-   853: 81 1b 04                 r11 = i32 [r1 + 0x4]
+   850: 7a 10 04                 u32 [r1 + 4] = r0
+   853: 81 1b 04                 r11 = i32 [r1 + 4]
    856: 33 04 00 10 01 30        r4 = 0x30011000
    862: 83 44 23 02              i32 r4 = r4 + 0x223
    866: ab 4b d5 00              jump 1079 if r11 != r4
@@ -55906,8 +55935,8 @@ Initial program counter: 13
    886: 3a 01 00 00 01           r1 = u64 [0x10000]
    891: 33 00 00 10 00 33        r0 = 0x33001000
    897: 83 00 22 01              i32 r0 = r0 + 0x122
-   901: 7a 10 08                 u32 [r1 + 0x8] = r0
-   904: 81 1b 08                 r11 = i32 [r1 + 0x8]
+   901: 7a 10 08                 u32 [r1 + 8] = r0
+   904: 81 1b 08                 r11 = i32 [r1 + 8]
    907: 33 04 00 10 00 33        r4 = 0x33001000
    913: 83 44 22 01              i32 r4 = r4 + 0x122
    917: ab 4b a2 00              jump 1079 if r11 != r4
@@ -55924,8 +55953,8 @@ Initial program counter: 13
    937: 3a 01 00 00 01           r1 = u64 [0x10000]
    942: 33 00 00 00 30 23        r0 = 0x23300000
    948: 83 00 12 01              i32 r0 = r0 + 0x112
-   952: 7a 10 0c                 u32 [r1 + 0xc] = r0
-   955: 81 1b 0c                 r11 = i32 [r1 + 0xc]
+   952: 7a 10 0c                 u32 [r1 + 12] = r0
+   955: 81 1b 0c                 r11 = i32 [r1 + 12]
    958: 33 04 00 00 30 23        r4 = 0x23300000
    964: 83 44 12 01              i32 r4 = r4 + 0x112
    968: ab 4b 6f                 jump 1079 if r11 != r4
@@ -55942,8 +55971,8 @@ Initial program counter: 13
    987: 3a 01 00 00 01           r1 = u64 [0x10000]
    992: 33 00 00 00 33 22        r0 = 0x22330000
    998: 83 00 11                 i32 r0 = r0 + 0x11
-  1001: 7a 10 10                 u32 [r1 + 0x10] = r0
-  1004: 81 1b 10                 r11 = i32 [r1 + 0x10]
+  1001: 7a 10 10                 u32 [r1 + 16] = r0
+  1004: 81 1b 10                 r11 = i32 [r1 + 16]
   1007: 33 04 00 00 33 22        r4 = 0x22330000
   1013: 83 44 11                 i32 r4 = r4 + 0x11
   1016: ab 4b 3f                 jump 1079 if r11 != r4
@@ -55960,8 +55989,8 @@ Initial program counter: 13
   1035: 3a 01 00 00 01           r1 = u64 [0x10000]
   1040: 33 00 00 30 23 12        r0 = 0x12233000
   1046: 83 00 01                 i32 r0 = r0 + 0x1
-  1049: 7a 10 14                 u32 [r1 + 0x14] = r0
-  1052: 81 1b 14                 r11 = i32 [r1 + 0x14]
+  1049: 7a 10 14                 u32 [r1 + 20] = r0
+  1052: 81 1b 14                 r11 = i32 [r1 + 20]
   1055: 33 04 00 30 23 12        r4 = 0x12233000
   1061: 83 44 01                 i32 r4 = r4 + 0x1
   1064: ab 4b 0f                 jump 1079 if r11 != r4
@@ -56062,8 +56091,8 @@ Gas simulation at offset 59 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xffffffffaa00b000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xfffffffffffffa00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10010]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 0x4] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 0x4]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 4] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 4]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 94
 ```
 
@@ -56091,8 +56120,8 @@ Gas simulation at offset 108 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xaa01000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xfffffffffffffaa0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10018]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 0x8] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 0x8]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 8] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 8]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 143
 ```
 
@@ -56120,8 +56149,8 @@ Gas simulation at offset 157 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xffffffffa00aa000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10020]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 0xc] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 0xc]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 12] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 12]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 191
 ```
 
@@ -56149,8 +56178,8 @@ Gas simulation at offset 204 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xaa0000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xaa
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10030]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 0xfffffffffffffff4] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 0xfffffffffffffff4]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 - 12] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 - 12]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 239
 ```
 
@@ -56178,8 +56207,8 @@ Gas simulation at offset 253 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xffffffffaa00b000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xfffffffffffffa00
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10038]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 0xfffffffffffffff8] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 0xfffffffffffffff8]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 - 8] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 - 8]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 288
 ```
 
@@ -56207,8 +56236,8 @@ Gas simulation at offset 302 with total cost of 50:
     DeE---------------------------------------R..........  r0 = 0xaa01000
     .DeeE-------------------------------------R..........  i32 r0 = r0 + 0xfffffffffffffaa0
     .DeeeeeeeeeeeeeeeeeeeeeeeeeE--------------R..........  r12 = u64 [0x10040]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 + 0xfffffffffffffffc] = r0
-    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 + 0xfffffffffffffffc]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r1 - 4] = r0
+    ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeER  r11 = i32 [r1 - 4]
     ..DeeeeeeeeeeeeeeeE---------------------------------R  jump 337
 ```
 
@@ -56265,7 +56294,7 @@ Gas simulation at offset 396 with total cost of 51:
     DeE---------------------------------------R...........  r1 = 0x12345000
     .DeeE-------------------------------------R...........  i32 r1 = r1 + 0x678
     .D========================eE--------------R...........  r7 = r0 + 0xffffffffffffffe0
-    ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 0x20] = r1
+    ..D========================eeeeeeeeeeeeeeeeeeeeeeeeeER  u32 [r7 + 32] = r1
     ..D=======================eeeeeeeeeeeeeeeeeeeeeeeeeE-R  r2 = i32 [r0 + 0]
     ..DeE------------------------------------------------R  r4 = 0x12345000
     ...DeeE----------------------------------------------R  i32 r4 = r4 + 0x678
@@ -56281,7 +56310,7 @@ Gas simulation at offset 437 with total cost of 53:
     DeE---------------------------------------R.............  r1 = 0x58213000
     .DeeE-------------------------------------R.............  i32 r1 = r1 + 0x98
     .D========================eE--------------R.............  r0 = r0 + 0xfffffffffffffffd
-    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..  u32 [r0 + 0x7] = r1
+    .D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER..  u32 [r0 + 7] = r1
     ..DeeeeeeeeeeeeeeeeeeeeeeeeeE------------------------R..  r7 = u64 [0x10058]
     ..D=========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r2 = i32 [r7 + 0]
     ..DeE-------------------------------------------------R.  r4 = 0x58213000
@@ -56332,8 +56361,8 @@ Gas simulation at offset 537 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffdaabc000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffccd
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 0x4] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 0x4]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 4] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 4]
     .DeE------------------------------------------------R.  r4 = 0xffffffffdaabc000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffccd
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56361,8 +56390,8 @@ Gas simulation at offset 587 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffddaac000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffbcc
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 0x8] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 0x8]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 8] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 8]
     .DeE------------------------------------------------R.  r4 = 0xffffffffddaac000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffbcc
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56390,8 +56419,8 @@ Gas simulation at offset 637 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffcddab000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffbbc
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 0xc] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 0xc]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 12] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 12]
     .DeE------------------------------------------------R.  r4 = 0xffffffffcddab000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffbbc
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56419,8 +56448,8 @@ Gas simulation at offset 687 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffccddb000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffabb
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 0x10] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 0x10]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 16] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 16]
     .DeE------------------------------------------------R.  r4 = 0xffffffffccddb000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffabb
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56448,8 +56477,8 @@ Gas simulation at offset 737 with total cost of 51:
     DeER..................................................  r10 = 0xffffffffbccde000
     D=eeER................................................  i32 r10 = r10 + 0xfffffffffffffaab
     DeeeeeeeeeeeeeeeeeeeeeeeeeER..........................  r9 = u64 [0x10000]
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 0x14] = r10
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 0x14]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r9 + 20] = r10
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r9 + 20]
     .DeE------------------------------------------------R.  r4 = 0xffffffffbccde000
     ..DeeE----------------------------------------------R.  i32 r4 = r4 + 0xfffffffffffffaab
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56508,8 +56537,8 @@ Gas simulation at offset 834 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x30011000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x223
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 0x4] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0x4]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 4] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 4]
     ..DeE-----------------------------------------------R.  r4 = 0x30011000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x223
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56538,8 +56567,8 @@ Gas simulation at offset 885 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x33001000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x122
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 0x8] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0x8]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 8] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 8]
     ..DeE-----------------------------------------------R.  r4 = 0x33001000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x122
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56568,8 +56597,8 @@ Gas simulation at offset 936 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x23300000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x112
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 0xc] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0xc]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 12] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 12]
     ..DeE-----------------------------------------------R.  r4 = 0x23300000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x112
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56598,8 +56627,8 @@ Gas simulation at offset 986 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x22330000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x11
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 0x10] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0x10]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 16] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 16]
     ..DeE-----------------------------------------------R.  r4 = 0x22330000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x11
     ..D================================================eER  jump 1079 if r11 != r4
@@ -56628,8 +56657,8 @@ Gas simulation at offset 1034 with total cost of 51:
     DeeeeeeeeeeeeeeeeeeeeeeeeeE---------------R...........  r1 = u64 [0x10000]
     DeE---------------------------------------R...........  r0 = 0x12233000
     .DeeE-------------------------------------R...........  i32 r0 = r0 + 0x1
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 0x14] = r0
-    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 0x14]
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  u32 [r1 + 20] = r0
+    .D========================eeeeeeeeeeeeeeeeeeeeeeeeeER.  r11 = i32 [r1 + 20]
     ..DeE-----------------------------------------------R.  r4 = 0x12233000
     ..D=eeE---------------------------------------------R.  i32 r4 = r4 + 0x1
     ..D================================================eER  jump 1079 if r11 != r4
